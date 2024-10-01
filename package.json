@@ -16,6 +16,8 @@
     "typescript": "^5.6.2"
   },
   "devDependencies": {
-    "unocss": "^0.63.1"
+    "@iconify-json/mdi": "^1.2.0",
+    "unocss": "^0.63.1",
+    "unplugin-icons": "^0.19.3"
   }
 }
