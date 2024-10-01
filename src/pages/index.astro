@@ -1,7 +1,32 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import IconOeil from '~icons/local/oeil'
+
 ---
 
 <Layout title="OEIL">
-	
+	<div class="bg-black h-[500px]"
+    style="clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%)"
+  >
+    <nav class="h-24 flex items-center px-8">
+      <div class="flex items-center gap-6">
+        <a class="text-white ">
+          <IconOeil class="text-6xl" />
+        </a>
+
+        <a class="font-300 text-4 text-white/80 tracking-wide hover:text-white transition-colors" href="#agenda">
+          Agenda
+        </a>
+        <a class="font-300 text-4 text-white/80 tracking-wide hover:text-white transition-colors" href="#agenda">
+          Présentation
+        </a>
+        <a class="font-300 text-4 text-white/80 tracking-wide hover:text-white transition-colors" href="#agenda">
+          Partenaires
+        </a>
+        <a class="font-300 text-4 text-white/80 tracking-wide hover:text-white transition-colors" href="#agenda">
+          Shop
+        </a>
+      </div>
+    </nav>
+  </div>
 </Layout>
