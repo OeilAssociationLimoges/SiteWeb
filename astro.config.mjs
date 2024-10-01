@@ -6,6 +6,8 @@ import unocss from "unocss/astro";
 import icons from 'unplugin-icons/vite'
 import { FileSystemIconLoader } from 'unplugin-icons/loaders'
 
+import yaml from '@rollup/plugin-yaml';
+
 export default defineConfig({
   output: "server",
   adapter: vercel(),
@@ -18,6 +20,8 @@ export default defineConfig({
 
   vite: {
     plugins: [
+      yaml(),
+      
       icons({
         compiler: "astro",
         customCollections: {
