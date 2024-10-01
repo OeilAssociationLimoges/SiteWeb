@@ -1,14 +1,24 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import IconOeil from '~icons/local/oeil'
+import IconOpenInNew from '~icons/mdi/open-in-new'
+import IconMapMarker from '~icons/mdi/map-marker'
 
+import agenda from "../data/agenda.yml";
+
+const events = agenda.map(event => ({
+  ...event,
+  date: new Date(event.date.split("/").reverse().join("-"))
+})).sort((a, b) => a.date.getTime() - b.date.getTime());
+
+const nextEvent = events.find(event => event.date > new Date());
 ---
 
 <Layout title="OEIL">
-	<div class="bg-black h-[500px]"
-    style="clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%)"
+	<div class="bg-black h-[400px] z-0"
+    style="clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%)"
   >
-    <nav class="h-24 flex items-center px-8">
+    <nav class="h-24 flex items-center justify-between px-8">
       <div class="flex items-center gap-6">
         <a class="text-white ">
           <IconOeil class="text-6xl" />
@@ -17,16 +27,70 @@ import IconOeil from '~icons/local/oeil'
         <a class="font-300 text-4 text-white/80 tracking-wide hover:text-white transition-colors" href="#agenda">
           Agenda
         </a>
-        <a class="font-300 text-4 text-white/80 tracking-wide hover:text-white transition-colors" href="#agenda">
+        <a class="font-300 text-4 text-white/80 tracking-wide hover:text-white transition-colors" href="#presentation">
           Présentation
         </a>
-        <a class="font-300 text-4 text-white/80 tracking-wide hover:text-white transition-colors" href="#agenda">
+        <a class="font-300 text-4 text-white/80 tracking-wide hover:text-white transition-colors" href="#partenaires">
           Partenaires
         </a>
-        <a class="font-300 text-4 text-white/80 tracking-wide hover:text-white transition-colors" href="#agenda">
+        <a class="flex items-center gap-2 font-300 text-4 text-white/80 tracking-wide hover:text-white transition-colors" href="/">
           Shop
+          <IconOpenInNew />
         </a>
       </div>
+
+      <a href="/identification" class="bg-white text-black font-500 py-1.5 px-4">
+        S'identifier
+      </a>
     </nav>
+
+    <div class="text-center mt-8 space-y-2">
+      <h1 class="text-9xl text-white tracking-[0.25em] font-800">
+        L'OEIL
+      </h1>
+      <p class="text-white/80 font-300 tracking-wider">
+        L'Organisation des Étudiants en Informatique de Limoges
+      </p>
+    </div>
+  </div>
+
+  <div class="relative -mt-16 z-10 bg-white max-w-[720px] w-full mx-auto border-4 border-black px-6 py-4">
+    {nextEvent ? (
+      <div class="flex items-center gap-2">
+        <p class="uppercase font-600">
+          Prochain Événement
+        </p>
+        <div class="h-1 w-1 bg-black rounded-full" />
+        <p class="uppercase font-500">
+          {nextEvent.date.toLocaleDateString("fr-FR")}
+        </p>
+      </div>
+
+      <p class="mt-2 font-400">
+        {nextEvent.description}
+      </p>
+
+      <div class="mt-6 flex items-center gap-2">
+        <IconMapMarker class="text-xl" />
+        {nextEvent['location-link'] ? (
+          <a
+            href={nextEvent['location-link']}
+            class="font-400 text-black/80 hover:text-black hover:underline hover:underline-offset-2 transition-colors"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            {nextEvent.location}
+          </a>
+        ) : (
+          <p class="font-300">
+            {nextEvent.location}
+          </p>
+        )}
+      </div>
+    ) : (
+      <p>Aucun événements en cours...</p>
+    )}
+    
+    
   </div>
 </Layout>

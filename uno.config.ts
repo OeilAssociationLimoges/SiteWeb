@@ -5,7 +5,7 @@ export default defineConfig({
     presetUno(),
     presetWebFonts({
       fonts: {
-        sans: "Figtree:300,400",
+        sans: "Figtree:300,400,500,700,800",
         mono: "Space Mono"
       }
     })
