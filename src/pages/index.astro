@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import UserProfile from "../components/UserProfile";
+
 import IconOeil from '~icons/local/oeil'
 import IconOpenInNew from '~icons/mdi/open-in-new'
 import IconMapMarker from '~icons/mdi/map-marker'
@@ -43,12 +45,10 @@ const nextEvent = events.shift();
         </a>
       </div>
 
-      <a href="/identification" class="bg-white text-black font-500 py-1.5 px-4">
-        S'identifier
-      </a>
+      <UserProfile client:only />
     </nav>
 
-    <div class="text-center mt-8 space-y-2">
+    <div class="text-center mt-8 space-y-2 px-6">
       <h1 class="text-5xl sm:text-8xl md:text-9xl text-white tracking-[0.25em] font-800">
         L'OEIL
       </h1>
@@ -100,5 +100,4 @@ const nextEvent = events.shift();
       )}
     </div>
   </main>
-
 </Layout>

@@ -8,22 +8,22 @@ import { FileSystemIconLoader } from 'unplugin-icons/loaders'
 
 import yaml from '@rollup/plugin-yaml';
 
+import solidJs from "@astrojs/solid-js";
+
 export default defineConfig({
   output: "server",
   adapter: vercel(),
 
-  integrations: [
-    unocss({
-      injectReset: true
-    })
-  ],
+  integrations: [unocss({
+    injectReset: true
+  }), solidJs()],
 
   vite: {
     plugins: [
       yaml(),
       
       icons({
-        compiler: "astro",
+        compiler: "solid",
         customCollections: {
           "local": FileSystemIconLoader("./assets/icons")
         }

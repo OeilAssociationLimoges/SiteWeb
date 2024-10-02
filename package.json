@@ -11,14 +11,19 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.3",
+    "@astrojs/solid-js": "^4.4.2",
     "@unocss/reset": "^0.63.1",
     "astro": "^4.15.9",
+    "jsonwebtoken": "^9.0.2",
+    "pawnilim": "^0.2.0",
+    "solid-js": "^1.9.1",
     "typescript": "^5.6.2"
   },
   "devDependencies": {
     "@astrojs/vercel": "^7.8.1",
     "@iconify-json/mdi": "^1.2.0",
     "@rollup/plugin-yaml": "^4.1.2",
+    "@types/jsonwebtoken": "^9.0.7",
     "unocss": "^0.63.1",
     "unplugin-icons": "^0.19.3"
   }
