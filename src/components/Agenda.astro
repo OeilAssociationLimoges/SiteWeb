@@ -1,0 +1,51 @@
+---
+import IconMapMarker from '~icons/mdi/map-marker';
+
+type Props = {
+  item: Omit<AgendaItem, "date"> & {
+    date: Date
+  }
+};
+
+const {
+  date,
+  description,
+  location,
+  type,
+} = Astro.props.item;
+
+const locationLink = Astro.props.item['location-link']
+---
+
+<div class="pl-8 relative">
+  <div class="flex-shrink-0 w-[12px] h-[12px] bg-black rounded-full absolute -left-[7px]" />
+
+    <p class="text-xl font-500 pb-1 transform translate-y-[-8px]">
+      {date.toLocaleDateString("fr-FR")}
+    </p>
+
+    <div class="border-4 border-black px-6 py-4">
+      <p class="mt-2 font-400">
+        {description}
+      </p>
+
+      <div class="mt-6 flex items-center gap-2">
+        <IconMapMarker class="text-xl" />
+        {locationLink ? (
+          <a
+            href={locationLink}
+            class="font-400 text-black/80 hover:text-black hover:underline hover:underline-offset-2 transition-colors"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            {location}
+          </a>
+        ) : (
+          <p class="font-300">
+            {location}
+          </p>
+        )}
+      </div>
+    </div>
+
+</div>

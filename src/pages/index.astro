@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import UserProfile from "../components/UserProfile";
+import Agenda from '../components/Agenda.astro';
 
 import IconOeil from '~icons/local/oeil'
 import IconOpenInNew from '~icons/mdi/open-in-new'
@@ -99,5 +100,21 @@ const nextEvent = events.shift();
         </div>
       )}
     </div>
+
+    <section class="mt-16">
+      <h2 class="font-mono text-center text-4xl tracking-widest">
+        # Agenda
+      </h2>
+
+      <div class="mt-10 max-w-[640px] border-black border-l-2 mx-auto pb-6 flex flex-col gap-8"
+        style="border-image: linear-gradient(#000 0%, #000 92%, #fff 100%) 1;"
+      >
+        {events.map(event => (
+          <Agenda item={event} />
+        ))}
+      </div>
+    </section>
+
+    <section class="py-30"></section>
   </main>
 </Layout>
