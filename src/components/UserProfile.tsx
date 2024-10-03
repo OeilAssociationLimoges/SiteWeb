@@ -19,7 +19,7 @@ const UserProfile: Component = () => {
     }>
       {user => (
         <DropdownMenu>
-          <DropdownMenu.Trigger class="hover:bg-white/10 px-4 py-2 -mr-4 outline-none">
+          <DropdownMenu.Trigger class="hover:bg-white/10 px-4 py-2 md:-mr-4 outline-none">
             <div class="flex items-center gap-4">
               <div class="text-white text-right">
                 <p><span class="font-300">{user().firstName}</span> {user().lastName}</p>
@@ -35,7 +35,7 @@ const UserProfile: Component = () => {
           </DropdownMenu.Trigger>
 
           <DropdownMenu.Portal>
-            <DropdownMenu.Content class="min-w-[220px] bg-white px-4 py-3 border-2 border-black"
+            <DropdownMenu.Content class="min-w-[220px] bg-white px-4 py-3 border-2 border-black z-50"
               style={{
                 "transform-origin": "var(--kb-menu-content-transform-origin)"
               }}

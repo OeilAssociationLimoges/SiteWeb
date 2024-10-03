@@ -7,8 +7,6 @@ import UserProfile from "./UserProfile";
 
 import { createMediaQuery } from "@solid-primitives/media";
 
-
-
 const NavMenu: Component = () => {
   const [open, setOpen] = createSignal(false);
   const isContainedInMenu = createMediaQuery("(max-width: 767px)");
