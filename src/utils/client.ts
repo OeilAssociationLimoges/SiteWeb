@@ -4,9 +4,12 @@ export interface User {
 }
 
 export const checkUser = async (): Promise<User | null> => {
+  const token = localStorage.getItem("token");
+  if (!token) return null;
+
   const response = await fetch("/api/check", {
     headers: {
-      authorization: `Bearer ${localStorage.getItem("token")}`
+      authorization: `Bearer ${token}`
     }
   });
 
@@ -20,3 +23,8 @@ export const checkUser = async (): Promise<User | null> => {
 
 export const getProfilePicture = () => localStorage.getItem("profilePicture");
 export const setProfilePicture = (profilePicture: string) => localStorage.setItem("profilePicture", profilePicture);
+
+export const logout = () => {
+  localStorage.removeItem("token");
+  localStorage.removeItem("profilePicture");
+}
