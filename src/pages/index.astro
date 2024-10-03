@@ -101,7 +101,7 @@ const nextEvent = events.shift();
     <section id="agenda" class="mt-16 px-6 sm:px-12"
       style="scroll-margin-top: 124px"
     >
-      <h2 class="font-mono text-center text-4xl tracking-widest">
+      <h2 class="font-mono text-center text-3xl md:text-4xl tracking-widest">
         # Agenda
       </h2>
 
@@ -117,26 +117,26 @@ const nextEvent = events.shift();
     <section id="presentation" class="mt-16 px-6"
       style="scroll-margin-top: 124px"
     >
-      <h2 class="font-mono text-center text-4xl tracking-widest">
+      <h2 class="font-mono text-center text-3xl md:text-4xl tracking-widest">
         # Présentation
       </h2>
 
       <div class="mt-10 pb-6 flex flex-col gap-8">
-        <Image class="max-w-[640px] mx-auto border-4 border-black mx-auto shadow-[-8px_8px_0_#000]" src={oeilImage} alt="Les membres de l'OEIL." />
+        <Image class="max-w-[640px] w-full mx-auto border-4 border-black mx-auto shadow-[-8px_8px_0_#000]" src={oeilImage} alt="Les membres de l'OEIL." />
       
-        <p class="text-justify text-lg max-w-[560px] w-full mx-auto">
+        <p class="text-justify md:text-lg max-w-[560px] w-full mx-auto pt-4">
           Des gens vraiment <span class="underline font-600">très stylés</span>.<br/><br/>
 
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum!
         </p>
 
-        <b class="mt-2 text-6xl text-center font-600">
+        <b class="my-8 text-4xl md:text-6xl text-center font-600">
           en gros on est là pour vous
         </b>
       </div>
     </section>
 
-    <div class="left-0 right-0 mt-6">
+    <div class="left-0 right-0">
       <ImagesMarquee>
         <ImageForMarquee image={present1Image} alt="Présentation 1" />
         <ImageForMarquee image={present2Image} alt="Présentation 2" />
@@ -148,7 +148,7 @@ const nextEvent = events.shift();
     <section id="partenaires" class="mt-16 px-6 mb-24 flex flex-col items-center gap-12"
       style="scroll-margin-top: 124px"
     >
-      <h2 class="font-mono text-center text-4xl tracking-widest">
+      <h2 class="font-mono text-center text-3xl md:text-4xl tracking-widest">
         # Partenaires
       </h2>
 
@@ -160,12 +160,12 @@ const nextEvent = events.shift();
     </section>
   </main>
 
-  <footer class="bg-black text-white p-18 flex flex-col gap-24">
+  <footer class="bg-black text-white p-8 md:p-18 flex flex-col gap-12 md:gap-24">
     <div class="flex flex-col gap-2">
-      <h2 class="uppercase text-7xl font-600 tracking-widest">
+      <h2 class="uppercase text-xl md:text-7xl font-600 tracking-widest">
         Nos réseaux
       </h2>
-      <p class="text-white/60 text-lg tracking-wider">
+      <p class="text-white/60 md:text-lg tracking-wider">
         Retrouvez nous sur ces diverses plateformes pour toujours être au courant des dernières nouveautés !
       </p>
 
@@ -199,10 +199,10 @@ const nextEvent = events.shift();
     </div>
 
     <div class="flex flex-col gap-2">
-      <h2 class="uppercase text-7xl font-600 tracking-widest">
+      <h2 class="uppercase text-xl md:text-7xl font-600 tracking-widest">
         L'IUT
       </h2>
-      <p class="text-white/60 text-lg tracking-wider">
+      <p class="text-white/60 md:text-lg tracking-wider">
         À noter que ce site n'est pas affilié à l'IUT du Limousin.  
       </p>
 

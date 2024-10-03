@@ -25,12 +25,10 @@ const UserProfile: Component = () => {
                 <p><span class="font-300">{user().firstName}</span> {user().lastName}</p>
                 <p class="text-xs opacity-50">Étudiant à l'IUT du Limousin</p>
               </div>
-              <DropdownMenu.Icon>
-                <img
-                  class="rounded-full w-11 h-11 border-2 border-white bg-white"
-                  src={profilePicture ?? "/default.png"}
-                />
-              </DropdownMenu.Icon>
+              <img
+                class="flex-shrink-0 rounded-full w-11 h-11 border-2 border-white bg-white"
+                src={profilePicture ?? "/default.png"}
+              />
             </div>
           </DropdownMenu.Trigger>
 
