@@ -26,15 +26,18 @@ importers:
       astro:
         specifier: ^4.15.9
         version: 4.15.9(@types/node@22.7.4)(rollup@4.23.0)(terser@5.34.1)(typescript@5.6.2)
+      gsap:
+        specifier: ^3.12.5
+        version: 3.12.5
       jsonwebtoken:
         specifier: ^9.0.2
         version: 9.0.2
-      marqueee:
-        specifier: ^1.4.8
-        version: 1.4.8
       pawnilim:
         specifier: ^0.2.0
         version: 0.2.0
+      reeller:
+        specifier: ^0.0.5
+        version: 0.0.5
       solid-js:
         specifier: ^1.9.1
         version: 1.9.1
@@ -1594,6 +1597,9 @@ packages:
     resolution: {integrity: sha512-5v6yZd4JK3eMI3FqqCouswVqwugaA9r4dNZB1wwcmrD02QkV5H0y7XBQW8QwQqEaZY1pM9aqORSORhJRdNK44Q==}
     engines: {node: '>=6.0'}
 
+  gsap@3.12.5:
+    resolution: {integrity: sha512-srBfnk4n+Oe/ZnMIOXt3gT605BX9x5+rh/prT2F1SsNJsU1XuMiP0E2aptW481OnonOGACZWBqseH5Z7csHxhQ==}
+
   gzip-size@6.0.0:
     resolution: {integrity: sha512-ax7ZYomf6jqPTQ4+XCpUGyXKHk5WweS+e05MBO4/y3WJ5RkmPXNKvX+bx1behVILVwr6JSQvZAku021CHPXG3Q==}
     engines: {node: '>=10'}
@@ -1886,9 +1892,6 @@ packages:
 
   markdown-table@3.0.3:
     resolution: {integrity: sha512-Z1NL3Tb1M9wH4XESsCDEksWoKTdlUafKc4pt0GRwjUyXaCFZ+dc3g2erqB6zm3szA2IUSi7VnPI+o/9jnxh9hw==}
-
-  marqueee@1.4.8:
-    resolution: {integrity: sha512-V9HzgYp4NWOCPc7iAZBv5k8ObgNnKAKN+T+WONK/AczSJjFG+N6b0uZV9xxEzV4CQKoveWObm7xQDOfqB3YiyA==}
 
   mdast-util-definitions@6.0.0:
     resolution: {integrity: sha512-scTllyX6pnYNZH/AIp/0ePz6s4cZtARxImwoPJ7kS42n+MnVsI4XbnG6d4ibehRIldYMWM2LD7ImQblVhUejVQ==}
@@ -2262,6 +2265,9 @@ packages:
   readdirp@3.6.0:
     resolution: {integrity: sha512-hOS089on8RduqdbhvQ5Z37A0ESjsqz6qnRcffsMU3495FuTdqSm+7bhJ29JvIOsBDEEnan5DPu9t3To9VRlMzA==}
     engines: {node: '>=8.10.0'}
+
+  reeller@0.0.5:
+    resolution: {integrity: sha512-GBYSrb9SkN4K7qB/AacyhBPxrmeKzcYPjlYZ+RSBtKNlI5bngKXxI4gNyBLxxX5wL3d98Z713vbT70d1Ot/d7g==}
 
   regex@4.3.2:
     resolution: {integrity: sha512-kK/AA3A9K6q2js89+VMymcboLOlF5lZRCYJv3gzszXFHBr6kO6qLGzbm+UIugBEV8SMMKCTR59txoY6ctRHYVw==}
@@ -4662,6 +4668,8 @@ snapshots:
       section-matter: 1.0.0
       strip-bom-string: 1.0.0
 
+  gsap@3.12.5: {}
+
   gzip-size@6.0.0:
     dependencies:
       duplexer: 0.1.2
@@ -5009,8 +5017,6 @@ snapshots:
       semver: 6.3.1
 
   markdown-table@3.0.3: {}
-
-  marqueee@1.4.8: {}
 
   mdast-util-definitions@6.0.0:
     dependencies:
@@ -5549,6 +5555,8 @@ snapshots:
   readdirp@3.6.0:
     dependencies:
       picomatch: 2.3.1
+
+  reeller@0.0.5: {}
 
   regex@4.3.2: {}
 

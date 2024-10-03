@@ -16,9 +16,10 @@
     "@solid-primitives/media": "^2.2.9",
     "@unocss/reset": "^0.63.1",
     "astro": "^4.15.9",
+    "gsap": "^3.12.5",
     "jsonwebtoken": "^9.0.2",
-    "marqueee": "^1.4.8",
     "pawnilim": "^0.2.0",
+    "reeller": "^0.0.5",
     "solid-js": "^1.9.1",
     "typescript": "^5.6.2"
   },

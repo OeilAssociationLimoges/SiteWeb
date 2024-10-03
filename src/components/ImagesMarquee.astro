@@ -1,21 +1,19 @@
----
-import "marqueee/style.css";
----
-
-<div id="images-marquee" data-speed="40" data-space="24">
-  <div class="marquee-slider-wrapper">
-    <div class="marquee-slider-slides-wrapper items-center py-[25px]">
-      <slot />
-    </div>
+<div id="images-marquee">
+  <div class="images-marquee-wrap flex gap-6 py-6">
+    <slot />
   </div>
 </div>
 
 <script>
-  import { initMarqueeeSlider } from "marqueee";
+  import gsap from 'gsap';
+  import Reeller from 'reeller';
 
-  initMarqueeeSlider("images-marquee", {
-    stopOnHover:false,
-    allowPointEvent: true,
-    dir: 'left'
+  Reeller.registerGSAP(gsap);
+
+  new Reeller({
+    container: '#images-marquee',
+    wrapper: '.images-marquee-wrap',
+    itemSelector: '.images-marquee-item',
+    speed: 24,
   });
 </script>
