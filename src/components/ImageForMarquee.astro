@@ -1,17 +1,15 @@
 ---
-import { Image } from 'astro:assets';
-
 type Props = {
-  image: ImageMetadata
+  src: string
   alt: string
 };
 
 const {
-  image,
+  src,
   alt,
 } = Astro.props;
 ---
 
 <div class="marquee-slider-slide">
-  <Image class="object-cover h-[300px] w-full hover:transform hover:-rotate-2 transition-all hover:border-4 hover:border-black mx-auto hover:shadow-[-8px_8px_0_#000]" src={image} alt={alt} />
+  <img class="object-cover h-[300px] w-full hover:transform hover:-rotate-2 transition-all hover:border-4 hover:border-black mx-auto hover:shadow-[-8px_8px_0_#000]" src={src} alt={alt} />
 </div>

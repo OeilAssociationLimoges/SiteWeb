@@ -4,7 +4,6 @@ import Agenda from '../components/Agenda.astro';
 import NavMenu from "../components/NavMenu"
 import ImagesMarquee from "../components/ImagesMarquee.astro"
 import ImageForMarquee from "../components/ImageForMarquee.astro"
-import { Image } from 'astro:assets';
 
 import IconMapMarker from '~icons/mdi/map-marker'
 import IconInformation from '~icons/mdi/information'
@@ -15,14 +14,6 @@ import IconIUT from '~icons/local/iut'
 import IconBiome from '~icons/local/biome'
 
 import agenda from "../data/agenda.yml";
-import oeilImage from "../assets/oeil.png";
-
-import present1Image from "../assets/present-1.png";
-import present2Image from "../assets/present-2.png";
-import present3Image from "../assets/present-3.png";
-import present4Image from "../assets/present-4.png";
-
-import chezBernardImage from "../assets/chez_bernard.png";
 
 const events = agenda
   .map(event => ({
@@ -122,7 +113,7 @@ const nextEvent = events.shift();
       </h2>
 
       <div class="mt-10 pb-6 flex flex-col gap-8">
-        <Image class="max-w-[640px] w-full mx-auto border-4 border-black mx-auto shadow-[-8px_8px_0_#000]" src={oeilImage} alt="Les membres de l'OEIL." />
+        <img class="max-w-[640px] w-full mx-auto border-4 border-black mx-auto shadow-[-8px_8px_0_#000]" src="/oeil.png" alt="Les membres de l'OEIL." />
       
         <p class="text-justify md:text-lg max-w-[560px] w-full mx-auto pt-4">
           Des gens vraiment <span class="underline font-600">très stylés</span>.<br/><br/>
@@ -138,10 +129,10 @@ const nextEvent = events.shift();
 
     <div class="left-0 right-0">
       <ImagesMarquee>
-        <ImageForMarquee image={present1Image} alt="Présentation 1" />
-        <ImageForMarquee image={present2Image} alt="Présentation 2" />
-        <ImageForMarquee image={present3Image} alt="Présentation 3" />
-        <ImageForMarquee image={present4Image} alt="Présentation 4" />
+        <ImageForMarquee src="/present-1.png" alt="Présentation 1" />
+        <ImageForMarquee src="/present-2.png" alt="Présentation 2" />
+        <ImageForMarquee src="/present-3.png" alt="Présentation 3" />
+        <ImageForMarquee src="/present-4.png" alt="Présentation 4" />
       </ImagesMarquee>
     </div>
 
@@ -152,7 +143,7 @@ const nextEvent = events.shift();
         # Partenaires
       </h2>
 
-      <Image src={chezBernardImage} alt="Chez Bernard" />
+      <img src="/chez_bernard.png" alt="Chez Bernard" />
     
       <p class="font-300 text-2xl text-center text-black/50">
         Merci à eux !
