@@ -17,6 +17,8 @@ import present2Image from "../assets/present-2.png";
 import present3Image from "../assets/present-3.png";
 import present4Image from "../assets/present-4.png";
 
+import chezBernardImage from "../assets/chez_bernard.png";
+
 const events = agenda
   .map(event => ({
     ...event,
@@ -132,6 +134,16 @@ const nextEvent = events.shift();
       </ImagesMarquee>
     </div>
 
-    <section class="py-30"></section>
+    <section class="mt-16 px-6 mb-24 flex flex-col items-center gap-12">
+      <h2 class="font-mono text-center text-4xl tracking-widest">
+        # Partenaires
+      </h2>
+
+      <Image src={chezBernardImage} alt="Chez Bernard" />
+    
+      <p class="font-300 text-2xl text-center text-black/50">
+        Merci à eux !
+      </p>
+    </section>
   </main>
 </Layout>
