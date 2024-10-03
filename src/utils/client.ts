@@ -21,10 +21,12 @@ export const checkUser = async (): Promise<User | null> => {
   return response.json();
 }
 
-export const getProfilePicture = () => localStorage.getItem("profilePicture");
-export const setProfilePicture = (profilePicture: string) => localStorage.setItem("profilePicture", profilePicture);
+const safeStorage = typeof localStorage !== "undefined" ? localStorage : null;
+
+export const getProfilePicture = () => safeStorage?.getItem("profilePicture");
+export const setProfilePicture = (profilePicture: string) => safeStorage?.setItem("profilePicture", profilePicture);
 
 export const logout = () => {
   localStorage.removeItem("token");
   localStorage.removeItem("profilePicture");
-}
+};

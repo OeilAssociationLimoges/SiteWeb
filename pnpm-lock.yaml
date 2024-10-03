@@ -17,6 +17,9 @@ importers:
       '@kobalte/core':
         specifier: ^0.13.6
         version: 0.13.6(solid-js@1.9.1)
+      '@solid-primitives/media':
+        specifier: ^2.2.9
+        version: 2.2.9(solid-js@1.9.1)
       '@unocss/reset':
         specifier: ^0.63.1
         version: 0.63.1

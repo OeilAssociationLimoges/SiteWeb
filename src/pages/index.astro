@@ -1,12 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import UserProfile from "../components/UserProfile";
 import Agenda from '../components/Agenda.astro';
+import NavMenu from "../components/NavMenu"
 
-import IconOeil from '~icons/local/oeil'
-import IconOpenInNew from '~icons/mdi/open-in-new'
+
 import IconMapMarker from '~icons/mdi/map-marker'
 import IconInformation from '~icons/mdi/information'
+
 
 import agenda from "../data/agenda.yml";
 
@@ -22,34 +22,15 @@ const nextEvent = events.shift();
 ---
 
 <Layout title="OEIL">
-	<div class="bg-black h-[400px] z-0"
-    style="clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%)"
-  >
-    <nav class="h-24 flex items-center justify-between px-8">
-      <div class="flex items-center gap-6">
-        <a class="text-white">
-          <IconOeil class="text-6xl" />
-        </a>
+	<div class="h-[400px]">
+    <div
+      class="absolute top-0 right-0 left-0 bg-black h-[400px] -z-10"
+      style="clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%)"
+    />
 
-        <a class="hidden md:block font-300 text-4 text-white/80 tracking-wide hover:text-white transition-colors" href="#agenda">
-          Agenda
-        </a>
-        <a class="hidden md:block font-300 text-4 text-white/80 tracking-wide hover:text-white transition-colors" href="#presentation">
-          Présentation
-        </a>
-        <a class="hidden md:block font-300 text-4 text-white/80 tracking-wide hover:text-white transition-colors" href="#partenaires">
-          Partenaires
-        </a>
-        <a class="items-center gap-2 hidden md:flex font-300 text-4 text-white/80 tracking-wide hover:text-white transition-colors" href="/">
-          Shop
-          <IconOpenInNew />
-        </a>
-      </div>
+    <NavMenu client:load />
 
-      <UserProfile client:only />
-    </nav>
-
-    <div class="text-center mt-8 space-y-2 px-6">
+    <div class="text-center mt-8 space-y-2 px-6 pt-24">
       <h1 class="text-5xl sm:text-8xl md:text-9xl text-white tracking-[0.25em] font-800 ml-6">
         L'OEIL
       </h1>

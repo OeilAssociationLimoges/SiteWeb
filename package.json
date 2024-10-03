@@ -13,6 +13,7 @@
     "@astrojs/check": "^0.9.3",
     "@astrojs/solid-js": "^4.4.2",
     "@kobalte/core": "^0.13.6",
+    "@solid-primitives/media": "^2.2.9",
     "@unocss/reset": "^0.63.1",
     "astro": "^4.15.9",
     "jsonwebtoken": "^9.0.2",
