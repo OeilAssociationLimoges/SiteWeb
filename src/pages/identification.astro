@@ -5,17 +5,17 @@ import LoginForm from '../components/LoginForm';
 ---
 
 <Layout title="Identification à l'OEIL">
-	<main class="bg-black text-white h-full min-h-screen font-mono font-400">
+	<main class="bg-black text-white h-full min-h-screen font-mono font-400 px-6">
     <div class="flex flex-col items-center">
-      <IconOeil class="text-[320px]" />
+      <IconOeil class="text-9xl sm:text-[240px] md:text-[320px]" />
   
-      <p class="-mt-6 mb-12 text-xl font-700">
+      <p class="sm:-mt-6 mb-12 text-xl font-700">
         $ oeil login
       </p>
 
       <LoginForm client:only />
 
-      <a href="/" class="text-sxs text-white/75 mt-12 hover:underline hover:underline-offset-2">
+      <a href="/" class="text-white/75 mt-12 hover:underline hover:underline-offset-2">
         go_back.sh
       </a>
     </div>
