@@ -23,7 +23,13 @@ export const checkUser = async (): Promise<User | null> => {
 
 const safeStorage = typeof localStorage !== "undefined" ? localStorage : null;
 
-export const getProfilePicture = () => safeStorage?.getItem("profilePicture");
+export const getProfilePicture = () => {
+  const value = safeStorage?.getItem("profilePicture");
+  if (value === "null" || !value) return null; // loosy check for "null", null and undefined.
+
+  return value;
+}
+
 export const setProfilePicture = (profilePicture: string) => safeStorage?.setItem("profilePicture", profilePicture);
 
 export const logout = () => {

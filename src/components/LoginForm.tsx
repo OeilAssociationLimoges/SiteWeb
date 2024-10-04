@@ -24,17 +24,17 @@ const LoginForm: Component = () => {
         },
         body: JSON.stringify({ username: username(), password: password() })
       });
-      
+
       if (response.ok) {
         const json = await response.json() as {
           token: string
           // as base64
-          profilePicture: string
+          profilePicture: string | null
         }
-  
+
         localStorage.setItem('token', json.token);
-        setProfilePicture(json.profilePicture);
-  
+        if (json.profilePicture) setProfilePicture(json.profilePicture);
+
         // go back to home page
         window.location.href = '/';
       }
@@ -79,7 +79,7 @@ const LoginForm: Component = () => {
               name="password"
               class="bg-transparent w-full py-3 px-4 outline-none"
             />
-            <button 
+            <button
               type="button"
               title="Afficher le mot de passe"
               onClick={() => setShowPassword(prev => !prev)}
