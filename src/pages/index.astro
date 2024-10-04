@@ -57,11 +57,11 @@ const nextEvent = events.shift();
             {nextEvent.date.toLocaleDateString("fr-FR")}
           </p>
         </div>
-  
+
         <p class="mt-2 font-400 text-sm md:text-base">
           {nextEvent.description}
         </p>
-  
+
         <div class="mt-6 flex items-center gap-2">
           <IconMapMarker class="text-xl" />
           {nextEvent['location-link'] ? (
@@ -87,7 +87,7 @@ const nextEvent = events.shift();
       )}
     </div>
   </article>
-  
+
   <main>
     <section id="agenda" class="mt-16 px-6 sm:px-12"
       style="scroll-margin-top: 124px"
@@ -114,7 +114,7 @@ const nextEvent = events.shift();
 
       <div class="mt-10 pb-6 flex flex-col gap-8">
         <img class="max-w-[640px] w-full mx-auto border-4 border-black mx-auto shadow-[-8px_8px_0_#000]" src="/oeil.png" alt="Les membres de l'OEIL." />
-      
+
         <p class="text-justify md:text-lg max-w-[560px] w-full mx-auto pt-4">
           Des gens vraiment <span class="underline font-600">très stylés</span>.<br/><br/>
 
@@ -144,7 +144,7 @@ const nextEvent = events.shift();
       </h2>
 
       <img src="/chez_bernard.png" alt="Chez Bernard" />
-    
+
       <p class="font-300 text-2xl text-center text-black/50">
         Merci à eux !
       </p>
@@ -194,7 +194,7 @@ const nextEvent = events.shift();
         L'IUT
       </h2>
       <p class="text-white/60 md:text-lg tracking-wider">
-        À noter que ce site n'est pas affilié à l'IUT du Limousin.  
+        À noter que ce site n'est pas affilié à l'IUT du Limousin.
       </p>
 
       <div class="flex items-center gap-6 text-4xl mt-6 text-white/60">
@@ -219,4 +219,25 @@ const nextEvent = events.shift();
       </div>
     </div>
   </footer>
+
+  <script>
+    function onKonamiCode(cb: () => void) {
+      const key = '38384040373937396665';
+      let input = '';
+
+      document.addEventListener('keydown', (e) => {
+        input += ("" + e.keyCode);
+
+        if (input === key) {
+          return cb();
+        }
+
+        if (!key.indexOf(input)) return;
+
+        input = ("" + e.keyCode);
+      });
+    }
+
+    onKonamiCode(() => window.location.assign("https://www.youtube.com/watch?v=dQw4w9WgXcQ"))
+  </script>
 </Layout>
