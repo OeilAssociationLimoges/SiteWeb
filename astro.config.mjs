@@ -11,7 +11,7 @@ import yaml from '@rollup/plugin-yaml';
 import solidJs from "@astrojs/solid-js";
 
 export default defineConfig({
-  output: "hybrid",
+  output: "server",
   adapter: vercel(),
 
   integrations: [unocss({
