@@ -11,10 +11,8 @@ import yaml from '@rollup/plugin-yaml';
 import solidJs from "@astrojs/solid-js";
 
 export default defineConfig({
-  output: "server",
-  adapter: vercel({
-    functionPerRoute: false
-  }),
+  output: "hybrid",
+  adapter: vercel(),
 
   integrations: [unocss({
     injectReset: true

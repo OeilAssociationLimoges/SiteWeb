@@ -1,3 +1,5 @@
+export const prerender = false
+
 import type { APIRoute } from 'astro';
 import { json } from '../../utils/api';
 import jwt from "jsonwebtoken";
