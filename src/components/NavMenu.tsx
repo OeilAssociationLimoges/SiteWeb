@@ -9,7 +9,7 @@ import { createMediaQuery } from "@solid-primitives/media";
 
 const NavMenu: Component = () => {
   const [open, setOpen] = createSignal(false);
-  const isContainedInMenu = createMediaQuery("(max-width: 767px)");
+  const isContainedInMenu = createMediaQuery("(max-width: 767px)", true);
 
   return (
     <nav class="fixed top-0 inset-x-0 z-20 h-24 flex items-center justify-between px-8 bg-black md:backdrop-blur-xl md:bg-black/80">
