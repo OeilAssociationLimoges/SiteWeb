@@ -73,7 +73,7 @@ const PresentationCards: Component = () => {
               src="/COMMUNICATION.png"
             />
 
-            <PresentationCardWhois name="Cathy DESCOUTURES" role="Vice Trésorier" center />
+            <PresentationCardWhois name="Cathy DESCOUTURES" role="Responsable événement et communication" center />
           </div>
           
         </div>
