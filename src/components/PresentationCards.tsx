@@ -40,6 +40,7 @@ const PresentationCards: Component = () => {
         # Les membres
       </h2>
 
+      {/* @ts-ignore */}
       <div use:animation class="flex justify-center items-center sticky top-0 h-screen pt-24 pb-8 opacity-0">
         <div class="flex flex-col gap-8 h-full relative w-full">
           <h3 class="text-white text-center tracking-wider text-2xl md:text-5xl uppercase font-600">
@@ -59,6 +60,7 @@ const PresentationCards: Component = () => {
         </div>
       </div>
 
+      {/* @ts-ignore */}
       <div use:animation class="flex justify-center items-center sticky top-0 h-screen pt-24 pb-8 opacity-0">
         <div class="flex flex-col gap-8 h-full relative w-full">
           <h3 class="text-white text-center tracking-wider text-2xl md:text-5xl uppercase font-600">
