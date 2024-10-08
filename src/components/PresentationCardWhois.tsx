@@ -10,12 +10,12 @@ const PresentationCardWhois: Component<{
   return (
     <div class="absolute bottom-0 bg-white text-black px-4 py-2 z-35 bottom-4"
       style={
-        props.center ? { left: "50%", transform: "translateX(-50%)" } :
+        props.center ? { left: "0", right: "0", margin: "auto", "text-align": "center" } :
         props.left ? { left: props.left + "px" } : { right: props.right + "px" }
       }
     >
-      <h3 class="text-sm font-500">{props.name}</h3>
-      <p class="text-xs">{props.role}</p>
+      <p class="text-sm md:text-xl font-500">{props.name}</p>
+      <p class="text-xs md:text-lg">{props.role}</p>
     </div>
   )
 };
