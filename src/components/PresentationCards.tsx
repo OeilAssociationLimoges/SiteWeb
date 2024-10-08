@@ -47,9 +47,9 @@ const PresentationCards: Component = () => {
             Trésorerie
           </h3>
 
-          <div class="h-full overflow-auto w-fit mx-auto relative sm:shadow-[-8px_8px_0_#fff] sm:border-4 border-white">
+          <div class="max-h-full overflow-auto w-fit mx-auto relative sm:shadow-[-8px_8px_0_#fff] sm:border-4 border-white">
             <img
-              class="z-10 h-full mx-auto"
+              class="z-10 mx-auto"
               src="/TRESORERIE.png"
             />
 
@@ -67,9 +67,9 @@ const PresentationCards: Component = () => {
             Communication
           </h3>
 
-          <div class="h-full overflow-auto w-fit mx-auto relative sm:shadow-[-8px_8px_0_#fff] sm:border-4 border-white">
+          <div class="max-h-full overflow-auto w-fit mx-auto relative sm:shadow-[-8px_8px_0_#fff] sm:border-4 border-white">
             <img
-              class="z-10 h-full mx-auto"
+              class="z-10 mx-auto"
               src="/COMMUNICATION.png"
             />
 
