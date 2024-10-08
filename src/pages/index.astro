@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Agenda from '../components/Agenda.astro';
 import NavMenu from "../components/NavMenu"
+import PresentationCards from "../components/PresentationCards"
 import ImagesMarquee from "../components/ImagesMarquee.astro"
 import ImageForMarquee from "../components/ImageForMarquee.astro"
 
@@ -127,7 +128,7 @@ const nextEvent = events.shift();
       </div>
     </section>
 
-    <div class="left-0 right-0">
+    <div class="left-0 right-0 mb-16">
       <ImagesMarquee>
         <ImageForMarquee src="/present-1.png" alt="Présentation 1" />
         <ImageForMarquee src="/present-2.png" alt="Présentation 2" />
@@ -135,6 +136,8 @@ const nextEvent = events.shift();
         <ImageForMarquee src="/present-4.png" alt="Présentation 4" />
       </ImagesMarquee>
     </div>
+
+    <PresentationCards client:load />
 
     <section id="partenaires" class="mt-16 px-6 mb-24 flex flex-col items-center gap-12"
       style="scroll-margin-top: 124px"
