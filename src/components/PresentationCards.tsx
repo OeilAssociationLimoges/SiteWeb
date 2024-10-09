@@ -29,7 +29,7 @@ const PresentationCards: Component = () => {
           start: "top top",
           end: "bottom top",
           scrub: true,
-          markers: true,
+          // markers: true,
           pin: true,
           pinSpacing: false,
           toggleActions: "play reverse play reverse",
