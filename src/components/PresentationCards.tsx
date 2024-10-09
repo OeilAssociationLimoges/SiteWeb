@@ -63,7 +63,7 @@ const PresentationCards: Component = () => {
         timeline
           .to(progression, {
             scaleX: 1,
-            duration: 1,
+            duration: 1.15,
             ease: "power2.in"
           }, 0)
 
@@ -79,7 +79,7 @@ const PresentationCards: Component = () => {
             .to(node, {
               y: 0,
               opacity: 1,
-              duration: .4,
+              duration: .6,
               ease: "power2.inOut"
             }, 0.11 * (index + 1))
         }
@@ -114,8 +114,6 @@ const PresentationCards: Component = () => {
 
   return (
     <section class="overflow-hidden bg-black min-h-screen h-full relative pt-10vh">
-
-
       <h2 class="text-white text-3xl font-mono text-center absolute top-20vh inset-x-0">
         # Les membres
       </h2>
