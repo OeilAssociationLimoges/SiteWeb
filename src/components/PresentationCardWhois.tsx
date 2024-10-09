@@ -8,7 +8,7 @@ const PresentationCardWhois: Component<{
   center?: boolean
 }> = (props) => {
   return (
-    <div class="absolute bottom-0 bg-white text-black px-4 py-2 z-35 bottom-4"
+    <div class="card-whois absolute bottom-0 bg-white text-black px-4 py-2 z-35 bottom-4"
       style={
         props.center ? { left: "0", right: "0", margin: "auto", "text-align": "center" } :
         props.left ? { left: props.left + "px" } : { right: props.right + "px" }
