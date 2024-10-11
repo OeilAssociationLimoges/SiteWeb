@@ -106,23 +106,39 @@ const nextEvent = events.shift();
       </div>
     </section>
 
-    <section id="presentation" class="mt-16 px-6"
+    <section id="presentation" class="mt-30vh px-6"
       style="scroll-margin-top: 124px"
     >
-      <h2 class="font-mono text-center text-3xl md:text-4xl tracking-widest">
+      <h2 data-scroll data-scroll-speed="0.05" class="font-mono text-center text-3xl md:text-4xl tracking-widest">
         # Présentation
       </h2>
 
       <div class="mt-10 pb-6 flex flex-col gap-8">
-        <img class="max-w-[640px] w-full mx-auto border-4 border-black mx-auto shadow-[-8px_8px_0_#000]" src="/OEIL_GROUPE.png" alt="Les membres de l'OEIL." />
+        <img
+          data-scroll data-scroll-speed="0.1"
+          class="max-w-[640px] w-full mx-auto border-4 border-black mx-auto shadow-[-8px_8px_0_#000]"
+          alt="Les membres de l'OEIL."
+          src="/OEIL_GROUPE.png"
+        />
 
-        <p class="text-justify md:text-lg max-w-[560px] w-full mx-auto pt-4">
+        <p class="text-justify md:text-lg max-w-[560px] w-full mx-auto pt-4"
+          data-scroll
+          data-scroll-speed="0.1"
+        >
           Des gens vraiment <span class="underline font-600">très stylés</span>.<br/><br/>
 
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum!
         </p>
 
-        <b class="my-8 text-4xl md:text-6xl text-center font-600">
+        <b class="mt-12 mb-12 text-4xl md:text-6xl text-center font-600"
+          data-scroll
+          data-scroll-offset="25%, 50%"
+          data-scroll-css-progress
+          style={{
+            opacity: `var(--progress, 0)`,
+            "--progress": 0
+          }}
+        >
           en gros on est là pour vous
         </b>
       </div>
@@ -142,7 +158,9 @@ const nextEvent = events.shift();
     <section id="partenaires" class="mt-16 px-6 mb-24 flex flex-col items-center gap-12"
       style="scroll-margin-top: 124px"
     >
-      <h2 class="font-mono text-center text-3xl md:text-4xl tracking-widest">
+      <h2
+        class="font-mono text-center text-3xl md:text-4xl tracking-widest"
+      >
         # Partenaires
       </h2>
 
@@ -154,8 +172,9 @@ const nextEvent = events.shift();
     </section>
   </main>
 
-  <footer class="bg-black text-white p-8 md:p-18 flex flex-col justify-end gap-12 md:gap-24 h-screen">
-    <div class="flex flex-col gap-2">
+  <footer class="bg-black text-white p-8 md:p-18 gap-12 md:gap-24 flex flex-col">
+    <div class="flex flex-col gap-2"
+    >
       <h2 class="uppercase text-xl md:text-7xl font-600 tracking-widest">
         Nos réseaux
       </h2>
@@ -192,7 +211,8 @@ const nextEvent = events.shift();
       </div>
     </div>
 
-    <div class="flex flex-col gap-2">
+    <div class="flex flex-col gap-2"
+    >
       <h2 class="uppercase text-xl md:text-7xl font-600 tracking-widest">
         L'IUT
       </h2>

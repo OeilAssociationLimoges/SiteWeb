@@ -1,4 +1,4 @@
-import { children, createEffect, onCleanup, type Component, type ParentComponent } from "solid-js";
+import { type Component, type ParentComponent } from "solid-js";
 import gsap from "gsap";
 
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -32,58 +32,68 @@ const PresentationCards: Component = () => {
           // markers: true,
           pin: true,
           pinSpacing: false,
-          toggleActions: "play reverse play reverse",
+          toggleActions: "play none none reverse",
         }
       });
 
-      createEffect(() => {
-        timeline
-          .from(element, {
-            rotate: isMobile() ? 0 : 3,
+      timeline
+        .fromTo(element, 
+          {
+            rotate: 3,
             y: 220,
             opacity: 0,
-          })
-          .to(element, {
+            scale: 1.2,
+          },
+          {
             rotate: 0,
             y: 0,
             opacity: 1,
-            duration: 0.5,
-            ease: "power2.inOut"
-          })
-          .to(element, {
-            rotate: isMobile() ? 0 : -7,
-            y: -240,
-            opacity: 0,
-            duration: 1,
-            ease: "power2.inOut",
-          }, 1)
+            scale: 1,
+            // ease: "power2.inOut"
+          }
+        )
+        .to(element, {
+          scale: 0.85
+        })
+        .to(element, {
+          rotate: -6,
+          y: -100,
+          opacity: 0,
+          scale: 0.65,
+          ease: "power2.inOut"
+        })
 
-        gsap.set(progression, { scaleX: 0 })
+      gsap.set(progression, { scaleX: 0 })
+
+      timeline
+        .to(progression, {
+          scaleX: 1,
+          duration: 1
+        }, 0)
+        .to(progression, {
+          // opacity: 0,
+          borderWidth: 0,
+          // borderColor: "#000",
+          height: "125%",
+          duration: 0.25,
+        }, 1)
+
+      for (let index = 0; index < whois.length; index++) {
+        const node = whois[index];
+
+        gsap.set(node, {
+          y: 50,
+          opacity: 0
+        })
 
         timeline
-          .to(progression, {
-            scaleX: 1,
-            duration: 1.15,
-            ease: "power2.in"
-          }, 0)
-
-        for (let index = 0; index < whois.length; index++) {
-          const node = whois[index];
-
-          gsap.set(node, {
-            y: 50,
-            opacity: 0
-          })
-
-          timeline
-            .to(node, {
-              y: 0,
-              opacity: 1,
-              duration: .6,
-              ease: "power2.inOut"
-            }, 0.11 * (index + 1))
-        }
-      })
+          .to(node, {
+            y: 0,
+            opacity: 1,
+            duration: .6,
+            ease: "power2.inOut"
+          }, 0.11 * (index + 1))
+      }
     }
 
     return (
@@ -95,7 +105,7 @@ const PresentationCards: Component = () => {
               {props.title}
             </h3>
 
-            <div class="absolute -bottom-2 inset-x-0 card-progression h-[4px] w-full mx-auto bg-white z-50" />
+            <div class="absolute -bottom-2 -inset-x-4 card-progression border-b-2 md:border-b-4 w-full bg-black h-0 mx-auto border-white z-50" />
           </div>
 
           <div class="max-h-full overflow-hidden w-fit mx-auto relative sm:shadow-[-8px_8px_0_#fff] sm:border-4 border-white">
@@ -114,7 +124,12 @@ const PresentationCards: Component = () => {
 
   return (
     <section class="overflow-hidden bg-black min-h-screen h-full relative pt-10vh">
-      <h2 class="text-white text-3xl font-mono text-center absolute top-20vh inset-x-0">
+      <h2 data-scroll data-scroll-speed="0.1" data-scroll-css-progress class="text-white text-3xl font-mono text-center absolute top-20vh inset-x-0"
+        data-scroll-offset="10%, 30%"
+        style={{
+          opacity: "calc(var(--progress))",
+        }}
+      >
         # Les membres
       </h2>
 
