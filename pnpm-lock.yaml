@@ -41,9 +41,6 @@ importers:
       pawnilim:
         specifier: ^0.2.0
         version: 0.2.0
-      reeller:
-        specifier: ^0.0.5
-        version: 0.0.5
       solid-js:
         specifier: ^1.9.1
         version: 1.9.1
@@ -2346,9 +2343,6 @@ packages:
   readdirp@3.6.0:
     resolution: {integrity: sha512-hOS089on8RduqdbhvQ5Z37A0ESjsqz6qnRcffsMU3495FuTdqSm+7bhJ29JvIOsBDEEnan5DPu9t3To9VRlMzA==}
     engines: {node: '>=8.10.0'}
-
-  reeller@0.0.5:
-    resolution: {integrity: sha512-GBYSrb9SkN4K7qB/AacyhBPxrmeKzcYPjlYZ+RSBtKNlI5bngKXxI4gNyBLxxX5wL3d98Z713vbT70d1Ot/d7g==}
 
   regex@4.3.2:
     resolution: {integrity: sha512-kK/AA3A9K6q2js89+VMymcboLOlF5lZRCYJv3gzszXFHBr6kO6qLGzbm+UIugBEV8SMMKCTR59txoY6ctRHYVw==}
@@ -5705,8 +5699,6 @@ snapshots:
   readdirp@3.6.0:
     dependencies:
       picomatch: 2.3.1
-
-  reeller@0.0.5: {}
 
   regex@4.3.2: {}
 

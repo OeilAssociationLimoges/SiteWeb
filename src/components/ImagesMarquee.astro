@@ -1,19 +1,13 @@
-<div id="images-marquee">
-  <div class="images-marquee-wrap flex gap-6 py-6">
+<div id="images-marquee" class="relative overflow-hidden">
+  <div
+    data-scroll-css-progress=""
+    data-scroll
+    class="inset-x-0 flex gap-6 py-6"
+    style={{
+      translate: `calc( 40% * var(--progress, 0) * -1 ) 0`,
+      "--progress": 0
+    }}
+  >
     <slot />
   </div>
 </div>
-
-<script>
-  import gsap from 'gsap';
-  import Reeller from 'reeller';
-
-  Reeller.registerGSAP(gsap);
-
-  new Reeller({
-    container: '#images-marquee',
-    wrapper: '.images-marquee-wrap',
-    itemSelector: '.images-marquee-item',
-    speed: 24,
-  });
-</script>

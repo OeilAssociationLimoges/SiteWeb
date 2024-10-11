@@ -21,7 +21,6 @@
     "jsonwebtoken": "^9.0.2",
     "locomotive-scroll": "5.0.0-beta.21",
     "pawnilim": "^0.2.0",
-    "reeller": "^0.0.5",
     "solid-js": "^1.9.1",
     "typescript": "^5.6.2"
   },
