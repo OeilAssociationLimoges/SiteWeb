@@ -37,17 +37,17 @@ const nextEvent = events.shift();
     <NavMenu client:load />
 
     <div class="text-center mt-8 space-y-2 px-6 pt-24">
-      <h1 class="text-5xl sm:text-8xl md:text-9xl text-white tracking-[0.25em] font-800 ml-6">
+      <h1 data-scroll data-scroll-speed="0.1" class="text-5xl sm:text-8xl md:text-9xl text-white tracking-[0.25em] font-800 ml-6">
         L'OEIL
       </h1>
-      <p class="text-white/80 font-300 tracking-wider">
+      <p data-scroll data-scroll-speed="0.15" class="text-white/80 font-300 tracking-wider">
         L'Organisation des Étudiants en Informatique de Limoges
       </p>
     </div>
   </div>
 
   <article class="sm:px-6">
-    <div class="relative -mt-30 md:-mt-28 z-10 bg-white max-w-[720px] w-full mx-auto border-4 border-black border-x-0 sm:border-x-4 px-6 py-4">
+    <div data-scroll data-scroll-speed="0.15" class="relative -mt-30 md:-mt-28 z-10 bg-white max-w-[720px] w-full mx-auto border-4 border-black border-x-0 sm:border-x-4 px-6 py-4">
       {nextEvent ? (
         <div class="flex flex-col sm:flex-row sm:items-center sm:gap-2">
           <p class="uppercase font-600">
@@ -93,15 +93,15 @@ const nextEvent = events.shift();
     <section id="agenda" class="mt-16 px-6 sm:px-12"
       style="scroll-margin-top: 124px"
     >
-      <h2 class="font-mono text-center text-3xl md:text-4xl tracking-widest">
+      <h2 data-scroll data-scroll-speed="0.05" class="font-mono text-center text-3xl md:text-4xl tracking-widest">
         # Agenda
       </h2>
 
-      <div class="mt-10 max-w-[640px] border-black border-l-2 mx-auto pb-6 flex flex-col gap-8"
+      <div class="mt-10 max-w-[640px] border-black border-l-2 mx-auto pb-6 flex flex-col"
         style="border-image: linear-gradient(#000 0%, #000 92%, #fff 100%) 1;"
       >
-        {events.map(event => (
-          <Agenda item={event} />
+        {events.map((event, i) => (
+          <Agenda item={event} index={i} />
         ))}
       </div>
     </section>
@@ -154,7 +154,7 @@ const nextEvent = events.shift();
     </section>
   </main>
 
-  <footer class="bg-black text-white p-8 md:p-18 flex flex-col gap-12 md:gap-24">
+  <footer class="bg-black text-white p-8 md:p-18 flex flex-col justify-end gap-12 md:gap-24 h-screen">
     <div class="flex flex-col gap-2">
       <h2 class="uppercase text-xl md:text-7xl font-600 tracking-widest">
         Nos réseaux
