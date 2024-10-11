@@ -10,26 +10,26 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.3",
+    "@astrojs/check": "^0.9.4",
     "@astrojs/solid-js": "^4.4.2",
-    "@kobalte/core": "^0.13.6",
+    "@kobalte/core": "^0.13.7",
     "@paypal/paypal-js": "^8.1.2",
     "@solid-primitives/media": "^2.2.9",
-    "@unocss/reset": "^0.63.1",
-    "astro": "^4.11.5",
+    "@unocss/reset": "^0.63.4",
+    "astro": "^4.16.0",
     "gsap": "^3.12.5",
     "jsonwebtoken": "^9.0.2",
     "locomotive-scroll": "5.0.0-beta.21",
     "pawnilim": "^0.2.0",
-    "solid-js": "^1.9.1",
-    "typescript": "^5.6.2"
+    "solid-js": "^1.9.2",
+    "typescript": "^5.6.3"
   },
   "devDependencies": {
     "@astrojs/vercel": "^7.8.1",
-    "@iconify-json/mdi": "^1.2.0",
+    "@iconify-json/mdi": "^1.2.1",
     "@rollup/plugin-yaml": "^4.1.2",
     "@types/jsonwebtoken": "^9.0.7",
-    "unocss": "^0.63.1",
+    "unocss": "^0.63.4",
     "unplugin-icons": "^0.19.3"
   }
 }
