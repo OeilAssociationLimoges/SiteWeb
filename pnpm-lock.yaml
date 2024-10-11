@@ -17,6 +17,9 @@ importers:
       '@kobalte/core':
         specifier: ^0.13.6
         version: 0.13.6(solid-js@1.9.1)
+      '@paypal/paypal-js':
+        specifier: ^8.1.2
+        version: 8.1.2
       '@solid-primitives/media':
         specifier: ^2.2.9
         version: 2.2.9(solid-js@1.9.1)
@@ -32,6 +35,9 @@ importers:
       jsonwebtoken:
         specifier: ^9.0.2
         version: 9.0.2
+      locomotive-scroll:
+        specifier: 5.0.0-beta.21
+        version: 5.0.0-beta.21
       pawnilim:
         specifier: ^0.2.0
         version: 0.2.0
@@ -228,6 +234,9 @@ packages:
     resolution: {integrity: sha512-Ox2kYyxy7NoXdKWdHeDEjZxClwzO4SKM8plAaVwmAJPxHMqA0rLOoAsa+hBDwRLpctf+ZRnAd/ykguuJidnaTA==}
     peerDependencies:
       solid-js: ^1.8
+
+  '@darkroom.engineering/tempus@0.0.46':
+    resolution: {integrity: sha512-s5vav3KMHYezvUCl4ee5epg0oimF6M8C9gAaKxFnFaTvX2q3ywFDryIv6XLd0mRFUt3S1uHDJqKaiEcs2ZVSvw==}
 
   '@emmetio/abbreviation@2.3.3':
     resolution: {integrity: sha512-mgv58UrU3rh4YgbE/TzgLQwJ3pFsHHhCLqY20aJq+9comytTXUDNGG/SMtSeMJdkpxgXSXunBGLD8Boka3JyVA==}
@@ -714,6 +723,9 @@ packages:
   '@nodelib/fs.walk@1.2.8':
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
+
+  '@paypal/paypal-js@8.1.2':
+    resolution: {integrity: sha512-EKshGSWRxLWU1NyPB9P1TiOkPajVmpTo5I9HuZKoSv8y2uk0XIskXqMkAJ/Y9qAg9iJyP102Jb/atX63tTy24w==}
 
   '@polka/url@1.0.0-next.28':
     resolution: {integrity: sha512-8LduaNlMZGwdZ6qWrKlfa+2M4gahzFkprZiAt2TF8uS0qQgBizKXpXURqvTJ4WtmupWxaLqjRb2UCTe72mu+Aw==}
@@ -1850,6 +1862,17 @@ packages:
   kolorist@1.8.0:
     resolution: {integrity: sha512-Y+60/zizpJ3HRH8DCss+q95yr6145JXZo46OTpFvDZWLfRCE4qChOyk1b26nMaNpfHHgxagk9dXT5OP0Tfe+dQ==}
 
+  lenis@1.1.9:
+    resolution: {integrity: sha512-xU2UU1J8mJCiWBSfiMWsC/kPbQMIadSsJiEu3mVqptXGnwo/FUnfp8xCyiOJEvBwzqx4XDdB6TKYFn83y871vA==}
+    peerDependencies:
+      react: '>=17.0.0'
+      react-dom: '>=17.0.0'
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
+
   load-tsconfig@0.2.5:
     resolution: {integrity: sha512-IXO6OCs9yg8tMKzfPZ1YmheJbZCiEsnBdcB03l0OcfK9prKnJb96siuHCr5Fl37/yo9DnKU+TLpxzTUspw9shg==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
@@ -1869,6 +1892,10 @@ packages:
   locate-path@6.0.0:
     resolution: {integrity: sha512-iPZK6eYjbxRu3uB4/WZ3EsEIMJFMqAoopl3R+zuq0UjcAm/MO6KCweDgPfP3elTztoKP3KtnVHxTn2NHBSDVUw==}
     engines: {node: '>=10'}
+
+  locomotive-scroll@5.0.0-beta.21:
+    resolution: {integrity: sha512-UrvuBVxI9rX7b0SkLzZwlzUqZ22Oybj6c6jBflqvH6bdQEb+OcsOpQg65cFJPY0IYBNGnaHkLHr/EDDW6y6scQ==}
+    engines: {node: '>=20'}
 
   lodash.includes@4.3.0:
     resolution: {integrity: sha512-W3Bx6mdkRTGtlJISOvVD/lbqjTlPPUDTMnlXZFnVwi9NKJ6tiAk6LVdlhZMm17VZisqhKcgzpO5Wz91PCt5b0w==}
@@ -2291,6 +2318,9 @@ packages:
   prismjs@1.29.0:
     resolution: {integrity: sha512-Kx/1w86q/epKcmte75LNrEoT+lX8pBpavuAbvJWRXar7Hz8jrtF+e3vY751p0R8H9HdArwaCTNDDzHg/ScJK1Q==}
     engines: {node: '>=6'}
+
+  promise-polyfill@8.3.0:
+    resolution: {integrity: sha512-H5oELycFml5yto/atYqmjyigJoAo3+OXwolYiH7OfQuYlAqhxNvTfiNMbV9hsC6Yp83yE5r2KTVmtrG6R9i6Pg==}
 
   prompts@2.4.2:
     resolution: {integrity: sha512-NxNv/kLguCA7p3jE8oL2aEBsrJWgAakBpgmgK6lpPWV+WuOmY6r2/zbAVnP+T8bQlA0nzHXSJSJW0Hq7ylaD2Q==}
@@ -3322,6 +3352,8 @@ snapshots:
       '@floating-ui/dom': 1.6.11
       solid-js: 1.9.1
 
+  '@darkroom.engineering/tempus@0.0.46': {}
+
   '@emmetio/abbreviation@2.3.3':
     dependencies:
       '@emmetio/scanner': 1.0.4
@@ -3679,6 +3711,10 @@ snapshots:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.17.1
+
+  '@paypal/paypal-js@8.1.2':
+    dependencies:
+      promise-polyfill: 8.3.0
 
   '@polka/url@1.0.0-next.28': {}
 
@@ -5035,6 +5071,10 @@ snapshots:
 
   kolorist@1.8.0: {}
 
+  lenis@1.1.9:
+    dependencies:
+      '@darkroom.engineering/tempus': 0.0.46
+
   load-tsconfig@0.2.5: {}
 
   load-yaml-file@0.2.0:
@@ -5056,6 +5096,13 @@ snapshots:
   locate-path@6.0.0:
     dependencies:
       p-locate: 5.0.0
+
+  locomotive-scroll@5.0.0-beta.21:
+    dependencies:
+      lenis: 1.1.9
+    transitivePeerDependencies:
+      - react
+      - react-dom
 
   lodash.includes@4.3.0: {}
 
@@ -5633,6 +5680,8 @@ snapshots:
       react-is: 18.3.1
 
   prismjs@1.29.0: {}
+
+  promise-polyfill@8.3.0: {}
 
   prompts@2.4.2:
     dependencies:
