@@ -3,6 +3,9 @@ import Footer from "../components/Footer.astro";
 import NavMenu from "../components/NavMenu";
 import ShopItem from "../components/ShopItem.astro";
 import Layout from "../layouts/Layout.astro";
+
+import __products from "../data/products.yml";
+const products = __products as Array<ProductItem>
 ---
 <Layout title="Le SHOP de l'OEIL">
   <div class="h-[400px]">
@@ -24,27 +27,9 @@ import Layout from "../layouts/Layout.astro";
   </div>
 
   <section class="container mx-auto py-14 flex flex-col md:flex-row md:flex-wrap justify-center gap-8 px-8">
-    <ShopItem
-      price={10}
-      identifier="1"
-      name="Bracelet OG OEIL"
-      imageName="bracelet.png"
-      shortDescription="Un bracelet réalisé par l'OEIL de 2023-2024."
-    />
-    <ShopItem
-      price={49.99}
-      identifier="2"
-      name="Sweats 2024"
-      imageName="bracelet.png"
-      shortDescription="Les fameux sweats de l'OEIL 2024-2025 - je rigole c'est faux."
-    />
-    <ShopItem
-      price={9.99}
-      identifier="1"
-      name="Body pillow OEIL-Chan"
-      imageName="bracelet.png"
-      shortDescription="La plus belle initiative des étudiants de BUT2 - ou probablement la pire..."
-    />
+    {products.map((product) => (
+      <ShopItem {...product} />
+    ))}
   </section>
 
   <p class="font-mono opacity-60 py-16 text-center px-8">

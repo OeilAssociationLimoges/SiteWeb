@@ -1,0 +1,15 @@
+- id: bracelet-og-oeil
+  name: Bracelet OEIL
+  price: 4.99
+  image: bracelet.png
+  description: Un bracelet réalisé par l'OEIL de 2023-2024.
+- id: sweats-oeil-2024
+  name: Sweats 2024
+  price: 49.99
+  image: bracelet.png
+  description: Les fameux sweats de l'OEIL 2024-2025 - je rigole c'est faux.
+- id: body-pillow-oeil-chan
+  name: Body pillow OEIL-Chan
+  price: 9.99
+  image: bracelet.png
+  description: La plus belle initiative des étudiants de BUT2 - ou probablement la pire...

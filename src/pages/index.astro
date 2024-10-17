@@ -10,7 +10,8 @@ import ImageForMarquee from "../components/ImageForMarquee.astro"
 import IconMapMarker from '~icons/mdi/map-marker'
 import IconInformation from '~icons/mdi/information'
 
-import agenda from "../data/agenda.yml";
+import __agenda from "../data/agenda.yml";
+const agenda = __agenda as Array<AgendaItem>
 
 const events = agenda
   .map(event => ({
