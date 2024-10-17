@@ -28,6 +28,14 @@ export default defineConfig({
           "local": FileSystemIconLoader("./assets/icons")
         }
       })
-    ]
+    ],
+
+    define: {
+      "__PAYPAL_BASE__": JSON.stringify(
+        process.env.VERCEL_ENV === "production"
+        ? "https://api-m.paypal.com"
+        : "https://api-m.sandbox.paypal.com"
+      )
+    }
   }
 });
