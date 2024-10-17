@@ -29,7 +29,7 @@ const NavMenu: Component = () => {
             <a class="py-6 block font-300 text-4 text-white/80 tracking-wide hover:text-white transition-colors" href="/#partenaires">
               Partenaires
             </a>
-            <a class="py-6 block font-300 text-4 text-white/80 tracking-wide hover:text-white transition-colors mr-auto" href="/shop">
+            <a class="py-6 block font-300 text-4 text-white/80 tracking-wide hover:text-white transition-colors md:mr-auto" href="/shop">
               Shop
             </a>
 
