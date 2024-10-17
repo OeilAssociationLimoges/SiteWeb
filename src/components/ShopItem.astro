@@ -1,0 +1,38 @@
+---
+type Props = {
+  identifier: string;
+  imageName: string;
+  price: number;
+  name: string;
+  shortDescription: string;
+}
+
+const props = Astro.props;
+---
+<div class="shrink-0 flex flex-grow-1 flex-col w-full md:w-300px border-3 border-black shadow-[-8px_8px_0_#000]">
+  <img
+    src={`/products/${props.imageName}`}
+    alt={props.name}
+    class="w-full h-300px object-contain bg-white"
+  />
+  <div class="flex items-center justify-between gap-2 border-t-3 border-black p-4 bg-black text-white font-mono">
+    <p class="text-sm">
+      > {props.name}
+    </p>
+    <p class="text-lg shrink-0">
+      {props.price} €
+    </p>
+  </div>
+  <div class="p-4 space-y-6">
+    <p class="">
+      {props.shortDescription}
+    </p>
+
+    <a
+      class="block text-center bg-black text-white w-full px-2 py-4 font-mono hover:bg-black/75 transition-colors"
+      href={`/product/${props.identifier}`}  
+    >
+      voir le produit
+    </a>
+  </div>
+</div>

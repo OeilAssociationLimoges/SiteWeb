@@ -1,0 +1,21 @@
+---
+import Footer from "../../components/Footer.astro";
+import NavMenu from "../../components/NavMenu";
+import Layout from "../../layouts/Layout.astro";
+---
+<Layout title="Le SHOP de l'OEIL">
+  <div class="h-[400px]">
+    <div
+      class="absolute top-0 right-0 left-0 bg-black h-[400px] -z-10"
+      style="clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%)"
+    />
+
+    <NavMenu client:load />
+
+    <article>
+      
+    </article>
+  </div>
+
+  <Footer />
+</Layout>
