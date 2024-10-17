@@ -16,7 +16,7 @@
     "@paypal/paypal-js": "^8.1.2",
     "@solid-primitives/media": "^2.2.9",
     "@unocss/reset": "^0.63.4",
-    "astro": "^4.16.0",
+    "astro": "^4.16.6",
     "gsap": "^3.12.5",
     "jsonwebtoken": "^9.0.2",
     "locomotive-scroll": "5.0.0-beta.21",
@@ -25,7 +25,7 @@
     "typescript": "^5.6.3"
   },
   "devDependencies": {
-    "@astrojs/vercel": "^7.8.1",
+    "@astrojs/vercel": "^7.8.2",
     "@iconify-json/mdi": "^1.2.1",
     "@rollup/plugin-yaml": "^4.1.2",
     "@types/jsonwebtoken": "^9.0.7",
