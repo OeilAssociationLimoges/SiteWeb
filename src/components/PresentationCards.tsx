@@ -33,8 +33,8 @@ const PresentationCards: Component = () => {
         <PresentationCardWhois name="Evan GERBEAUD" role="Trésorier" right />
       </PresentationCard>
       <PresentationCard title="Secrétariat" image="/MEMBRES/SECRETARIAT.png">
-        <PresentationCardWhois name="Mathis ROUFFANCHE" role="Secrétariat" left />
-        <PresentationCardWhois name="Marine GENDRY" role="Secrétariat (absente sur la photo)" right />
+        <PresentationCardWhois name="Mathis ROUFFANCHE" role="Vice Secrétaire" left />
+        <PresentationCardWhois name="Marine GENDRY" role="Secrétaire (absente sur la photo)" right />
       </PresentationCard>
       <PresentationCard title="Communication" image="/MEMBRES/COMMUNICATION.png">
         <PresentationCardWhois name="Cathy DESCOUTURES" role="Responsable événement et communication" center />
