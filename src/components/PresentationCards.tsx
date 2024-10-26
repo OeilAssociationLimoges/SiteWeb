@@ -3,7 +3,6 @@ import gsap from "gsap";
 
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import PresentationCardWhois from "./PresentationCardWhois";
-import { createMediaQuery } from "@solid-primitives/media";
 
 /**
  * Les cartes de présentation des membres de l'OEIL.
@@ -16,8 +15,6 @@ import { createMediaQuery } from "@solid-primitives/media";
  */
 const PresentationCards: Component = () => {
   const Section: ParentComponent<{ title: string, image: string }> = (props) => {
-    const isMobile = createMediaQuery("(max-width: 639px)", true);
-
     const animation = (element: HTMLDivElement) => {
       gsap.registerPlugin(ScrollTrigger);
       const progression = element.querySelector(".card-progression") as HTMLDivElement;
@@ -29,7 +26,6 @@ const PresentationCards: Component = () => {
           start: "top top",
           end: "bottom top",
           scrub: true,
-          // markers: true,
           pin: true,
           pinSpacing: false,
           toggleActions: "play none none reverse",
@@ -48,8 +44,7 @@ const PresentationCards: Component = () => {
             rotate: 0,
             y: 0,
             opacity: 1,
-            scale: 1,
-            // ease: "power2.inOut"
+            scale: 1
           }
         )
         .to(element, {
@@ -71,9 +66,7 @@ const PresentationCards: Component = () => {
           duration: 1
         }, 0)
         .to(progression, {
-          // opacity: 0,
           borderWidth: 0,
-          // borderColor: "#000",
           height: "125%",
           duration: 0.25,
         }, 1)
@@ -133,16 +126,28 @@ const PresentationCards: Component = () => {
         # Les membres
       </h2>
 
-      <Section title="Présidence" image="/PRESIDENCE.png">
-        <PresentationCardWhois name="Florian CLAUX" role="Vice Président" left={12} />
-        <PresentationCardWhois name="Maxence VINCENT" role="Président" right={12} />
+      <Section title="Présidence" image="/MEMBRES/PRESIDENCE.png">
+        <PresentationCardWhois name="Florian CLAUX" role="Vice Président" left />
+        <PresentationCardWhois name="Maxence VINCENT" role="Président" right />
       </Section>
-      <Section title="Trésorerie" image="/TRESORERIE.png">
-        <PresentationCardWhois name="Noah TILLEUIL" role="Vice Trésorier" left={12} />
-        <PresentationCardWhois name="Evan GERBEAUD" role="Trésorier" right={12} />
+      <Section title="Trésorerie" image="/MEMBRES/TRESORERIE.png">
+        <PresentationCardWhois name="Noah TILLEUIL" role="Vice Trésorier" left />
+        <PresentationCardWhois name="Evan GERBEAUD" role="Trésorier" right />
       </Section>
-      <Section title="Communication" image="/COMMUNICATION.png">
+      <Section title="Secrétariat" image="/MEMBRES/SECRETARIAT.png">
+        <PresentationCardWhois name="Mathis ROUFFANCHE" role="Secrétariat" left />
+        <PresentationCardWhois name="Marine GENDRY" role="Secrétariat (absente sur la photo)" right />
+      </Section>
+      <Section title="Communication" image="/MEMBRES/COMMUNICATION.png">
         <PresentationCardWhois name="Cathy DESCOUTURES" role="Responsable événement et communication" center />
+      </Section>
+      <Section title="Développement" image="/MEMBRES/DEVELOPPEMENT.png">
+        <PresentationCardWhois name="Malo PERROT" role="Développeur" left />
+        <PresentationCardWhois name="Yaniss LASBORDES" role="Développeur & chef de projet" right />
+      </Section>
+      <Section title="Collaborateurs" image="/MEMBRES/COLLABORATEURS.png">
+        <PresentationCardWhois name="Mikkel ALMONTE--RINGAUD" role="Développeur Web" left />
+        <PresentationCardWhois name="Zacharie DUBRULLE" role="Développeur & designer logo" right />
       </Section>
 
       <div class="bg-black h-80vh"/>
