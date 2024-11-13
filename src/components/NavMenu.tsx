@@ -20,16 +20,24 @@ const NavMenu: Component = () => {
         <Show when={open() || !isContainedInMenu()}>
           <div class="md:bg-transparent h-full w-full md:gap-6 bg-black pb-6 md:pb-0 z-20 fixed md:relative top-24 md:top-0 md:z-0 left-0 right-0 gap-2 text-white flex flex-col md:flex-row items-center"
           >
-            <a class="py-6 block font-300 text-4 text-white/80 tracking-wide hover:text-white transition-colors" href="/#agenda">
+            <a class="py-6 block font-300 text-4 text-white/80 tracking-wide hover:text-white transition-colors" href="/#agenda"
+              onClick={() => setOpen(false)}
+            >
               Agenda
             </a>
-            <a class="py-6 block font-300 text-4 text-white/80 tracking-wide hover:text-white transition-colors" href="/#presentation">
+            <a class="py-6 block font-300 text-4 text-white/80 tracking-wide hover:text-white transition-colors" href="/#presentation"
+              onClick={() => setOpen(false)}
+            >
               Présentation
             </a>
-            <a class="py-6 block font-300 text-4 text-white/80 tracking-wide hover:text-white transition-colors" href="/#partenaires">
+            <a class="py-6 block font-300 text-4 text-white/80 tracking-wide hover:text-white transition-colors" href="/#partenaires"
+              onClick={() => setOpen(false)}
+            >
               Partenaires
             </a>
-            <a class="py-6 block font-300 text-4 text-white/80 tracking-wide hover:text-white transition-colors md:mr-auto" href="/shop">
+            <a class="py-6 block font-300 text-4 text-white/80 tracking-wide hover:text-white transition-colors md:mr-auto" href="/shop"
+              onClick={() => setOpen(false)}
+            >
               Shop
             </a>
 
