@@ -1,7 +1,7 @@
 import { createEffect, createSignal, For, Match, on, Show, Switch, type Component } from "solid-js";
 import createEmblaCarousel from 'embla-carousel-solid';
 import { loadScript } from "@paypal/paypal-js";
-import { createStore } from "solid-js/store";
+import { createStore, unwrap } from "solid-js/store";
 import store from "../../../utils/store";
 import MdiChevronLeft from '~icons/mdi/chevron-left'
 import MdiChevronDown from '~icons/mdi/chevron-down'
@@ -9,6 +9,7 @@ import MdiChevronDown from '~icons/mdi/chevron-down'
 const ShopDetailsArticle: Component<{ product: ProductItem }> = (props) => {
   const [paypalButtonsContainer, setPaypalButtonsContainer] = createSignal<HTMLDivElement>();
   const [emblaRef] = createEmblaCarousel(() => ({ loop: true }));
+  const price = () => store.discount ? props.product.adherant_price : props.product.price;
   
   const [inputs, setInputs] = createStore<Record<string, string>>({});
   const [variantID, setVariantID] = createSignal(props.product.variants[0].id);
@@ -39,7 +40,7 @@ const ShopDetailsArticle: Component<{ product: ProductItem }> = (props) => {
       message: {
         // Prix pour le message affiché à la
         // fin de la transaction. 
-        amount: props.product.price
+        amount: price()
       },
 
       // Création de la commande pour effectuer au paiement.
@@ -198,7 +199,7 @@ const ShopDetailsArticle: Component<{ product: ProductItem }> = (props) => {
 
         <div class="flex flex-col font-mono w-full lg:max-w-532px">
           <h1 class="text-xl text-center mt-6 lg:text-start lg:mt-0">{props.product.name}</h1>
-          <p class="text-2xl font-600 text-center lg:text-start">{props.product.price} €</p>
+          <p class="text-2xl font-600 text-center lg:text-start">{price()} €</p>
 
           <div class="flex flex-col gap-4 mt-8">
             <For each={props.product.inputs}>

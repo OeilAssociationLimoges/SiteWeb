@@ -36,3 +36,19 @@ export const logout = () => {
   localStorage.removeItem("token");
   localStorage.removeItem("profilePicture");
 };
+
+export const checkDiscount = async (): Promise<boolean> => {
+  const token = localStorage.getItem("token");
+  if (!token) return false;
+
+  const response = await fetch("/api/discount", {
+    headers: {
+      authorization: `Bearer ${token}`
+    }
+  });
+
+  if (!response.ok) return false;
+
+  const json = await response.json();
+  return json.discount;
+}

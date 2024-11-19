@@ -1,5 +1,6 @@
 import { createEffect, createMemo, createSignal, For, onMount, type Component } from "solid-js";
 import createEmblaCarousel from 'embla-carousel-solid';
+import store from "../utils/store";
 
 const ShopItem: Component<{ product: ProductItem }> = (props) => {
   const [emblaRef, emblaApi] = createEmblaCarousel(
@@ -49,7 +50,7 @@ const ShopItem: Component<{ product: ProductItem }> = (props) => {
           &gt; {props.product.name}
         </p>
         <p class="text-lg shrink-0">
-          {props.product.price} €
+          {store.discount ? props.product.adherant_price : props.product.price} €
         </p>
       </div>
       <div class="p-4 space-y-6">

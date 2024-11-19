@@ -1,4 +1,8 @@
 import jwt from "jsonwebtoken";
+import type { User } from "./client";
+
+import _adherants from "../data/adherants.yml";
+const aherants = _adherants as unknown as string[];
 
 export const json = (data: any, status = 200) => {
   return new Response(JSON.stringify(data), {
@@ -7,7 +11,7 @@ export const json = (data: any, status = 200) => {
   });
 }
 
-export const readBearer = (request: Request) => {
+export const extractBearer = (request: Request) => {
   const authorization = request.headers.get('authorization');
   if (!authorization) {
     return null;
@@ -28,16 +32,20 @@ export const readBearer = (request: Request) => {
   return null;
 };
 
-export const isAuthenticated = (request: Request): boolean => {
-  const token = readBearer(request);
-  if (!token) return false
+export const shouldApplyDiscount = (user: User): boolean => {
+  const username = `${user.lastName} ${user.firstName}`.toLowerCase();
+  return aherants.includes(username);
+}
+
+export const readBearer = (request: Request): User | null => {
+  const token = extractBearer(request);
+  if (!token) return null
 
   try {
-    jwt.verify(token, import.meta.env.JWT_SECRET);
-    return true;
+    return jwt.verify(token, import.meta.env.JWT_SECRET) as User;
   }
   catch {
-    return false;
+    return null;
   }
 };
 
