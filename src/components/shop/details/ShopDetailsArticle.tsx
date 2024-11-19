@@ -1,23 +1,18 @@
-import { createResource, createSignal, For, Match, onMount, Show, Switch, type Component } from "solid-js";
+import { createEffect, createResource, createSignal, For, Match, on, onMount, Show, Switch, type Component } from "solid-js";
 import createEmblaCarousel from 'embla-carousel-solid';
 import { loadScript } from "@paypal/paypal-js";
 import { createStore } from "solid-js/store";
-import { checkUser } from "../../../utils/client";
+import store from "../../../utils/store";
 
 const ShopDetailsArticle: Component<{ product: ProductItem }> = (props) => {
-  let paypalButtonsContainerRef: HTMLDivElement | undefined;
-  
-  const [emblaRef] = createEmblaCarousel(
-    () => ({ loop: true })
-  );
-  
-  const [variantID, setVariantID] = createSignal(props.product.variants[0].id);
-  const variant = () => props.product.variants.find((variant) => variant.id === variantID())!;
+  const [paypalButtonsContainer, setPaypalButtonsContainer] = createSignal<HTMLDivElement>();
+  const [emblaRef] = createEmblaCarousel(() => ({ loop: true }));
   
   const [inputs, setInputs] = createStore<Record<string, string>>({});
-  const [user, { refetch }] = createResource(checkUser);
+  const [variantID, setVariantID] = createSignal(props.product.variants[0].id);
+  const variant = () => props.product.variants.find((variant) => variant.id === variantID())!;
 
-  onMount(async () => {
+  createEffect(on(paypalButtonsContainer,  async (paypalButtonsContainerRef) => {
     if (!paypalButtonsContainerRef) return;
 
     const paypal = await loadScript({
@@ -142,10 +137,10 @@ const ShopDetailsArticle: Component<{ product: ProductItem }> = (props) => {
           }
       },
     }).render(paypalButtonsContainerRef);
-  })
+  }));
 
   return (
-    <div class="flex h-full w-full justify-between gap-6">
+    <div class="flex h-full w-full gap-6">
       <div class="relative h-full">
         <div class="shrink-0 flex flex-col gap-2 border-black border-2 w-fit h-fit sticky top-28">
           <div class="overflow-hidden cursor-grab w-400px" ref={emblaRef}>
@@ -223,7 +218,7 @@ const ShopDetailsArticle: Component<{ product: ProductItem }> = (props) => {
             )}
           </For>
 
-          <Show when={user()} fallback={
+          <Show when={store.user} fallback={
             <div class="flex flex-col gap-2 mt-8">
               <p class="font-sans text-center text-black/75">
                 Vous devez vous identifier pour effectuer un paiement.
@@ -236,9 +231,8 @@ const ShopDetailsArticle: Component<{ product: ProductItem }> = (props) => {
               </a>
             </div>
           }>
-            <div ref={paypalButtonsContainerRef} class="w-full mt-8 z-0" />
+            <div ref={setPaypalButtonsContainer} class="w-full mt-8 z-0" />
           </Show>
-
         </div>
       </div>
     </div>
