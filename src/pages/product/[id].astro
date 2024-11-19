@@ -5,6 +5,7 @@ import Footer from "../../components/Footer.astro";
 import NavMenu from "../../components/NavMenu";
 import Layout from "../../layouts/Layout.astro";
 import ShopDetailsArticle from "../../components/shop/details/ShopDetailsArticle";
+import MdiChevronLeft from '~icons/mdi/chevron-left'
 
 export async function getStaticPaths() {
   const { default: __products } = await import("../../data/products.yml");
@@ -18,22 +19,21 @@ export async function getStaticPaths() {
   });
 }
 
-const { id } = Astro.params;
 const { product } = Astro.props;
 ---
 <Layout title="Le SHOP de l'OEIL">
-  <!-- On sélectionne par défaut le premier variant pour l'utilisateur. -->
-  <input type="hidden" id="user-variant-selected" value={product.variants[0].id} />
-  <input type="hidden" id="user-selection-data" value="{}" />
-
-  <div class="min-h-100dvh py-8 mt-24">
+  <div class="py-8 mt-24">
     <NavMenu client:load />
 
     <article class="px-8 container mx-auto flex flex-col">
-      <a href="/shop" class="pt-6 pb-8">Revenir à la page des produits</a>
+      <a href="/shop" class="mb-8 flex items-center gap-2 w-fit hover:bg-black/5 focus:bg-black/8 px-4 py-2 -ml-4">
+        <MdiChevronLeft />
+        <p>Revenir à la page des produits</p>
+      </a>
+
       <ShopDetailsArticle
         product={product}
-        client:only
+        client:only="solid-js"
       />
     </article>
   </div>
@@ -46,129 +46,4 @@ const { product } = Astro.props;
   </section>
 
   <Footer />
-
-  <script>
-    import { loadScript } from "@paypal/paypal-js";
-
-    // read the product from the hidden HTML input value.
-    const productValue = (document.getElementById("product-data") as HTMLInputElement).value;
-    const product = JSON.parse(productValue) as ProductItem;
-
-    const paypal = await loadScript({
-      clientId: import.meta.env.PUBLIC_PAYPAL_CLIENT_ID,
-      components: ["buttons", "applepay"],
-      currency: "EUR",
-      locale: "fr_FR"
-    });
-    
-    if (!paypal) {
-      throw new Error("PayPal SDK could not be loaded, are you online ?");
-    }
-    
-    paypal?.Buttons?.({
-      style: {
-        shape: "rect",
-        layout: "vertical",
-        color: "gold",
-        label: "paypal"
-      },
-
-      message: {
-        amount: product.price,
-      },
-
-      async createOrder() {
-        try {
-          const response = await fetch("/api/orders", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              // use the "body" param to optionally pass additional order information
-              // like product ids and quantities
-              body: JSON.stringify(product)
-          });
-
-          const orderData = await response.json();
-
-          if (orderData.id) {
-              return orderData.id;
-          }
-          const errorDetail = orderData?.details?.[0];
-          const errorMessage = errorDetail
-              ? `${errorDetail.issue} ${errorDetail.description} (${orderData.debug_id})`
-              : JSON.stringify(orderData);
-
-          throw new Error(errorMessage);
-        }
-        catch (error) {
-          console.error(error);
-          alert(`PayPal Checkout n'a pas pu être initié : ${error}`);
-        }
-      },
-
-      async onApprove (data, actions) {
-          try {
-              const response = await fetch(
-                  `/api/orders/${data.orderID}/capture`,
-                  {
-                      method: "POST",
-                      headers: {
-                          "Content-Type": "application/json",
-                      },
-                  }
-              );
-
-              const orderData = await response.json();
-              // Three cases to handle:
-              //   (1) Recoverable INSTRUMENT_DECLINED -> call actions.restart()
-              //   (2) Other non-recoverable errors -> Show a failure message
-              //   (3) Successful transaction -> Show confirmation or thank you message
-
-              const errorDetail = orderData?.details?.[0];
-
-              if (errorDetail?.issue === "INSTRUMENT_DECLINED") {
-                // (1) Recoverable INSTRUMENT_DECLINED -> call actions.restart()
-                // recoverable state, per
-                // https://developer.paypal.com/docs/checkout/standard/customize/handle-funding-failures/
-                return actions.restart();
-              }
-              else if (errorDetail) {
-                // (2) Other non-recoverable errors -> Show a failure message
-                throw new Error(
-                    `${errorDetail.description} (${orderData.debug_id})`
-                );
-              }
-              else if (!orderData.purchase_units) {
-                throw new Error(JSON.stringify(orderData));
-              }
-              else {
-                  // (3) Successful transaction -> Show confirmation or thank you message
-                  // Or go to another URL:  actions.redirect('thank_you.html');
-                  const transaction =
-                      orderData?.purchase_units?.[0]?.payments
-                          ?.captures?.[0] ||
-                      orderData?.purchase_units?.[0]?.payments
-                          ?.authorizations?.[0];
-        //           resultMessage(
-        //               `Transaction ${transaction.status}: ${transaction.id}<br>
-        // <br>See console for all available details`
-        //           );
-                  console.log(
-                      "Capture result",
-                      orderData,
-                      JSON.stringify(orderData, null, 2)
-                  );
-              }
-          }
-          catch (error) {
-            console.error(error);
-            // resultMessage(
-            //     `Sorry, your transaction could not be processed...<br><br>${error}`
-            // );
-          }
-      },
-    })
-    .render("#paypal-button-container");
-  </script>
 </Layout>
