@@ -100,7 +100,7 @@ const LoginForm: Component = () => {
       <button
         disabled={loading()}
         type="submit"
-        class="bg-white text-black text-lg font-700 py-3 mt-2 w-full hover:bg-white/80 focus:bg-white/80 border-white border-t-4 transition-colors"
+        class="bg-white text-black text-lg font-700 py-3 mt-2 w-full hover:bg-white/80 focus:bg-white/80 border-white border-t-4 transition-colors outline-none"
       >
         {loading() ? "connexion en cours..." : "login"}
       </button>

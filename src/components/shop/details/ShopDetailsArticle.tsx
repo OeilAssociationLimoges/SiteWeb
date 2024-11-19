@@ -67,13 +67,13 @@ const ShopDetailsArticle: Component<{ product: ProductItem }> = (props) => {
                       <input
                         type="text"
                         placeholder={input().placeholder}
-                        class="w-full p-2 border-black border-2"
+                        class="w-full p-2 border-black border-2 bg-white text-black outline-none hover:bg-black/2 focus:bg-black/5 transition-colors"
                       />
                     )}
                   </Match>
                   <Match when={input.type === "select" && input}>
                     {input => (
-                          <select id={input().id} class="w-full p-2 border-black border-2 focus:outline-black focus:outline-offset-4">
+                          <select id={input().id} class="w-full p-2 border-black border-2 bg-white text-black outline-none hover:bg-black/2 focus:bg-black/5 transition-colors">
                       <For each={input().options}>
                           {(option) => (
                             <option value={option.value}>
