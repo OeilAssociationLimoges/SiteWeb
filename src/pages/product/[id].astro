@@ -4,6 +4,7 @@ export const prerender = true;
 import Footer from "../../components/Footer.astro";
 import NavMenu from "../../components/NavMenu";
 import Layout from "../../layouts/Layout.astro";
+import ShopDetailsArticle from "../../components/shop/details/ShopDetailsArticle";
 
 export async function getStaticPaths() {
   const { default: __products } = await import("../../data/products.yml");
@@ -21,21 +22,18 @@ const { id } = Astro.params;
 const { product } = Astro.props;
 ---
 <Layout title="Le SHOP de l'OEIL">
-  <input type="hidden" id="product-data" value={JSON.stringify(product)} />
+  <!-- On sélectionne par défaut le premier variant pour l'utilisateur. -->
+  <input type="hidden" id="user-variant-selected" value={product.variants[0].id} />
+  <input type="hidden" id="user-selection-data" value="{}" />
 
-  <div class="h-[320px] mb-200px">
-    <div
-      class="absolute top-0 right-0 left-0 bg-black h-[400px] -z-10"
-      style="clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%)"
-    />
-
+  <div class="min-h-100dvh py-8 mt-24">
     <NavMenu client:load />
 
-    <article class="container mx-auto pt-26">
-      <img
-        src={`/products/${product.image}`}
-        alt={product.name}
-        class="w-400px h-400px object-contain bg-white border-3 border-black"
+    <article class="px-8 container mx-auto flex flex-col">
+      <a href="/shop" class="pt-6 pb-8">Revenir à la page des produits</a>
+      <ShopDetailsArticle
+        product={product}
+        client:only
       />
     </article>
   </div>
