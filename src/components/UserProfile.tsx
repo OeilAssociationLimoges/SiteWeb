@@ -1,13 +1,13 @@
-import { createResource, createSignal, onMount, Show, type Component } from "solid-js";
-import { checkUser, getProfilePicture, logout, type User } from "../utils/client";
+import { Show, type Component } from "solid-js";
+import { getProfilePicture, logout } from "../utils/client";
 import { DropdownMenu } from "@kobalte/core/dropdown-menu";
+import store from "../utils/store";
 
 const UserProfile: Component = () => {
-  const [user, { refetch }] = createResource(checkUser);
   const profilePicture = getProfilePicture();
 
   return (
-    <Show when={user()} fallback={
+    <Show when={store.user} fallback={
       <a href="/identification" class="bg-white text-black font-500 py-1.5 px-4">
         S'identifier
       </a>
@@ -36,12 +36,8 @@ const UserProfile: Component = () => {
               <DropdownMenu.Arrow />
               <DropdownMenu.Item
                 class="cursor-pointer bg-white hover:bg-black hover:text-white px-3 py-2"
-                onSelect={() => {
-                  logout();
-                  refetch();
-                }}
+                onSelect={() => store.logout()}
               >
-                
                 Déconnexion
               </DropdownMenu.Item>
               <DropdownMenu.Item
