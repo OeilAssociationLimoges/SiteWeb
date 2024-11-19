@@ -1,15 +1,80 @@
-- id: bracelet-og-oeil
-  name: Bracelet OEIL
-  price: 4.99
-  image: bracelet.png
-  description: Un bracelet réalisé par l'OEIL de 2023-2024.
-- id: sweats-oeil-2024
+- id: sweat-2024
   name: Sweats 2024
-  price: 49.99
-  image: bracelet.png
-  description: Les fameux sweats de l'OEIL 2024-2025 - je rigole c'est faux.
-- id: body-pillow-oeil-chan
-  name: Body pillow OEIL-Chan
-  price: 9.99
-  image: bracelet.png
-  description: La plus belle initiative des étudiants de BUT2 - ou probablement la pire...
+  description: Les fameux sweats de l'OEIL 2024-2025.
+  price: 999.99
+
+  variants:
+    - id: noir
+      name: Noir
+      images:
+        - sweat-noir-front.png
+        - sweat-noir-back.png
+    - id: bordeaux
+      name: Bordeaux
+      images:
+        - sweat-bordeaux-front.png
+        - sweat-bordeaux-back.png
+    - id: lavende
+      name: Lavende
+      images:
+        - sweat-lavende-front.png
+        - sweat-lavende-back.png
+    - id: turquoise-pastel
+      name: Turquoise Pastel
+      images:
+        - sweat-turquoise-pastel-front.png
+        - sweat-turquoise-pastel-back.png
+    - id: vert-de-gris
+      name: Vert de Gris
+      images:
+        - sweat-vert-de-gris-front.png
+        - sweat-vert-de-gris-back.png
+    - id: bleu-royal
+      name: Bleu Royal
+      images:
+        - sweat-bleu-royal-front.png
+        - sweat-bleu-royal-back.png
+    - id: beige
+      name: Beige
+      images:
+        - sweat-beige-front.png
+        - sweat-beige-back.png
+    - id: peche
+      name: Pêche
+      images:
+        - sweat-peche-front.png
+        - sweat-peche-back.png
+    - id: vanille
+      name: Vanille
+      images:
+        - sweat-vanille-front.png
+        # J'ai pas reçu les images pour celui là...
+        # - sweat-vanille-back.png
+    - id: gris-clair-chiné
+      name: Gris clair chiné
+      images:
+        - sweat-gris-clair-chiné-front.png
+        # J'ai pas reçu les images pour celui là...
+        # - sweat-gris-clair-chiné-back.png
+
+  inputs:
+    - id: size
+      name: Taille
+      type: select
+      options:
+        - name: S
+          value: s
+        - name: M
+          value: m
+        - name: L
+          value: l
+        - name: XL
+          value: xl
+        - name: XXL
+          value: xxl
+    
+    - id: label
+      name: Libellé
+      type: text
+      placeholder: "Ex: Prénom, surnom, etc."
+
