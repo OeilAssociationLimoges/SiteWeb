@@ -4,6 +4,7 @@ import { loadScript } from "@paypal/paypal-js";
 import { createStore } from "solid-js/store";
 import store from "../../../utils/store";
 import MdiChevronLeft from '~icons/mdi/chevron-left'
+import MdiChevronDown from '~icons/mdi/chevron-down'
 
 const ShopDetailsArticle: Component<{ product: ProductItem }> = (props) => {
   const [paypalButtonsContainer, setPaypalButtonsContainer] = createSignal<HTMLDivElement>();
@@ -141,7 +142,7 @@ const ShopDetailsArticle: Component<{ product: ProductItem }> = (props) => {
   }));
 
   return (
-    <>
+    <article class="p-8 container mx-auto flex flex-col min-h-[calc(100dvh-6rem)]">
       <div class="lg:w-[calc(400px+1.5rem+532px)] lg:mx-auto">
         <a href="/shop" class="mb-8 flex items-center gap-2 w-fit hover:bg-black/5 focus:bg-black/8 px-4 py-2 -ml-4">
           <MdiChevronLeft />
@@ -149,9 +150,9 @@ const ShopDetailsArticle: Component<{ product: ProductItem }> = (props) => {
         </a>
       </div>
 
-      <div class="flex flex-col lg:flex-row h-full w-full gap-6 justify-center">
-        <div class="relative h-full">
-          <div class="shrink-0 flex flex-col gap-4 border-black border-2 lg:w-fit h-fit sticky top-28">
+      <div class="flex flex-col lg:flex-row grow-1 w-full gap-6 justify-center">
+        <div class="relative h-full sticky top-32">
+          <div class="shrink-0 flex flex-col gap-4 border-black border-2 lg:w-fit h-fit">
             <div class="overflow-hidden cursor-grab w-full lg:w-400px" ref={emblaRef}>
               <div class="flex">
                 <For each={variant()!.images}>
@@ -168,22 +169,29 @@ const ShopDetailsArticle: Component<{ product: ProductItem }> = (props) => {
               </div>
             </div>
 
-            <select class="bg-white px-2 py-3.5 outline-none border-black border-t-2 hover:bg-black/2 focus:bg-black/5 transition-colors"
-              onChange={(event) => {
-                const value = event.currentTarget.value;
-                setVariantID(value);
-              }}
-            >
-              <For each={props.product.variants}>
-                {(variant) => (
-                  <option value={variant.id}
-                    selected={variant.id === variantID()}
-                  >
-                    {variant.name}
-                  </option>
-                )}
-              </For>
-            </select>
+            <div class="relative flex">
+              <select class="cursor-pointer w-full font-mono bg-black text-white px-4 py-3.5 outline-none border-black border-t-2 hover:bg-black/80 transition-colors appearance-none"
+                onChange={(event) => {
+                  const value = event.currentTarget.value;
+                  setVariantID(value);
+                }}
+              >
+                <For each={props.product.variants}>
+                  {(variant) => (
+                    <option value={variant.id}
+                      selected={variant.id === variantID()}
+                    >
+                      {variant.name}
+                    </option>
+                  )}
+                </For>
+              </select>
+
+              <MdiChevronDown
+                class="text-white text-xl absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-none"
+              />
+            </div>
+
           </div>
         </div>
 
@@ -205,21 +213,34 @@ const ShopDetailsArticle: Component<{ product: ProductItem }> = (props) => {
                         <input
                           type="text"
                           placeholder={input().placeholder}
-                          class="w-full p-2 border-black border-2 bg-white text-black outline-none hover:bg-black/2 focus:bg-black/5 transition-colors"
+                          onInput={(event) => {
+                            setInputs(input().name, event.currentTarget.value);
+                          }}
+                          class="w-full px-4 py-2 border-black border-2 bg-white text-black outline-none hover:bg-black/2 focus:bg-black/5 transition-colors"
                         />
                       )}
                     </Match>
                     <Match when={input.type === "select" && input}>
                       {input => (
-                        <select id={input().id} class="w-full p-2 border-black border-2 bg-white text-black outline-none hover:bg-black/2 focus:bg-black/5 transition-colors">
-                          <For each={input().options}>
-                            {(option) => (
-                              <option value={option.value}>
-                                {option.name}
-                              </option>
-                            )}
-                          </For>
-                        </select>
+                        <div class="relative flex">
+                          <select class="cursor-pointer w-full px-4 py-2 border-black border-2 bg-white text-black outline-none hover:bg-black/2 focus:bg-black/5 transition-colors appearance-none"
+                            onChange={(event) => {
+                              setInputs(input().name, event.currentTarget.value);
+                            }}
+                          >
+                            <For each={input().options}>
+                              {(option) => (
+                                <option value={option.value}>
+                                  {option.name}
+                                </option>
+                              )}
+                            </For>
+                          </select>
+
+                          <MdiChevronDown
+                            class="text-black text-xl absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-none"
+                          />
+                        </div>
                       )}
                     </Match>
                   </Switch>
@@ -234,7 +255,7 @@ const ShopDetailsArticle: Component<{ product: ProductItem }> = (props) => {
                 </p>
                 <a
                   href="/identification"
-                  class="font-mono bg-black text-white text-center py-3"
+                  class="font-mono bg-black hover:bg-black/80 transition-colors text-white text-center py-3"
                 >
                   S'identifier avec Biome
                 </a>
@@ -245,7 +266,7 @@ const ShopDetailsArticle: Component<{ product: ProductItem }> = (props) => {
           </div>
         </div>
       </div>
-    </>
+    </article>
   )
 }
 
