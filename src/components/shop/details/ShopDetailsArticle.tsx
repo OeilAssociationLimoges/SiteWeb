@@ -151,7 +151,7 @@ const ShopDetailsArticle: Component<{ product: ProductItem }> = (props) => {
       </div>
 
       <div class="flex flex-col lg:flex-row grow-1 w-full gap-6 justify-center">
-        <div class="relative h-full sticky top-32">
+        <div class="relative h-full lg:sticky lg:top-32">
           <div class="shrink-0 flex flex-col gap-4 border-black border-2 lg:w-fit h-fit">
             <div class="overflow-hidden cursor-grab w-full lg:w-400px" ref={emblaRef}>
               <div class="flex">
