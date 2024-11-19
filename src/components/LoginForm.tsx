@@ -16,6 +16,10 @@ const LoginForm: Component = () => {
     event.preventDefault();
     setLoading(true);
 
+    // On évite d'envoyer un username/password vide...
+    if (!username() || !password())
+      return;
+
     try {
       const response = await fetch("/api/login", {
         method: "POST",
@@ -94,7 +98,9 @@ const LoginForm: Component = () => {
       </div>
 
       <Show when={error()}>
-        <p class="text-red">{error()}</p>
+        <p class="text-red text-center py-2 px-6">
+          {error()}
+        </p>
       </Show>
 
       <button
