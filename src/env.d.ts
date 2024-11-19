@@ -7,12 +7,43 @@ interface AgendaItem {
   description: string
 }
 
+interface ProductVariant {
+  id: string
+  name: string
+  images: Array<string>
+}
+
+interface ProductInputBase {
+  id: string
+  name: string
+}
+
+interface ProductInputText extends ProductInputBase {
+  type: "text"
+  placeholder: string
+}
+
+interface ProductInputSelect extends ProductInputBase {
+  type: "select"
+  options: Array<{
+    name: string
+    value: string
+  }>
+}
+
+type ProductInput = (
+  | ProductInputText
+  | ProductInputSelect
+)
+
 interface ProductItem {
   id: string
   name: string
   description: string
   price: number
-  image: string
+  
+  variants: Array<ProductVariant>
+  inputs?: Array<ProductInput>
 }
 
 declare module "*.yml" {
