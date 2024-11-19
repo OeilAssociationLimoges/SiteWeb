@@ -12,6 +12,8 @@ const LoginForm: Component = () => {
   const [loading, setLoading] = createSignal(false);
   const [error, setError] = createSignal<string | null>(null);
 
+  const redirectionPath = new URLSearchParams(window.location.search).get('redirect') ?? '/';
+
   const handleFormSubmit = async (event: SubmitEvent) => {
     event.preventDefault();
     setLoading(true);
@@ -39,8 +41,9 @@ const LoginForm: Component = () => {
         localStorage.setItem('token', json.token);
         if (json.profilePicture) setProfilePicture(json.profilePicture);
 
-        // go back to home page
-        window.location.href = '/';
+        // On redirige l'utilisateur vers la page de redirection.
+        const url = new URL(redirectionPath, window.location.origin);
+        window.location.assign(url);
       }
       else throw new Error("Une erreur est survenue lors de la connexion à Biome")
     }

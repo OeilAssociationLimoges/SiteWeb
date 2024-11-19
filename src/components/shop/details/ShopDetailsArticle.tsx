@@ -255,7 +255,7 @@ const ShopDetailsArticle: Component<{ product: ProductItem }> = (props) => {
                   Vous devez vous identifier pour effectuer un paiement.
                 </p>
                 <a
-                  href="/identification"
+                  href={`/identification?redirect=${encodeURIComponent(location.pathname)}`}
                   class="font-mono bg-black hover:bg-black/80 transition-colors text-white text-center py-3"
                 >
                   S'identifier avec Biome

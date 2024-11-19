@@ -8,7 +8,7 @@ const UserProfile: Component = () => {
 
   return (
     <Show when={store.user} fallback={
-      <a href="/identification" class="bg-white text-black font-500 py-1.5 px-4">
+      <a href={`/identification?redirect=${encodeURIComponent(location.pathname)}`} class="bg-white text-black font-500 py-1.5 px-4">
         S'identifier
       </a>
     }>
