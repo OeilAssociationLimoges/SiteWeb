@@ -49,6 +49,7 @@ const ShopDetailsArticle: Component<{ product: ProductItem }> = (props) => {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
+              "Authorization": `Bearer ${localStorage.getItem("token")}`
             },
             body: JSON.stringify({
               id: props.product.id,
@@ -67,13 +68,13 @@ const ShopDetailsArticle: Component<{ product: ProductItem }> = (props) => {
           const errorDetail = orderData?.details?.[0];
           const errorMessage = errorDetail
               ? `${errorDetail.issue} ${errorDetail.description} (${orderData.debug_id})`
-              : JSON.stringify(orderData);
+              : orderData.error || JSON.stringify(orderData);
 
           throw new Error(errorMessage);
         }
         catch (error) {
           console.error(error);
-          alert(`PayPal Checkout n'a pas pu être initié : ${error}`);
+          alert(`La commande n'a pas pu être initiée, voir l'erreur suivante : "${error}"`);
         }
       },
 

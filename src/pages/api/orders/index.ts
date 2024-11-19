@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro';
-import { createOrder, json } from '../../../utils/api';
+import { createOrder, isAuthenticated, json } from '../../../utils/api';
 import products from "../../../data/products.yml";
 
 /**
@@ -7,6 +7,10 @@ import products from "../../../data/products.yml";
  * en utilisant l'API de PayPal.
  */
 export const POST: APIRoute = async ({ request }) => {
+  if (!isAuthenticated(request)) {
+    return json({ error: "Vous devez être connecté pour créer une commande." }, 401);
+  }
+
   const body = await request.json() as {
     id: string;
   };

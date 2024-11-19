@@ -1,3 +1,5 @@
+import jwt from "jsonwebtoken";
+
 export const json = (data: any, status = 200) => {
   return new Response(JSON.stringify(data), {
     headers: { 'content-type': 'application/json' },
@@ -24,7 +26,20 @@ export const readBearer = (request: Request) => {
   }
 
   return null;
-}
+};
+
+export const isAuthenticated = (request: Request): boolean => {
+  const token = readBearer(request);
+  if (!token) return false
+
+  try {
+    jwt.verify(token, import.meta.env.JWT_SECRET);
+    return true;
+  }
+  catch {
+    return false;
+  }
+};
 
 const base = __PAYPAL_BASE__;
 
