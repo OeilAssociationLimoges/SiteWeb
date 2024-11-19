@@ -1,15 +1,10 @@
-import { createSignal, onMount, Show, type Component } from "solid-js";
+import { createResource, createSignal, onMount, Show, type Component } from "solid-js";
 import { checkUser, getProfilePicture, logout, type User } from "../utils/client";
 import { DropdownMenu } from "@kobalte/core/dropdown-menu";
 
 const UserProfile: Component = () => {
-  const [user, setUser] = createSignal<User | null>(null);
+  const [user, { refetch }] = createResource(checkUser);
   const profilePicture = getProfilePicture();
-
-  onMount(async () => {
-    const user = await checkUser();
-    setUser(user);
-  })
 
   return (
     <Show when={user()} fallback={
@@ -43,7 +38,7 @@ const UserProfile: Component = () => {
                 class="cursor-pointer bg-white hover:bg-black hover:text-white px-3 py-2"
                 onSelect={() => {
                   logout();
-                  setUser(null);
+                  refetch();
                 }}
               >
                 
