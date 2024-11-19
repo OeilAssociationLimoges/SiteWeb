@@ -1,4 +1,4 @@
-import { createEffect, createResource, createSignal, For, Match, on, onMount, Show, Switch, type Component } from "solid-js";
+import { createEffect, createSignal, For, Match, on, Show, Switch, type Component } from "solid-js";
 import createEmblaCarousel from 'embla-carousel-solid';
 import { loadScript } from "@paypal/paypal-js";
 import { createStore } from "solid-js/store";
@@ -140,10 +140,10 @@ const ShopDetailsArticle: Component<{ product: ProductItem }> = (props) => {
   }));
 
   return (
-    <div class="flex h-full w-full gap-6">
+    <div class="flex flex-col lg:flex-row h-full w-full gap-6">
       <div class="relative h-full">
-        <div class="shrink-0 flex flex-col gap-2 border-black border-2 w-fit h-fit sticky top-28">
-          <div class="overflow-hidden cursor-grab w-400px" ref={emblaRef}>
+        <div class="shrink-0 flex flex-col gap-4 border-black border-2 lg:w-fit h-fit sticky top-28">
+          <div class="overflow-hidden cursor-grab w-full lg:w-400px" ref={emblaRef}>
             <div class="flex">
               <For each={variant()!.images}>
                 {(image) => (
@@ -151,7 +151,7 @@ const ShopDetailsArticle: Component<{ product: ProductItem }> = (props) => {
                     <img
                       src={`/_products/${image}`}
                       alt={props.product.name}
-                      class="w-400px h-400px object-contain bg-white select-none"
+                      class="w-full h-300px lg:w-400px lg:h-400px object-contain bg-white select-none"
                     />
                   </div>
                 )}
@@ -159,28 +159,28 @@ const ShopDetailsArticle: Component<{ product: ProductItem }> = (props) => {
             </div>
           </div>
 
-          <hr class="border-black border-t-2" />
-
-          <div class="flex flex-wrap w-400px gap-2 p-4">
+          <select class="bg-white px-2 py-3.5 outline-none border-black border-t-2 hover:bg-black/2 focus:bg-black/5 transition-colors"
+            onChange={(event) => {
+              const value = event.currentTarget.value;
+              setVariantID(value);
+            }}
+          >
             <For each={props.product.variants}>
               {(variant) => (
-                <button type="button" class="flex items-center gap-2 w-fit py-1.5 px-3"
-                  classList={{
-                    "bg-black text-white": variantID() === variant.id
-                  }}
-                  onClick={() => setVariantID(variant.id)}
+                <option value={variant.id}
+                  selected={variant.id === variantID()}
                 >
                   {variant.name}
-                </button>
+                </option>
               )}
             </For>
-          </div>
+          </select>
         </div>
       </div>
 
       <div class="flex flex-col font-mono w-full">
-        <h1 class="text-xl">{props.product.name}</h1>
-        <p class="text-2xl font-600">{props.product.price} €</p>
+        <h1 class="text-xl text-center mt-6 lg:text-start lg:mt-0">{props.product.name}</h1>
+        <p class="text-2xl font-600 text-center lg:text-start">{props.product.price} €</p>
 
         <div class="flex flex-col gap-4 mt-8">
           <For each={props.product.inputs}>
@@ -220,7 +220,7 @@ const ShopDetailsArticle: Component<{ product: ProductItem }> = (props) => {
 
           <Show when={store.user} fallback={
             <div class="flex flex-col gap-2 mt-8">
-              <p class="font-sans text-center text-black/75">
+              <p class="font-sans text-center text-black/75 text-xs lg:text-base">
                 Vous devez vous identifier pour effectuer un paiement.
               </p>
               <a
@@ -231,7 +231,7 @@ const ShopDetailsArticle: Component<{ product: ProductItem }> = (props) => {
               </a>
             </div>
           }>
-            <div ref={setPaypalButtonsContainer} class="w-full mt-8 z-0" />
+            <div ref={setPaypalButtonsContainer} class="w-full max-w-500px mx-auto mt-8 z-0" />
           </Show>
         </div>
       </div>
