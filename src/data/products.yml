@@ -1,5 +1,5 @@
 - id: sweat-2024
-  name: Sweats 2024
+  name: Sweat (2024)
   description: Les fameux sweats de l'OEIL 2024-2025.
   price: 999.99
 
@@ -48,14 +48,10 @@
       name: Vanille
       images:
         - sweat-vanille-front.png
-        # J'ai pas reçu les images pour celui là...
-        # - sweat-vanille-back.png
     - id: gris-clair-chiné
       name: Gris clair chiné
       images:
-        - sweat-gris-clair-chiné-front.png
-        # J'ai pas reçu les images pour celui là...
-        # - sweat-gris-clair-chiné-back.png
+        - sweat-gris-clair-chine-front.png
 
   inputs:
     - id: size
@@ -78,3 +74,178 @@
       type: text
       placeholder: "Ex: Prénom, surnom, etc."
 
+- id: bonnet-2024
+  name: Bonnet (2024)
+  description: Les bonnets de l'OEIL 2024-2025.
+  price: 999.99
+  variants:
+    - id: noir
+      name: Noir
+      images:
+        - bonnet-noir.png
+    - id: beige
+      name: Beige
+      images:
+        - bonnet-beige.png
+
+- id: casquette-2024
+  name: Casquette (2024)
+  description: Les casquettes de l'OEIL 2024-2025.
+  price: 999.99
+  variants:
+    - id: noir
+      name: Noir
+      images:
+        - casquette-noir.png
+    - id: blanc
+      name: Blanc
+      images:
+        - casquette-blanc.png
+    - id: bleu
+      name: Bleu
+      images:
+        - casquette-bleu.png
+
+- id: t-shirt-2024
+  name: T-shirt (2024)
+  description: Les t-shirts de l'OEIL 2024-2025.
+  price: 999.99
+
+  variants:
+    - id: noir
+      name: Noir
+      images:
+        - t-shirt-noir-front.png
+        - t-shirt-noir-back.png
+    - id: bleu-foncé-chiné
+      name: Bleu Foncé Chiné
+      images:
+        - t-shirt-bleu-fonce-chine-front.png
+        - t-shirt-bleu-fonce-chine-back.png
+    - id: blanc
+      name: Blanc
+      images:
+        - t-shirt-blanc-front.png
+
+  inputs:
+    - id: size
+      name: Taille
+      type: select
+      options:
+        - name: XS
+          value: xs
+        - name: S
+          value: s
+        - name: M
+          value: m
+        - name: L
+          value: l
+        - name: XL
+          value: xl
+        - name: XXL
+          value: xxl
+    
+    - id: label
+      name: Libellé
+      type: text
+      placeholder: "Ex: Prénom, surnom, etc."
+
+- id: pull-2024
+  name: Pull, sans capuche (2024)
+  description: Les pulls de l'OEIL 2024-2025.
+  price: 999.99
+
+  variants:
+    - id: noir
+      name: Noir
+      images:
+        - pull-noir-front.png
+        - pull-noir-back.png
+    - id: bleu-royal
+      name: Bleu Royal
+      images:
+        - pull-bleu-royal-front.png
+        - pull-bleu-royal-back.png
+    - id: vert-militaire
+      name: Vert Militaire
+      images:
+        - pull-vert-militaire-front.png
+        - pull-vert-militaire-back.png
+    - id: sable
+      name: Sable
+      images:
+        - pull-sable-front.png
+        - pull-sable-back.png
+
+  inputs:
+    - id: size
+      name: Taille
+      type: select
+      options:
+        - name: S
+          value: s
+        - name: M
+          value: m
+        - name: L
+          value: l
+        - name: XL
+          value: xl
+        - name: XXL
+          value: xxl
+    
+    - id: label
+      name: Libellé
+      type: text
+      placeholder: "Ex: Prénom, surnom, etc."
+
+- id: veste-2024
+  name: Veste (2024)
+  description: Les vestes de l'OEIL 2024-2025.
+  price: 999.99
+
+  variants:
+    - id: noir
+      name: Noir
+      images:
+        - veste-noir-front.png
+        - veste-noir-back.png
+    - id: bleu-royal
+      name: Bleu Royal
+      images:
+        - veste-bleu-royal-front.png
+        - veste-bleu-royal-back.png
+    - id: bordeaux
+      name: Bordeaux
+      images:
+        - veste-bordeaux-front.png
+        - veste-bordeaux-back.png
+    - id: vert-foret
+      name: Vert Forêt
+      images:
+        - veste-vert-foret-front.png
+        - veste-vert-foret-back.png
+    - id: gris-clair-chainé
+      name: Gris Clair Chiné
+      images:
+        - veste-gris-clair-chine-front.png
+
+  inputs:
+    - id: size
+      name: Taille
+      type: select
+      options:
+        - name: S
+          value: s
+        - name: M
+          value: m
+        - name: L
+          value: l
+        - name: XL
+          value: xl
+        - name: XXL
+          value: xxl
+    
+    - id: label
+      name: Libellé
+      type: text
+      placeholder: "Ex: Prénom, surnom, etc."
