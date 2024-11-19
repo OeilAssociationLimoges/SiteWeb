@@ -8,10 +8,15 @@ import LoginForm from '../components/LoginForm';
 	<main class="bg-black text-white h-full min-h-screen font-mono font-400 px-6">
     <div class="flex flex-col items-center">
       <IconOeil class="text-9xl sm:text-[240px] md:text-[320px]" />
-  
-      <p class="sm:-mt-6 mb-12 text-xl font-700">
-        $ oeil login
-      </p>
+      
+      <div class="flex flex-col gap-1 sm:-mt-6 mb-12 text-center">
+        <p class="text-xl font-700">
+          $ oeil login
+        </p>
+        <p class="text-sm opacity-50">
+          utilisez vos identifiants Biome
+        </p>
+      </div>
 
       <LoginForm client:only="solid-js" />
 
