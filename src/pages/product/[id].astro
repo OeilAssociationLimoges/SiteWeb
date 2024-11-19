@@ -26,11 +26,6 @@ const { product } = Astro.props;
     <NavMenu client:load />
 
     <article class="px-8 container mx-auto flex flex-col">
-      <a href="/shop" class="mb-8 flex items-center gap-2 w-fit hover:bg-black/5 focus:bg-black/8 px-4 py-2 -ml-4">
-        <MdiChevronLeft />
-        <p>Revenir à la page des produits</p>
-      </a>
-
       <ShopDetailsArticle
         product={product}
         client:only="solid-js"
