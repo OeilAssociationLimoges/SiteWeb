@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 import type { User } from "./client";
 
 import _adherants from "../data/adherants.yml";
-const aherants = _adherants as unknown as string[];
+const adherants = _adherants as unknown as string[];
 
 export const json = (data: any, status = 200) => {
   return new Response(JSON.stringify(data), {
@@ -34,7 +34,7 @@ export const extractBearer = (request: Request) => {
 
 export const shouldApplyDiscount = (user: User): boolean => {
   const username = `${user.lastName} ${user.firstName}`.toLowerCase();
-  return aherants.includes(username);
+  return adherants.includes(username);
 }
 
 export const readBearer = (request: Request): User | null => {
@@ -75,9 +75,9 @@ export const generateAccessToken = async () => {
   return json.access_token;
 };
 
-async function handleResponse(response: Response) {
+async function handleResponse<T extends any>(response: Response) {
   try {
-    const jsonResponse = await response.json();
+    const jsonResponse = await response.json() as T;
     
     return {
       jsonResponse,
@@ -94,17 +94,46 @@ async function handleResponse(response: Response) {
  * Create an order to start the transaction.
  * @see https://developer.paypal.com/docs/api/orders/v2/#orders_create
  */
-export const createOrder = async (price: number) => {
+export const createOrder = async (product: ProductItem, variant: ProductVariant, applyDiscount: boolean) => {
   const accessToken = await generateAccessToken();
   const url = `${base}/v2/checkout/orders`;
 
+  const price = applyDiscount ? product.adherant_price : product.price;
+
   const payload = {
     intent: "CAPTURE",
+    payment_source: {
+      paypal: {
+        experience_context: {
+          brand_name: "OEIL",
+          shipping_preference: "NO_SHIPPING",
+        }
+      }
+    },
     purchase_units: [
       {
+        description: "Le SHOP de l'OEIL",
+        items: [{
+          name: `${product.name}: ${variant.name}`,
+          quantity: "1",
+          description: product.description,
+          sku: `${product.id}#${variant.id}`,
+          url: `https://iut-info-oeil.vercel.app/product/${product.id}`,
+          category: "DIGITAL_GOODS",
+          unit_amount: {
+            currency_code: "EUR",
+            value: price.toString()
+          }
+        }],
         amount: {
           currency_code: "EUR",
-          value: price.toString()
+          value: price.toString(),
+          breakdown: {
+            item_total: {
+              currency_code: "EUR",
+              value: price.toString()
+            }
+          }
         },
       },
     ],
@@ -150,4 +179,39 @@ export const captureOrder = async (orderID: string) => {
   });
 
   return handleResponse(response);
+};
+
+export const readOrder = async (orderID: string) => {
+  const accessToken = await generateAccessToken();
+  const url = `${base}/v2/checkout/orders/${orderID}`;
+
+  const response = await fetch(url, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
+
+  return handleResponse<{
+    id: string
+    intent: string
+    status: string
+    purchase_units: [{
+      amount: {
+        currency_code: string
+        value: string
+      }
+
+      items: [{
+        name: string
+        unit_amount: {
+          currency_code: string
+          value: string
+        }
+        quantity: string
+        description: string
+        sku: string
+        url: string
+      }]
+    }]
+  }>(response);
 };

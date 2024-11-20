@@ -55,7 +55,7 @@
         - sweat-gris-clair-chine-front.png
 
   inputs:
-    - id: size
+    - id: taille
       name: Taille
       type: select
       options:
@@ -70,7 +70,7 @@
         - name: XXL
           value: xxl
     
-    - id: label
+    - id: libelle
       name: Libellé
       type: text
       placeholder: "Ex: Prénom, surnom, etc."
@@ -133,7 +133,7 @@
         - t-shirt-blanc-front.png
 
   inputs:
-    - id: size
+    - id: taille
       name: Taille
       type: select
       options:
@@ -150,7 +150,7 @@
         - name: XXL
           value: xxl
     
-    - id: label
+    - id: libelle
       name: Libellé
       type: text
       placeholder: "Ex: Prénom, surnom, etc."
@@ -184,7 +184,7 @@
         - pull-sable-back.png
 
   inputs:
-    - id: size
+    - id: taille
       name: Taille
       type: select
       options:
@@ -199,7 +199,7 @@
         - name: XXL
           value: xxl
     
-    - id: label
+    - id: libelle
       name: Libellé
       type: text
       placeholder: "Ex: Prénom, surnom, etc."
@@ -237,7 +237,7 @@
         - veste-gris-clair-chine-front.png
 
   inputs:
-    - id: size
+    - id: taille
       name: Taille
       type: select
       options:
@@ -252,7 +252,7 @@
         - name: XXL
           value: xxl
     
-    - id: label
+    - id: libelle
       name: Libellé
       type: text
       placeholder: "Ex: Prénom, surnom, etc."

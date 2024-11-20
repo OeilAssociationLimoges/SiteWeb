@@ -11,7 +11,21 @@ const ShopDetailsArticle: Component<{ product: ProductItem }> = (props) => {
   const [emblaRef] = createEmblaCarousel(() => ({ loop: true }));
   const price = () => store.discount ? props.product.adherant_price : props.product.price;
   
-  const [inputs, setInputs] = createStore<Record<string, string>>({});
+  const [inputs, setInputs] = createStore<Record<string, string>>(
+    props.product.inputs?.reduce((acc, input) => {
+      switch (input.type) {
+        case "select":
+          acc[input.id] = input.options[0].value;
+          break;
+        case "text":
+          acc[input.id] = "";
+          break;
+      }
+
+      return acc;
+    }, {} as Record<string, string>) || {}
+  );
+
   const [variantID, setVariantID] = createSignal(props.product.variants[0].id);
   const variant = () => props.product.variants.find((variant) => variant.id === variantID())!;
 
@@ -54,8 +68,8 @@ const ShopDetailsArticle: Component<{ product: ProductItem }> = (props) => {
             },
             body: JSON.stringify({
               id: props.product.id,
-              // variant: variantID(),
-              // inputs: unwrap(inputs)
+              variant_id: variantID(),
+              inputs: unwrap(inputs)
             })
           });
 
@@ -68,77 +82,64 @@ const ShopDetailsArticle: Component<{ product: ProductItem }> = (props) => {
 
           const errorDetail = orderData?.details?.[0];
           const errorMessage = errorDetail
-              ? `${errorDetail.issue} ${errorDetail.description} (${orderData.debug_id})`
-              : orderData.error || JSON.stringify(orderData);
+            ? `${errorDetail.issue} ${errorDetail.description} (${orderData.debug_id})`
+            : orderData.error || JSON.stringify(orderData);
 
           throw new Error(errorMessage);
         }
         catch (error) {
           console.error(error);
-          alert(`La commande n'a pas pu être initiée, voir l'erreur suivante : "${error}"`);
+          setTimeout(() => {
+            alert(`La commande n'a pas pu être initiée, voir l'erreur suivante : "${error}"`);
+          }, 250)
         }
       },
 
       async onApprove (data, actions) {
-          try {
-              const response = await fetch(
-                  `/api/orders/${data.orderID}/capture`,
-                  {
-                      method: "POST",
-                      headers: {
-                          "Content-Type": "application/json",
-                      },
-                  }
-              );
+        try {
+          const response = await fetch(`/api/orders/${data.orderID}/capture`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${localStorage.getItem("token")}`
+            },
+            body: JSON.stringify({
+              inputs: unwrap(inputs)
+            })
+          });
 
-              const orderData = await response.json();
-              // Three cases to handle:
-              //   (1) Recoverable INSTRUMENT_DECLINED -> call actions.restart()
-              //   (2) Other non-recoverable errors -> Show a failure message
-              //   (3) Successful transaction -> Show confirmation or thank you message
+          const orderData = await response.json();
+          // Three cases to handle:
+          //   (1) Recoverable INSTRUMENT_DECLINED -> call actions.restart()
+          //   (2) Other non-recoverable errors -> Show a failure message
+          //   (3) Successful transaction -> Show confirmation or thank you message
 
-              const errorDetail = orderData?.details?.[0];
+          const errorDetail = orderData?.details?.[0];
 
-              if (errorDetail?.issue === "INSTRUMENT_DECLINED") {
-                // (1) Recoverable INSTRUMENT_DECLINED -> call actions.restart()
-                // recoverable state, per
-                // https://developer.paypal.com/docs/checkout/standard/customize/handle-funding-failures/
-                return actions.restart();
-              }
-              else if (errorDetail) {
-                // (2) Other non-recoverable errors -> Show a failure message
-                throw new Error(
-                    `${errorDetail.description} (${orderData.debug_id})`
-                );
-              }
-              else if (!orderData.purchase_units) {
-                throw new Error(JSON.stringify(orderData));
-              }
-              else {
-                  // (3) Successful transaction -> Show confirmation or thank you message
-                  // Or go to another URL:  actions.redirect('thank_you.html');
-                  const transaction =
-                      orderData?.purchase_units?.[0]?.payments
-                          ?.captures?.[0] ||
-                      orderData?.purchase_units?.[0]?.payments
-                          ?.authorizations?.[0];
-        //           resultMessage(
-        //               `Transaction ${transaction.status}: ${transaction.id}<br>
-        // <br>See console for all available details`
-        //           );
-                  console.log(
-                      "Capture result",
-                      orderData,
-                      JSON.stringify(orderData, null, 2)
-                  );
-              }
+          if (errorDetail?.issue === "INSTRUMENT_DECLINED") {
+            // (1) Recoverable INSTRUMENT_DECLINED -> call actions.restart()
+            // recoverable state, per
+            // https://developer.paypal.com/docs/checkout/standard/customize/handle-funding-failures/
+            return actions.restart();
           }
-          catch (error) {
-            console.error(error);
-            // resultMessage(
-            //     `Sorry, your transaction could not be processed...<br><br>${error}`
-            // );
+          else if (errorDetail) {
+            // (2) Other non-recoverable errors -> Show a failure message
+            throw new Error(`${errorDetail.description} (${orderData.debug_id})`);
           }
+          else if (!orderData.purchase_units) {
+            throw new Error(orderData.error || JSON.stringify(orderData));
+          }
+          else {
+            // (3) Successful transaction -> Redirection to the thanks you page
+            window.location.assign(`/merci?order=${data.orderID}`);
+          }
+        }
+        catch (error) {
+          console.error(error);
+          setTimeout(() => {
+            alert(`La transaction n'a pas pu être effectuée, voir l'erreur suivante : "${error}"`);
+          }, 250);
+        }
       },
     }).render(paypalButtonsContainerRef);
   }));
@@ -215,19 +216,20 @@ const ShopDetailsArticle: Component<{ product: ProductItem }> = (props) => {
                         <input
                           type="text"
                           placeholder={input().placeholder}
-                          onInput={(event) => {
-                            setInputs(input().name, event.currentTarget.value);
-                          }}
                           class="w-full px-4 py-2 border-black border-2 bg-white text-black outline-none hover:bg-black/2 focus:bg-black/5 transition-colors"
+                          onInput={(event) => {
+                            setInputs(input().id, event.currentTarget.value);
+                          }}
                         />
                       )}
                     </Match>
                     <Match when={input.type === "select" && input}>
                       {input => (
                         <div class="relative flex">
-                          <select class="cursor-pointer w-full px-4 py-2 border-black border-2 bg-white text-black outline-none hover:bg-black/2 focus:bg-black/5 transition-colors appearance-none"
+                          <select
+                            class="cursor-pointer w-full px-4 py-2 border-black border-2 bg-white text-black outline-none hover:bg-black/2 focus:bg-black/5 transition-colors appearance-none"
                             onChange={(event) => {
-                              setInputs(input().name, event.currentTarget.value);
+                              setInputs(input().id, event.currentTarget.value);
                             }}
                           >
                             <For each={input().options}>

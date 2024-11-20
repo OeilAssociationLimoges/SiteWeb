@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro';
-import { createOrder, isAuthenticated, json } from '../../../utils/api';
+import { createOrder, readBearer, json, shouldApplyDiscount } from '../../../utils/api';
 import products from "../../../data/products.yml";
 
 /**
@@ -7,12 +7,16 @@ import products from "../../../data/products.yml";
  * en utilisant l'API de PayPal.
  */
 export const POST: APIRoute = async ({ request }) => {
-  if (!isAuthenticated(request)) {
+  const user = readBearer(request);
+  
+  if (!user) {
     return json({ error: "Vous devez être connecté pour créer une commande." }, 401);
   }
 
   const body = await request.json() as {
     id: string;
+    variant_id: string;
+    inputs: Record<string, string>;
   };
 
   const product = (<ProductItem[]>products).find(product => product.id === body.id);
@@ -20,8 +24,19 @@ export const POST: APIRoute = async ({ request }) => {
     return json({ error: "Le produit séléctionné est introuvable." }, 404);
   }
 
+  const variant = product.variants.find(variant => variant.id === body.variant_id);
+  if (!variant) {
+    return json({ error: "La variante séléctionnée est introuvable." }, 404);
+  }
+
+  for (const { id: key, name } of product.inputs ?? []) {
+    if (!body.inputs[key]) {
+      return json({ error: `Le champ ${name} est requis.` }, 400);
+    }
+  }
+
   try {
-    const { jsonResponse, httpStatusCode } = await createOrder(product.price);
+    const { jsonResponse, httpStatusCode } = await createOrder(product, variant, shouldApplyDiscount(user));
     return json(jsonResponse, httpStatusCode);
   }
   catch (error) {
