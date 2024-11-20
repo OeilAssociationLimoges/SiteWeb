@@ -1,0 +1,26 @@
+---
+import Footer from "../components/Footer.astro";
+import NavMenu from "../components/NavMenu";
+import Layout from "../layouts/Layout.astro";
+import MdiChevronRight from '~icons/mdi/chevron-right'
+---
+<Layout title="Merci !">
+  <NavMenu client:load />
+
+  <div class="container text-center px-8 min-h-100dvh py-46 mx-auto flex flex-col">
+    <h1 class="text-2xl font-mono">
+      Merci pour votre achat !
+    </h1>
+    
+    <p class="mt-6">
+      Votre commande a bien été prise en compte, veuillez vous renseignez auprès des membres de l'OEIL
+      pour récupérer votre commande physiquement.
+    </p>
+  
+    <a href="/shop" class="mt-12 bg-black text-white pl-4 pr-2 py-2 w-fit mx-auto flex items-center gap-2">
+      Revenir au shop <MdiChevronRight class="text-lg" />
+    </a>
+  </div>
+
+  <Footer />
+</Layout>
