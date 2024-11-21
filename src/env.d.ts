@@ -21,6 +21,7 @@ interface ProductInputBase {
 interface ProductInputText extends ProductInputBase {
   type: "text"
   placeholder: string
+  max_characters?: number
 }
 
 interface ProductInputSelect extends ProductInputBase {
@@ -28,6 +29,7 @@ interface ProductInputSelect extends ProductInputBase {
   options: Array<{
     name: string
     value: string
+    disable_when?: Record<string, Array<string>>
   }>
 }
 

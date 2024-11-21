@@ -6,30 +6,62 @@ import store from "../../../utils/store";
 import MdiChevronLeft from '~icons/mdi/chevron-left'
 import MdiChevronDown from '~icons/mdi/chevron-down'
 
+
+
 const ShopDetailsArticle: Component<{ product: ProductItem }> = (props) => {
   const [paypalButtonsContainer, setPaypalButtonsContainer] = createSignal<HTMLDivElement>();
   const [emblaRef] = createEmblaCarousel(() => ({ loop: true }));
   const price = () => store.discount ? props.product.adherant_price : props.product.price;
   
-  const [inputs, setInputs] = createStore<Record<string, string>>(
-    props.product.inputs?.reduce((acc, input) => {
-      switch (input.type) {
-        case "select":
-          acc[input.id] = input.options[0].value;
-          break;
-        case "text":
-          acc[input.id] = "";
-          break;
-      }
+  const isOptionEnabled = (option: ProductInputSelect["options"][number]): boolean => {
+    return typeof option.disable_when === "undefined" || (option.disable_when && !option.disable_when.variant.includes(variantID()))
+  }
 
-      return acc;
-    }, {} as Record<string, string>) || {}
-  );
+  const [inputs, setInputs] = createStore<Record<string, string>>(props.product.inputs?.reduce((acc, input) => {
+    switch (input.type) {
+      case "select":
+        acc[input.id] = input.options[0].value;
+        break;
+      case "text":
+        acc[input.id] = "";
+        break;
+    }
+
+    return acc;
+  }, {} as Record<string, string>) || {});
 
   const [variantID, setVariantID] = createSignal(props.product.variants[0].id);
   const variant = () => props.product.variants.find((variant) => variant.id === variantID())!;
 
-  createEffect(on(paypalButtonsContainer,  async (paypalButtonsContainerRef) => {
+  /**
+   * Lors du changement de variant, il se peut que les inputs
+   * de type <select> soient désynchronisés dû à des valeurs
+   * qui peuvent être désactivées.
+   * 
+   * On va donc vérifier si la valeur actuelle est désactivée
+   * et si c'est le cas, on va la changer pour une valeur
+   * qui est activée : la première valeur activée.
+   */
+  createEffect(on(variant, () => {
+    const options = props.product.inputs ?? [];
+
+    for (const input of options) {
+      if (input.type !== "select") continue;
+      const value = inputs[input.id];
+
+      // On cherche l'option.
+      const option = input.options.find((option) => option.value  === value);
+      
+      // Si l'option est activée, on ne fait rien.
+      if (option && isOptionEnabled(option)) continue; 
+
+      // On cherche la première option activée.
+      const firstEnabledOption = input.options.find(isOptionEnabled);
+      setInputs(input.id, firstEnabledOption?.value || ""); // On laisse vide si aucune option n'est activée.
+    }
+  }));
+
+  createEffect(on(paypalButtonsContainer, async (paypalButtonsContainerRef) => {
     if (!paypalButtonsContainerRef) return;
 
     const paypal = await loadScript({
@@ -218,7 +250,17 @@ const ShopDetailsArticle: Component<{ product: ProductItem }> = (props) => {
                           placeholder={input().placeholder}
                           class="w-full px-4 py-2 border-black border-2 bg-white text-black outline-none hover:bg-black/2 focus:bg-black/5 transition-colors"
                           onInput={(event) => {
-                            setInputs(input().id, event.currentTarget.value);
+                            const element = event.currentTarget;
+                            let value = element.value;
+
+                            // On ajoute la limitation de caractères si jamais
+                            // elle est paramétrée.
+                            if (input().max_characters) {
+                              value = value.slice(0, input().max_characters);
+                            }
+
+                            element.value = value;
+                            setInputs(input().id, value);
                           }}
                         />
                       )}
@@ -234,9 +276,11 @@ const ShopDetailsArticle: Component<{ product: ProductItem }> = (props) => {
                           >
                             <For each={input().options}>
                               {(option) => (
-                                <option value={option.value}>
-                                  {option.name}
-                                </option>
+                                <Show when={isOptionEnabled(option)}>
+                                  <option value={option.value}>
+                                    {option.name}
+                                  </option>
+                                </Show>
                               )}
                             </For>
                           </select>
