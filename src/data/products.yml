@@ -262,7 +262,7 @@
       images:
         - veste-vert-foret-front.png
         - veste-vert-foret-back.png
-    - id: gris-clair-chainé
+    - id: gris-clair-chiné
       name: Gris Clair Chiné
       images:
         - veste-gris-clair-chine-front.png
@@ -283,6 +283,55 @@
           value: xl
         - name: XXL
           value: xxl
+    
+    - id: libelle
+      name: Libellé
+      type: text
+      placeholder: "Ex: Prénom, surnom, etc."
+      max_characters: 13
+
+- id: polo-2024
+  name: Polo (2024)
+  description: Les polos de l'OEIL 2024-2025.
+  price: 29.00
+  adherant_price: 25.00
+
+  variants:
+    - id: noir
+      name: Noir
+      images:
+        - polo-noir-front.png
+        - polo-noir-back.png
+    - id: blanc
+      name: Blanc
+      images:
+        - polo-blanc-front.png
+        - polo-blanc-back.png
+    - id: gris-chiné
+      name: Gris Chiné
+      images:
+        - polo-gris-chine-front.png
+        - polo-gris-chine-back.png
+
+  inputs:
+    - id: taille
+      name: Taille
+      type: select
+      options:
+        - name: XS
+          value: xs
+        - name: S
+          value: s
+        - name: M
+          value: m
+        - name: L
+          value: l
+        - name: XL
+          value: xl
+        - name: XXL
+          value: xxl
+        - name: 3XL
+          value: 3xl
     
     - id: libelle
       name: Libellé
