@@ -1,20 +1,13 @@
 ---
 import IconMapMarker from '~icons/mdi/map-marker';
+import { reWriteAgendaItem } from "../utils/data";
 
 type Props = {
-  item: Omit<AgendaItem, "date"> & {
-    date: Date
-  }
+  item: AgendaItem,
   index: number
 };
 
-const {
-  date,
-  description,
-  location
-} = Astro.props.item;
-
-const locationLink = Astro.props.item['location-link']
+const item = reWriteAgendaItem(Astro.props.item)
 ---
 
 <div class="pl-8 pb-10 relative"
@@ -30,30 +23,34 @@ const locationLink = Astro.props.item['location-link']
   <div class="flex-shrink-0 w-[12px] h-[12px] bg-black rounded-full absolute -left-[7px]" />
 
   <p class="text-xl font-500 pb-1 transform translate-y-[-8px]">
-    {date.toLocaleDateString("fr-FR")}
+    {item.date.toLocaleDateString("fr-FR")}
   </p>
 
   <div class="border-4 border-black px-6 py-4">
     <p class="mt-2 font-400">
-      {description}
+      {item.description}
     </p>
 
-    <div class="mt-6 flex items-center gap-2">
-      <IconMapMarker class="text-xl" />
-      {locationLink ? (
-        <a
-          href={locationLink}
-          class="font-400 text-black/80 hover:text-black hover:underline hover:underline-offset-2 transition-colors"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          {location}
-        </a>
-      ) : (
-        <p class="font-300">
-          {location}
-        </p>
-      )}
+    <div class="mt-6 flex flex-col">
+      {item.locations.map(location => (
+        <div class="mt-6 flex items-center gap-2">
+          <IconMapMarker class="text-xl" />
+          {location.link ? (
+            <a
+              href={location.link}
+              class="font-400 text-black/80 hover:text-black hover:underline hover:underline-offset-2 transition-colors"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              {location.label}
+            </a>
+          ) : (
+            <p class="font-300">
+              {location.label}
+            </p>
+          )}
+        </div>
+      ))}
     </div>
   </div>
 </div>

@@ -2,8 +2,8 @@
 
 interface AgendaItem {
   date: string
-  location: string
-  "location-link"?: string
+  locations: string[]
+  "locations-links"?: string[]
   description: string
 }
 

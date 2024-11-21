@@ -1,23 +1,19 @@
-- date: "20/01/2025"
-  location: Chez Bernard, Limoges
-  location-link: https://www.google.fr/maps/place/Chez+Bernard/@45.8289971,1.2614872,17z/data=!3m1!4b1!4m6!3m5!1s0x47f934a314a83d57:0xd952827f6296a091!8m2!3d45.8289934!4d1.2640621!16s%2Fg%2F1td2t7sq
+- date: "28/11/2024"
+  locations:
+    - Bowling, Limoges Sud / Feytiat
+    - Chez Bernard, Limoges 
+  locations-links:
+    - https://maps.app.goo.gl/dhfDNyUnYo598KoK8
+    - https://maps.app.goo.gl/wYYpYP2zZPiBauBz5
   description: |
-    Soirée inter-BDE de 20h30 à 1h00 ! Un beer-pong sera disponible à 21h.
-    En gros, ceci est une description vraiment très simple et courte pour informer les gens.
-    D'ailleurs c'est une fausse annonce, juste pour tester le site.
-- date: "20/02/2025"
-  location: Chez Bernard, Limoges
-  location-link: https://www.google.fr/maps/place/Chez+Bernard/@45.8289971,1.2614872,17z/data=!3m1!4b1!4m6!3m5!1s0x47f934a314a83d57:0xd952827f6296a091!8m2!3d45.8289934!4d1.2640621!16s%2Fg%2F1td2t7sq
+    Soirée Bowling de 19h30 à 22h ! Les professeurs, diplômés et étudiants en informatique y sont conviés !
+    Nous irons par la suite Chez Bernard à partir de 22h.
+
+- date: "01/12/2024"
+  locations:
+    - IUT du Limousin, Limoges
+  locations-links:
+    - https://maps.app.goo.gl/ZCxzDS7rtiDt1KQg9
   description: |
-    Une soirée juste après...
-- date: "20/04/2025"
-  location: Chez Bernard, Limoges
-  location-link: https://www.google.fr/maps/place/Chez+Bernard/@45.8289971,1.2614872,17z/data=!3m1!4b1!4m6!3m5!1s0x47f934a314a83d57:0xd952827f6296a091!8m2!3d45.8289934!4d1.2640621!16s%2Fg%2F1td2t7sq
-  description: |
-    La dernière soirée !!
-- date: "20/03/2025"
-  location: Chez Bernard, Limoges
-  location-link: https://www.google.fr/maps/place/Chez+Bernard/@45.8289971,1.2614872,17z/data=!3m1!4b1!4m6!3m5!1s0x47f934a314a83d57:0xd952827f6296a091!8m2!3d45.8289934!4d1.2640621!16s%2Fg%2F1td2t7sq
-  description: |
-    Une entre-soirée !!
-    
+    Inscrivez vous pour le Secret Santa avant le 1er décembre !
+    Vous devrez par la suite offrir un cadeau à la personne que nous vous avons attribuée !

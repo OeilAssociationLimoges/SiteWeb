@@ -12,12 +12,10 @@ import IconInformation from '~icons/mdi/information'
 
 import __agenda from "../data/agenda.yml";
 const agenda = __agenda as Array<AgendaItem>
+import { reWriteAgendaItem } from "../utils/data";
 
 const events = agenda
-  .map(event => ({
-    ...event,
-    date: new Date(event.date.split("/").reverse().join("-"))
-  }))
+  .map(reWriteAgendaItem)
   .sort((a, b) => a.date.getTime() - b.date.getTime())
   .filter(event => event.date > new Date());
 
@@ -60,22 +58,26 @@ const nextEvent = events.shift();
           {nextEvent.description}
         </p>
 
-        <div class="mt-6 flex items-center gap-2">
-          <IconMapMarker class="text-xl" />
-          {nextEvent['location-link'] ? (
-            <a
-              href={nextEvent['location-link']}
-              class="font-400 text-black/80 hover:text-black hover:underline hover:underline-offset-2 transition-colors"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              {nextEvent.location}
-            </a>
-          ) : (
-            <p class="font-300">
-              {nextEvent.location}
-            </p>
-          )}
+        <div class="mt-6 flex flex-col gap-1">
+          {nextEvent.locations.map(location => (
+            <div class="flex items-center gap-2">
+              <IconMapMarker class="text-xl" />
+              {location.link ? (
+                <a
+                  href={location.link}
+                  class="font-400 text-black/80 hover:text-black hover:underline hover:underline-offset-2 transition-colors"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  {location.label}
+                </a>
+              ) : (
+                <p class="font-300">
+                  {location.label}
+                </p>
+              )}
+            </div>
+          ))}
         </div>
       ) : (
         <div class="flex flex-col items-center gap-2">
@@ -94,12 +96,20 @@ const nextEvent = events.shift();
         # Agenda
       </h2>
 
-      <div class="mt-10 max-w-[640px] border-black border-l-2 mx-auto pb-6 flex flex-col"
-        style="border-image: linear-gradient(#000 0%, #000 92%, #fff 100%) 1;"
+      <div class="mt-10 max-w-[640px] border-black mx-auto pb-6 flex flex-col"
+        style={{
+          "border-image": "linear-gradient(#000 0%, #000 92%, #fff 100%) 1",
+          "border-left-width": events.length > 0 ? "2px" : undefined
+        }}
       >
-        {events.map((event, i) => (
-          <Agenda item={event} index={i} />
-        ))}
+        {events.length > 0 ? events.map((event, i) => (
+          <Agenda item={event._} index={i} />
+        )) : (
+          <div class="flex flex-col items-center gap-2 p-6">
+            <IconInformation class="text-xl" />
+            <p class="text-center">Aucun événement à venir pour le moment...</p>
+          </div>
+        )}
       </div>
     </section>
 
