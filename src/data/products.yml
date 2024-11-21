@@ -49,10 +49,12 @@
       name: Vanille
       images:
         - sweat-vanille-front.png
+        - sweat-vanille-back.png
     - id: gris-clair-chiné
       name: Gris clair chiné
       images:
         - sweat-gris-clair-chine-front.png
+        - sweat-gris-clair-chine-back.png
 
   inputs:
     - id: taille
@@ -69,11 +71,31 @@
           value: xl
         - name: XXL
           value: xxl
+        - name: 3XL
+          value: 3xl
+          disable-when:
+            - variant:
+              - bordeaux
+              - peche
+              - vanille
+        - name: 4XL
+          value: 4xl
+          disable-when:
+            - variant:
+              - bordeaux
+              - lavende
+              - turquoise-pastel
+              - vert-de-gris
+              - bleu-royal
+              - beige
+              - peche
+              - vanille
     
     - id: libelle
       name: Libellé
       type: text
       placeholder: "Ex: Prénom, surnom, etc."
+      max-characters: 13
 
 - id: bonnet-2024
   name: Bonnet (2024)
@@ -131,6 +153,7 @@
       name: Blanc
       images:
         - t-shirt-blanc-front.png
+        - t-shirt-blanc-back.png
 
   inputs:
     - id: taille
@@ -154,6 +177,7 @@
       name: Libellé
       type: text
       placeholder: "Ex: Prénom, surnom, etc."
+      max-characters: 13
 
 - id: pull-2024
   name: Pull, sans capuche (2024)
@@ -198,11 +222,18 @@
           value: xl
         - name: XXL
           value: xxl
+        - name: 3XL
+          value: 3xl
+          disable-when:
+            - variant:
+              - vert-militaire
+              - sable
     
     - id: libelle
       name: Libellé
       type: text
       placeholder: "Ex: Prénom, surnom, etc."
+      max-characters: 13
 
 - id: veste-2024
   name: Veste (2024)
@@ -235,6 +266,7 @@
       name: Gris Clair Chiné
       images:
         - veste-gris-clair-chine-front.png
+        - veste-gris-clair-chine-back.png
 
   inputs:
     - id: taille
@@ -256,3 +288,4 @@
       name: Libellé
       type: text
       placeholder: "Ex: Prénom, surnom, etc."
+      max-characters: 13
