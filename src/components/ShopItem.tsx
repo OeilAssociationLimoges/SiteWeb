@@ -50,7 +50,7 @@ const ShopItem: Component<{ product: ProductItem }> = (props) => {
           &gt; {props.product.name}
         </p>
         <p class="text-lg shrink-0">
-          {store.discount ? props.product.adherant_price : props.product.price} €
+          {(store.discount ? props.product.adherant_price : props.product.price).toFixed(2)} €
         </p>
       </div>
       <div class="p-4 space-y-6">

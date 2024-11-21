@@ -232,7 +232,7 @@ const ShopDetailsArticle: Component<{ product: ProductItem }> = (props) => {
 
         <div class="flex flex-col font-mono w-full lg:max-w-532px">
           <h1 class="text-xl text-center mt-6 lg:text-start lg:mt-0">{props.product.name}</h1>
-          <p class="text-2xl font-600 text-center lg:text-start">{price()} €</p>
+          <p class="text-2xl font-600 text-center lg:text-start">{price().toFixed(2)} €</p>
 
           <div class="flex flex-col gap-4 mt-8">
             <For each={props.product.inputs}>
