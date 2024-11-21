@@ -44,6 +44,7 @@ interface ProductItem {
   description: string
   price: number
   adherant_price: number
+  year: number
   
   variants: Array<ProductVariant>
   inputs?: Array<ProductInput>

@@ -194,7 +194,7 @@ const ShopDetailsArticle: Component<{ product: ProductItem }> = (props) => {
                   {(image) => (
                     <div class="flex-[0_0_100%] min-w-0">
                       <img
-                        src={`/_products/${image}`}
+                        src={`/PRODUCTS/${props.product.year}/${image}`}
                         alt={props.product.name}
                         class="w-full h-300px lg:w-400px lg:h-400px object-contain bg-white select-none"
                       />
