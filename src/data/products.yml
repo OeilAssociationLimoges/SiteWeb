@@ -1,8 +1,8 @@
 - id: sweat-2024
   name: Sweat (2024)
   description: Les fameux sweats de l'OEIL 2024-2025.
-  price: 999.99
-  adherant_price: 459.99
+  price: 34.00
+  adherant_price: 30.00
 
   variants:
     - id: noir
@@ -100,8 +100,8 @@
 - id: bonnet-2024
   name: Bonnet (2024)
   description: Les bonnets de l'OEIL 2024-2025.
-  price: 999.99
-  adherant_price: 459.99
+  price: 15.00
+  adherant_price: 12.00
 
   variants:
     - id: noir
@@ -116,8 +116,8 @@
 - id: casquette-2024
   name: Casquette (2024)
   description: Les casquettes de l'OEIL 2024-2025.
-  price: 999.99
-  adherant_price: 459.99
+  price: 18.00
+  adherant_price: 15.00
   variants:
     - id: noir
       name: Noir
@@ -135,8 +135,8 @@
 - id: t-shirt-2024
   name: T-shirt (2024)
   description: Les t-shirts de l'OEIL 2024-2025.
-  price: 999.99
-  adherant_price: 459.99
+  price: 24.00
+  adherant_price: 20.00
 
   variants:
     - id: noir
@@ -182,8 +182,8 @@
 - id: pull-2024
   name: Pull, sans capuche (2024)
   description: Les pulls de l'OEIL 2024-2025.
-  price: 999.99
-  adherant_price: 459.99
+  price: 32.00
+  adherant_price: 28.00
 
   variants:
     - id: noir
@@ -238,8 +238,8 @@
 - id: veste-2024
   name: Veste (2024)
   description: Les vestes de l'OEIL 2024-2025.
-  price: 999.99
-  adherant_price: 459.99
+  price: 32.00
+  adherant_price: 28.00
 
   variants:
     - id: noir
