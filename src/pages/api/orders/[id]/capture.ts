@@ -1,6 +1,7 @@
 import type { APIRoute } from 'astro';
-import { captureOrder, json, readBearer, readOrder } from '../../../../utils/api';
+import { captureOrder, json, readBearer, readOrder, shouldApplyDiscount } from '../../../../utils/api';
 import products from "../../../../data/products.yml";
+import { insertProductEntry } from '../../../../utils/sheets';
 
 export const POST: APIRoute = async ({ params, request }) => {
   const orderID = params.id as string;
@@ -39,30 +40,30 @@ export const POST: APIRoute = async ({ params, request }) => {
         }
 
         const sheet = product.id;
-        const entry: Record<string, string> = {
-          variant: variant.name,
-          payer: `${user.firstName} ${user.lastName.toUpperCase()}`,
-          price: jsonResponse.purchase_units[0].items[0].unit_amount.value
-        };
+        const inputs: Record<string, string> = {};
 
-        for (const { id: key, type } of product.inputs ?? []) {
+        for (const { id: key, type, name } of product.inputs ?? []) {
           if (type === "select") {
             const value = body.inputs[key];
             const optionName = (product.inputs!.find(input => input.id === key)! as ProductInputSelect).options.find(option => option.value === value)!.name!;
             // On va venir utiliser le nom de l'option à la place de l'ID.
-            entry[key] = optionName;
+            inputs[name] = optionName;
           }
           // Tout ce qui est textuel, on le garde tel quel.
           else {
-            entry[key] = body.inputs[key];
+            inputs[name] = body.inputs[key];
           }
         }
-
-        // TODO: Enregistrer la commande dans la base de données
-        console.log({
-          sheet,
-          entry
-        })
+        
+        await insertProductEntry(sheet, {
+          acheteur: `${user.firstName} ${user.lastName.toUpperCase()}`,
+          variant: variant.name,
+          price: jsonResponse.purchase_units[0].items[0].unit_amount.value,
+          payment_method: "SITE_INTERNET",
+          adherent: shouldApplyDiscount(user), // if discount is applied, then it's an adherent
+          paid: true,
+          inputs
+        });
       }
     }
 
