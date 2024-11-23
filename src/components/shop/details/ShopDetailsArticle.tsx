@@ -256,7 +256,15 @@ const ShopDetailsArticle: Component<{ product: ProductItem }> = (props) => {
                             // On ajoute la limitation de caractères si jamais
                             // elle est paramétrée.
                             if (input().max_characters) {
-                              value = value.slice(0, input().max_characters);
+                              value = value.slice(0, input().max_characters!);
+                            }
+
+                            if (input().validation) {
+                              const regex = new RegExp(input().validation!);
+                              // On enlève les caractères qui ne correspondent pas
+                              // à l'expression régulière.
+                              const chars = value.split("").filter(char => regex.test(char));
+                              value = chars.join("");
                             }
 
                             element.value = value;

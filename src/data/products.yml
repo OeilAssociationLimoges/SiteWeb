@@ -97,6 +97,7 @@
       type: text
       placeholder: "Ex: Prénom, surnom, etc."
       max_characters: 13
+      validation: ^[\x00-\x7FÀ-ÖØ-öø-ÿ]+$
 
 - id: bonnet-2024
   name: Bonnet (2024)
@@ -183,6 +184,7 @@
       type: text
       placeholder: "Ex: Prénom, surnom, etc."
       max_characters: 13
+      validation: ^[\x00-\x7FÀ-ÖØ-öø-ÿ]+$
 
 - id: pull-2024
   name: Pull, sans capuche (2024)
@@ -240,6 +242,7 @@
       type: text
       placeholder: "Ex: Prénom, surnom, etc."
       max_characters: 13
+      validation: ^[\x00-\x7FÀ-ÖØ-öø-ÿ]+$
 
 - id: veste-2024
   name: Veste (2024)
@@ -296,6 +299,7 @@
       type: text
       placeholder: "Ex: Prénom, surnom, etc."
       max_characters: 13
+      validation: ^[\x00-\x7FÀ-ÖØ-öø-ÿ]+$
 
 - id: polo-2024
   name: Polo (2024)
@@ -346,3 +350,4 @@
       type: text
       placeholder: "Ex: Prénom, surnom, etc."
       max_characters: 13
+      validation: ^[\x00-\x7FÀ-ÖØ-öø-ÿ]+$

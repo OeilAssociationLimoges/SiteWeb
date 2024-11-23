@@ -22,6 +22,8 @@ interface ProductInputText extends ProductInputBase {
   type: "text"
   placeholder: string
   max_characters?: number
+  /** regex */
+  validation?: string
 }
 
 interface ProductInputSelect extends ProductInputBase {
