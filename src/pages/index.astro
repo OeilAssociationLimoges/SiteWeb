@@ -4,8 +4,6 @@ import Agenda from '../components/Agenda.astro';
 import Footer from '../components/Footer.astro';
 import NavMenu from "../components/NavMenu"
 import PresentationCards from "../components/PresentationCards"
-import ImagesMarquee from "../components/ImagesMarquee.astro"
-import ImageForMarquee from "../components/ImageForMarquee.astro"
 
 import IconMapMarker from '~icons/mdi/map-marker'
 import IconInformation from '~icons/mdi/information'
@@ -13,6 +11,7 @@ import IconInformation from '~icons/mdi/information'
 import __agenda from "../data/agenda.yml";
 const agenda = __agenda as Array<AgendaItem>
 import { reWriteAgendaItem } from "../utils/data";
+import HomePresentationCarousel from '../components/home/HomePresentationCarousel';
 
 const events = agenda
   .map(reWriteAgendaItem)
@@ -155,12 +154,14 @@ const nextEvent = events.shift();
     </section>
 
     <div class="left-0 right-0 mb-16">
-      <ImagesMarquee>
-        <ImageForMarquee src="/LIFE/bowling-group.png" alt="Photo d'ensemble au Bowling de Limoges" />
-        <ImageForMarquee src="/LIFE/chez-bernard-group.png" alt="Photo entre adhérants à Chez Bernard" />
-        <ImageForMarquee src="/LIFE/target-group.png" alt="Photo d'ensemble lors au Target Expérience" />
-        <ImageForMarquee src="/LIFE/integration-group.png" alt="Photo d'ensemble lors de la journée d'intégration" />
-      </ImagesMarquee>
+      <HomePresentationCarousel client:load
+        images={[
+          { source: "bowling-group.png", description: "Photo d'ensemble au Bowling de Limoges" },
+          { source: "chez-bernard-group.png", description: "Photo entre adhérants à Chez Bernard" },
+          { source: "target-group.png", description: "Photo d'ensemble lors au Target Expérience" },
+          { source: "integration-group.png", description: "Photo d'ensemble lors de la journée d'intégration" },
+        ]}
+      />
     </div>
 
     <PresentationCards client:load />

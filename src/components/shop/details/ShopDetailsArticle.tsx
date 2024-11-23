@@ -196,7 +196,7 @@ const ShopDetailsArticle: Component<{ product: ProductItem }> = (props) => {
                       <img
                         src={`/PRODUCTS/${props.product.year}/${image}`}
                         alt={props.product.name}
-                        class="w-full h-300px lg:w-400px lg:h-400px object-contain bg-white select-none"
+                        class="max-w-400px max-h-300px object-contain bg-white select-none"
                       />
                     </div>
                   )}
