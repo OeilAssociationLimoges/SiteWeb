@@ -1,15 +1,10 @@
 ---
 interface Props {
 	title: string;
+  description: string;
 }
 
-const { title } = Astro.props;
-let description = "Le site web de l'Orgnisation des Étudiants en Informatique de Limoges ! Retrouvez nous sur ce site pour être au courant des prochains événements.";
-
-if (Astro.url.pathname === "/shop" || Astro.url.pathname.startsWith("/product/")) {
-  description = "La boutique de l'OEIL, retrouvez ici tous les produits de l'association !";
-}
-
+const { title, description } = Astro.props;
 ---
 
 <!DOCTYPE html>

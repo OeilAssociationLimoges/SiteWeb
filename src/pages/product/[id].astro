@@ -21,7 +21,7 @@ export async function getStaticPaths() {
 
 const { product } = Astro.props;
 ---
-<Layout title="Le SHOP de l'OEIL">
+<Layout title={`${product.name} - Le SHOP de l'OEIL`} description={product.description}>
   <NavMenu client:load />
   <div class="mt-24">
 
