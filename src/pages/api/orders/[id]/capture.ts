@@ -60,7 +60,7 @@ export const POST: APIRoute = async ({ params, request }) => {
           variant: variant.name,
           price: jsonResponse.purchase_units[0].items[0].unit_amount.value,
           payment_method: "SITE_INTERNET",
-          adherent: shouldApplyDiscount(user), // if discount is applied, then it's an adherent
+          adherent: await shouldApplyDiscount(user), // if discount is applied, then it's an adherent
           paid: true,
           inputs
         });

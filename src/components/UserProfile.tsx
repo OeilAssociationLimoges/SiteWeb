@@ -1,5 +1,5 @@
 import { Show, type Component } from "solid-js";
-import { getProfilePicture, logout } from "../utils/client";
+import { getProfilePicture } from "../utils/client";
 import { DropdownMenu } from "@kobalte/core/dropdown-menu";
 import store from "../utils/store";
 
@@ -16,9 +16,11 @@ const UserProfile: Component = () => {
         <DropdownMenu>
           <DropdownMenu.Trigger class="hover:bg-white/10 px-4 py-2 md:-mr-4 outline-none">
             <div class="flex items-center gap-4">
-              <div class="text-white text-right">
-                <p><span class="font-300">{user().firstName}</span> {user().lastName}</p>
-                <p class="text-xs opacity-50">Étudiant à l'IUT du Limousin</p>
+              <div class="text-white text-right overflow-hidden">
+                <p class="truncate"><span class="font-300">{user().firstName}</span> {user().lastName.toUpperCase()}</p>
+                <p class="text-xs opacity-50">
+                  Vous êtes {store.discount ? "adhérent" : "non adhérent"}
+                </p>
               </div>
               <img
                 class="flex-shrink-0 rounded-full w-11 h-11 border-2 border-white bg-white"

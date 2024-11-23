@@ -36,7 +36,7 @@ export const POST: APIRoute = async ({ request }) => {
   }
 
   try {
-    const { jsonResponse, httpStatusCode } = await createOrder(product, variant, shouldApplyDiscount(user));
+    const { jsonResponse, httpStatusCode } = await createOrder(product, variant, await shouldApplyDiscount(user));
     return json(jsonResponse, httpStatusCode);
   }
   catch (error) {

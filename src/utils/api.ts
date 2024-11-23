@@ -1,8 +1,6 @@
 import jwt from "jsonwebtoken";
 import type { User } from "./client";
-
-import _adherants from "../data/adherants.yml";
-const adherants = _adherants as unknown as string[];
+import { readAdherants } from "./sheets";
 
 export const json = (data: any, status = 200) => {
   return new Response(JSON.stringify(data), {
@@ -32,7 +30,8 @@ export const extractBearer = (request: Request) => {
   return null;
 };
 
-export const shouldApplyDiscount = (user: User): boolean => {
+export const shouldApplyDiscount = async (user: User): Promise<boolean> => {
+  const adherants = await readAdherants();
   const username = `${user.lastName} ${user.firstName}`.toLowerCase();
   return adherants.includes(username);
 }

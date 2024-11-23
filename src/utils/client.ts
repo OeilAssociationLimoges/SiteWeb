@@ -21,7 +21,7 @@ export const checkUser = async (): Promise<User | null> => {
   return response.json();
 }
 
-const safeStorage = typeof localStorage !== "undefined" ? localStorage : null;
+export const safeStorage = typeof localStorage !== "undefined" ? localStorage : null;
 
 export const getProfilePicture = () => {
   const value = safeStorage?.getItem("profilePicture");

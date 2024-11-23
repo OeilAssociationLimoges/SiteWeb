@@ -80,3 +80,11 @@ export const insertProductEntry = async (productId: string, details: {
     "Date": new Date().toLocaleString("fr-FR")
   });
 };
+
+export const readAdherants = async (): Promise<Array<string>> => {
+  const doc = await getDocument(import.meta.env.SHEET_ADHERANTS_ID);
+  const sheet = doc.sheetsByIndex[0];
+  
+  const rows = await sheet.getRows<Record<"Nom" | "Prénom", string>>();
+  return rows.map(row => `${row.get("Nom")} ${row.get("Prénom")}`.toLowerCase());
+};
