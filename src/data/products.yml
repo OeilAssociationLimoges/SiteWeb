@@ -351,3 +351,58 @@
       placeholder: "Ex: Prénom, surnom, etc."
       max_characters: 13
       validation: ^[\x00-\x7FÀ-ÖØ-öø-ÿ]+$
+
+- id: badge-2024
+  name: Badge (2024)
+  description: Les badges de l'OEIL 2024-2025.
+  price: 999.00 #3.50
+  adherant_price: 999.00 #2.00
+  year: 2024
+
+  variants:
+    - id: let-me-cook
+      name: Let Me Cook
+      images:
+        - badge-let-me-cook.jpeg
+    - id: oeil
+      name: OEIL (Blanc)
+      images:
+        - badge-oeil.jpeg
+
+- id: sticker-2024
+  name: Sticker (2024)
+  description: Les stickers de l'OEIL 2024-2025.
+  price: 999.00 #1.50
+  adherant_price: 999.00 #0.50
+  year: 2024
+
+  variants:
+    - id: let-me-cook
+      name: Let Me Cook
+      images:
+        - sticker-let-me-cook.jpeg
+    - id: stalker
+      name: Stalker
+      images:
+        - sticker-stalker.jpeg
+    - id: oeil-blanc
+      name: OEIL (Blanc)
+      images:
+        - sticker-oeil-blanc.jpeg
+    - id: oeil-noir
+      name: OEIL (Noir)
+      images:
+        - sticker-oeil-noir.jpeg
+
+- id: sticker-holo-2024
+  name: Sticker Holographique (2024)
+  description: Les stickers holographique de l'OEIL 2024-2025.
+  price: 999.00 #2.00
+  adherant_price: 999.00 #1.00
+  year: 2024
+
+  variants:
+    - id: let-me-cook
+      name: Let Me Cook
+      images:
+        - sticker-holo-let-me-cook.jpeg
