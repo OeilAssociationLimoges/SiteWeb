@@ -16,11 +16,11 @@
       images:
         - sweat-bordeaux-front.png
         - sweat-bordeaux-back.png
-    - id: lavende
-      name: Lavende
+    - id: lavande
+      name: Lavande
       images:
-        - sweat-lavende-front.png
-        - sweat-lavende-back.png
+        - sweat-lavande-front.png
+        - sweat-lavande-back.png
     - id: turquoise-pastel
       name: Turquoise Pastel
       images:
