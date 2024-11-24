@@ -1,8 +1,8 @@
 - id: sweat-2024
   name: Sweat (2024)
   description: Les fameux sweats de l'OEIL 2024-2025.
-  price: 999.00 #34.00
-  adherant_price: 999.00 #30.00
+  price: 34.00
+  adherant_price: 30.00
   year: 2024
 
   variants:
@@ -102,8 +102,8 @@
 - id: bonnet-2024
   name: Bonnet (2024)
   description: Les bonnets de l'OEIL 2024-2025.
-  price: 999.00 #15.00
-  adherant_price: 999.00 #12.00
+  price: 15.00
+  adherant_price: 12.00
   year: 2024
 
   variants:
@@ -119,8 +119,8 @@
 - id: casquette-2024
   name: Casquette (2024)
   description: Les casquettes de l'OEIL 2024-2025.
-  price: 999.00 #18.00
-  adherant_price: 999.00 #15.00
+  price: 18.00
+  adherant_price: 15.00
   year: 2024
 
   variants:
@@ -140,8 +140,8 @@
 - id: t-shirt-2024
   name: T-shirt (2024)
   description: Les t-shirts de l'OEIL 2024-2025.
-  price: 999.00 #24.00
-  adherant_price: 999.00 #20.00
+  price: 24.00
+  adherant_price: 20.00
   year: 2024
 
   variants:
@@ -189,8 +189,8 @@
 - id: pull-2024
   name: Pull, sans capuche (2024)
   description: Les pulls de l'OEIL 2024-2025.
-  price: 999.00 #32.00
-  adherant_price: 999.00 #28.00
+  price: 32.00
+  adherant_price: 28.00
   year: 2024
 
   variants:
@@ -247,8 +247,8 @@
 - id: veste-2024
   name: Veste (2024)
   description: Les vestes de l'OEIL 2024-2025.
-  price: 999.00 #32.00
-  adherant_price: 999.00 #28.00
+  price: 32.00
+  adherant_price: 28.00
   year: 2024
 
   variants:
@@ -304,8 +304,8 @@
 - id: polo-2024
   name: Polo (2024)
   description: Les polos de l'OEIL 2024-2025.
-  price: 999.00 #29.00
-  adherant_price: 999.00 #25.00
+  price: 29.00
+  adherant_price: 25.00
   year: 2024
 
   variants:
@@ -355,8 +355,8 @@
 - id: badge-2024
   name: Badge (2024)
   description: Les badges de l'OEIL 2024-2025.
-  price: 999.00 #3.50
-  adherant_price: 999.00 #2.00
+  price: 3.50
+  adherant_price: 2.00
   year: 2024
 
   variants:
@@ -372,8 +372,8 @@
 - id: sticker-2024
   name: Sticker (2024)
   description: Les stickers de l'OEIL 2024-2025.
-  price: 999.00 #1.50
-  adherant_price: 999.00 #0.50
+  price: 1.50
+  adherant_price: 0.50
   year: 2024
 
   variants:
@@ -397,8 +397,8 @@
 - id: sticker-holo-2024
   name: Sticker Holographique (2024)
   description: Les stickers holographique de l'OEIL 2024-2025.
-  price: 999.00 #2.00
-  adherant_price: 999.00 #1.00
+  price: 2.00
+  adherant_price: 1.00
   year: 2024
 
   variants:
