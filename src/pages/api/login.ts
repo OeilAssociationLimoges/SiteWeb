@@ -25,9 +25,11 @@ export const POST: APIRoute = async ({ request }) => {
   
     const firstName = profile.find(entry => entry.name === 'firstname').value;
     const lastName = profile.find(entry => entry.name === 'lastname').value.toUpperCase();
+    const description = profile.find(entry => entry.name === 'title').value as string
+    const isStudentBUT = description.match(/Etudiant, BUT \d - INFO/) !== null;
   
     return json({
-      token: jwt.sign({ firstName, lastName }, import.meta.env.JWT_SECRET),
+      token: jwt.sign({ firstName, lastName, isStudentBUT }, import.meta.env.JWT_SECRET),
       profilePicture: profile.find(entry => entry.name === 'avatar').value
     });
   }
