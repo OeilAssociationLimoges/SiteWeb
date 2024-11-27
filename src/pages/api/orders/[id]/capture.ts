@@ -51,7 +51,8 @@ export const POST: APIRoute = async ({ params, request }) => {
           }
           // Tout ce qui est textuel, on le garde tel quel.
           else {
-            inputs[name] = body.inputs[key];
+            // Vu que certains champs peuvent être vides, on les remplace par une chaîne vide.
+            inputs[name] = body.inputs[key] || "";
           }
         }
         

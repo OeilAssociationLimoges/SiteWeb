@@ -29,9 +29,15 @@ export const POST: APIRoute = async ({ request }) => {
     return json({ error: "La variante séléctionnée est introuvable." }, 404);
   }
 
-  for (const { id: key, name } of product.inputs ?? []) {
-    if (!body.inputs[key]) {
-      return json({ error: `Le champ ${name} est requis.` }, 400);
+  for (const input of product.inputs ?? []) {
+    let isRequired = true;
+
+    if (input.type === "text") {
+      isRequired = input.required ?? false;
+    }
+    
+    if (isRequired && !body.inputs[input.id]) {
+      return json({ error: `Le champ ${input.name} est requis.` }, 400);
     }
   }
 

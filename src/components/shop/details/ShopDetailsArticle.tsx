@@ -270,6 +270,7 @@ const ShopDetailsArticle: Component<{ product: ProductItem }> = (props) => {
                             element.value = value;
                             setInputs(input().id, value);
                           }}
+                          required={input().required}
                         />
                       )}
                     </Match>

@@ -24,6 +24,8 @@ interface ProductInputText extends ProductInputBase {
   max_characters?: number
   /** regex */
   validation?: string
+  /** @default false */
+  required?: boolean
 }
 
 interface ProductInputSelect extends ProductInputBase {
