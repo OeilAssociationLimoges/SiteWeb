@@ -28,7 +28,7 @@ const products = __products as Array<ProductItem>
 
   <section class="container mx-auto py-14 flex flex-col md:flex-row md:flex-wrap justify-center gap-8 px-8">
     {products.map((product) => (
-      <ShopItem client:load product={product} />
+      <ShopItem client:only="solid-js" product={product} />
     ))}
   </section>
 

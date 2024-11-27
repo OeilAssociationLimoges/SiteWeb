@@ -42,12 +42,14 @@ const UserProfile: Component = () => {
               >
                 Déconnexion
               </DropdownMenu.Item>
-              <DropdownMenu.Item
-                class="cursor-pointer bg-white hover:bg-black hover:text-white px-3 py-2"
-                onSelect={() => window.open("https://unil.im/edt-iut-info")}
-              >
-                Voir mon EDT
-              </DropdownMenu.Item>
+              <Show when={user().isStudentBUT}>
+                <DropdownMenu.Item
+                  class="cursor-pointer bg-white hover:bg-black hover:text-white px-3 py-2"
+                  onSelect={() => window.open("https://unil.im/edt-iut-info")}
+                >
+                  Voir mon EDT
+                </DropdownMenu.Item>
+              </Show>
             </DropdownMenu.Content>
           </DropdownMenu.Portal>
         </DropdownMenu>

@@ -1,6 +1,11 @@
 export interface User {
   firstName: string
   lastName: string
+  /**
+   * Optional for old authenticated users.
+   * TODO: remove `?` after a week
+   */
+  isStudentBUT?: boolean
 }
 
 export const checkUser = async (): Promise<User | null> => {
