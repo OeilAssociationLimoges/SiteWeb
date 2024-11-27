@@ -1,13 +1,3 @@
-- date: "28/11/2024"
-  locations:
-    - Bowling, Limoges Sud / Feytiat
-    - Chez Bernard, Limoges 
-  locations-links:
-    - https://maps.app.goo.gl/qHMqV6We33w8h8hT8
-    - https://maps.app.goo.gl/wYYpYP2zZPiBauBz5
-  description: |
-    Soirée Bowling de 19h30 à 22h ! Les professeurs, diplômés et étudiants en informatique y sont conviés !
-    Nous irons par la suite Chez Bernard à partir de 22h.
 
 - date: "01/12/2024"
   locations:
@@ -17,3 +7,14 @@
   description: |
     Inscrivez vous pour le Secret Santa avant le 1er décembre !
     Vous devrez par la suite offrir un cadeau à la personne que nous vous avons attribuée !
+
+- date: "5/12/2024"
+  locations:
+    - Bowling, Limoges Sud / Feytiat
+    - Chez Bernard, Limoges 
+  locations-links:
+    - https://maps.app.goo.gl/qHMqV6We33w8h8hT8
+    - https://maps.app.goo.gl/wYYpYP2zZPiBauBz5
+  description: |
+    Soirée Bowling de 19h30 à 22h ! Les professeurs, diplômés et étudiants en informatique y sont conviés !
+    Nous irons par la suite Chez Bernard à partir de 22h.
