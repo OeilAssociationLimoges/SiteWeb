@@ -1,4 +1,13 @@
-- date: "6/12/2024"
+- date: "01/12/2024"
+  locations:
+    - IUT du Limousin, Limoges
+  locations-links:
+    - https://maps.app.goo.gl/ZCxzDS7rtiDt1KQg9
+  description: |
+    Inscrivez vous pour le Secret Santa avant le 1er décembre !
+    Vous devrez par la suite offrir un cadeau à la personne que nous vous avons attribuée !
+
+- date: "5/12/2024"
   locations:
     - Bowling, Limoges Sud / Feytiat
     - Chez Bernard, Limoges 
@@ -8,12 +17,3 @@
   description: |
     Soirée Bowling de 19h30 à 22h ! Les professeurs, diplômés et étudiants en informatique y sont conviés !
     Nous irons par la suite Chez Bernard à partir de 22h.
-
-- date: "01/12/2024"
-  locations:
-    - IUT du Limousin, Limoges
-  locations-links:
-    - https://maps.app.goo.gl/ZCxzDS7rtiDt1KQg9
-  description: |
-    Inscrivez vous pour le Secret Santa avant le 1er décembre !
-    Vous devrez par la suite offrir un cadeau à la personne que nous vous avons attribuée !
