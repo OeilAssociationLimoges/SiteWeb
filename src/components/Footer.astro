@@ -4,74 +4,79 @@ import IconGitHub from '~icons/mdi/github'
 import IconEmail from '~icons/mdi/email'
 import IconIUT from '~icons/local/iut'
 import IconBiome from '~icons/local/biome'
+import MdiCardsHeart from '~icons/mdi/cards-heart'
 ---
 <footer class="bg-black text-white p-8 md:p-18 gap-12 md:gap-24 flex flex-col">
-  <div class="flex flex-col gap-2"
-  >
-    <h2 class="uppercase text-xl md:text-7xl font-600 tracking-widest">
-      Nos réseaux
-    </h2>
-    <p class="text-white/60 md:text-lg tracking-wider">
-      Retrouvez nous sur ces diverses plateformes pour toujours être au courant des dernières nouveautés !
-    </p>
-
-    <div class="flex items-center gap-6 text-4xl mt-6 text-white/60">
-      <a
-        href="https://instagram.com/oeil_limoges"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="hover:text-white"
-        title="Instagram"
-      >
-        <IconInstagram class="hover:text-white transition-colors" />
-      </a>
-      <a
-        href="https://github.com/OeilAssociationLimoges"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="hover:text-white"
-        title="GitHub"
-      >
-        <IconGitHub class="hover:text-white transition-colors" />
-      </a>
-      <a
-        href="mailto:asso.oeil@gmail.com"
-        class="hover:text-white"
-        title="E-Mail"
-      >
-        <IconEmail class="hover:text-white transition-colors" />
-      </a>
+  <div class="flex flex-col sm:flex-row gap-8">
+    <div class="flex flex-col gap-2 max-w-[500px] w-full">
+      <h2 class="uppercase text-xl md:text-4xl font-600 tracking-widest">
+        Nos réseaux
+      </h2>
+      <p class="text-white/60 text-sm md:text-base tracking-wider">
+        Retrouvez nous sur ces diverses plateformes pour toujours être au courant des dernières nouveautés !
+      </p>
+  
+      <div class="flex items-center gap-6 text-4xl mt-6 text-white/60">
+        <a
+          href="https://instagram.com/oeil_limoges"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-white"
+          title="Instagram"
+        >
+          <IconInstagram class="hover:text-white transition-colors" />
+        </a>
+        <a
+          href="https://github.com/OeilAssociationLimoges"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-white"
+          title="GitHub"
+        >
+          <IconGitHub class="hover:text-white transition-colors" />
+        </a>
+        <a
+          href="mailto:asso.oeil@gmail.com"
+          class="hover:text-white"
+          title="E-Mail"
+        >
+          <IconEmail class="hover:text-white transition-colors" />
+        </a>
+      </div>
+    </div>
+  
+    <div class="flex flex-col gap-2 max-w-[500px] w-full">
+      <h2 class="uppercase text-xl md:text-4xl font-600 tracking-widest">
+        L'IUT
+      </h2>
+      <p class="text-white/60 text-sm md:text-base tracking-wider">
+        À noter que ce site n'est pas affilié à l'IUT du Limousin.
+      </p>
+  
+      <div class="flex items-center gap-6 text-4xl mt-6 text-white/60">
+        <a
+          href="https://biome.unilim.fr"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-white"
+          title="Biome"
+        >
+          <IconBiome class="hover:text-white transition-colors" />
+        </a>
+        <a
+          href="https://www.iut.unilim.fr"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-white"
+          title="IUT de Limoges"
+        >
+          <IconIUT class="hover:text-white transition-colors" />
+        </a>
+      </div>
     </div>
   </div>
 
-  <div class="flex flex-col gap-2"
-  >
-    <h2 class="uppercase text-xl md:text-7xl font-600 tracking-widest">
-      L'IUT
-    </h2>
-    <p class="text-white/60 md:text-lg tracking-wider">
-      À noter que ce site n'est pas affilié à l'IUT du Limousin.
-    </p>
-
-    <div class="flex items-center gap-6 text-4xl mt-6 text-white/60">
-      <a
-        href="https://biome.unilim.fr"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="hover:text-white"
-        title="Biome"
-      >
-        <IconBiome class="hover:text-white transition-colors" />
-      </a>
-      <a
-        href="https://www.iut.unilim.fr"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="hover:text-white"
-        title="IUT de Limoges"
-      >
-        <IconIUT class="hover:text-white transition-colors" />
-      </a>
-    </div>
-  </div>
+  <p class="text-white/60 mt-8 flex text-xs sm:text-base items-center gap-1 sm:gap-2 flex-wrap">
+    Développé avec <MdiCardsHeart class="text-white" /> par <a class="text-white hover:text-white/80 hover:underline hover:underline-offset" href="https://github.com/Vexcited">Mikkel ALMONTE--RINGAUD</a> pour l'OEIL.
+  </p>
 </footer>
