@@ -1,6 +1,8 @@
-import { createEffect, createMemo, createSignal, For, onMount, type Component } from "solid-js";
+import { createEffect, createMemo, createSignal, For, onMount, Show, type Component } from "solid-js";
 import createEmblaCarousel from 'embla-carousel-solid';
 import store from "../utils/store";
+import MdiChevronRight from '~icons/mdi/chevron-right'
+import MdiChevronLeft from '~icons/mdi/chevron-left'
 
 const ShopItem: Component<{ product: ProductItem }> = (props) => {
   const [emblaRef, emblaApi] = createEmblaCarousel(
@@ -24,25 +26,46 @@ const ShopItem: Component<{ product: ProductItem }> = (props) => {
         <span class="text-sm sm:text-base w-fit bg-black text-white px-3 py-.5">
           {props.product.variants[index()].name}
         </span>
-        <span class="text-xs sm:text-sm w-fit bg-black text-white px-3 py-.5">
-          {index() + 1} / {images().length}
-        </span>
+        <Show when={props.product.variants.length > 1}>
+          <span class="text-xs sm:text-sm w-fit bg-black text-white px-3 py-.5">
+            {index() + 1} / {images().length}
+          </span>
+        </Show>
       </div>
 
-      <div class="overflow-hidden cursor-grab" ref={emblaRef}>
-        <div class="flex w-full h-300px">
-          <For each={images()}>
-            {(image) => (
-              <div class="flex-[0_0_100%] min-w-0">
-                <img
-                  src={`/PRODUCTS/${props.product.year}/${image}`}
-                  alt={props.product.name}
-                  class="w-full h-full object-contain bg-white select-none"
-                />
-              </div>
-            )}
-          </For>
+      <div class="relative">
+        <div class="overflow-hidden cursor-grab" ref={emblaRef}>
+          <div class="flex w-full h-300px">
+            <For each={images()}>
+              {(image) => (
+                <div class="flex-[0_0_100%] min-w-0">
+                  <img
+                    src={`/PRODUCTS/${props.product.year}/${image}`}
+                    alt={props.product.name}
+                    class="w-full h-full object-contain bg-white select-none"
+                  />
+                </div>
+              )}
+            </For>
+          </div>
         </div>
+
+        <Show when={props.product.variants.length > 1}>
+          <button
+            type="button"
+            class="absolute z-15 top-1/2 -left-6 sm:left-2 transform -translate-y-1/2 transition-colors text-black bg-white border-3 sm:border-2 border-black hover:bg-black hover:text-white p-2"
+            onClick={() => emblaApi()?.scrollPrev()}
+          >
+            <MdiChevronLeft />
+          </button>
+          <button
+            type="button"
+            class="absolute z-15 top-1/2 -right-6 sm:right-2 transform -translate-y-1/2 transition-colors text-black bg-white border-3 sm:border-2 border-black hover:bg-black hover:text-white p-2"
+            onClick={() => emblaApi()?.scrollNext()}
+          >
+            <MdiChevronRight />
+          </button>
+        </Show>
       </div>
       
       <div class="flex items-center justify-between gap-2 border-t-3 border-black p-4 bg-black text-white font-mono">
