@@ -32,7 +32,7 @@ export const extractBearer = (request: Request) => {
 
 export const shouldApplyDiscount = async (user: User): Promise<boolean> => {
   const adherants = await readAdherants();
-  const username = `${user.lastName} ${user.firstName}`.toLowerCase();
+  const username = `${user.lastName.trim()} ${user.firstName.trim()}`.toLowerCase();
   return adherants.includes(username);
 }
 

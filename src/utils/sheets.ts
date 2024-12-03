@@ -86,5 +86,5 @@ export const readAdherants = async (): Promise<Array<string>> => {
   const sheet = doc.sheetsByIndex[0];
   
   const rows = await sheet.getRows<Record<"Nom" | "Prénom", string>>();
-  return rows.map(row => `${row.get("Nom")} ${row.get("Prénom")}`.toLowerCase());
+  return rows.map(row => `${row.get("Nom").trim()} ${row.get("Prénom").trim()}`.toLowerCase());
 };
