@@ -305,7 +305,7 @@ const ShopDetailsArticle: Component<{ product: ProductItem }> = (props) => {
               )}
             </For>
 
-            <Show when={store.user} fallback={
+            <Show when={store.user && props.product.can_buy !== false} fallback={
               <div class="flex flex-col gap-2 mt-8">
                 <p class="font-sans text-center text-black/75 text-xs lg:text-base">
                   Vous devez vous identifier pour effectuer un paiement.

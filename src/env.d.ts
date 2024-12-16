@@ -49,6 +49,7 @@ interface ProductItem {
   price: number
   adherant_price: number
   year: number
+  can_buy?: boolean
   
   variants: Array<ProductVariant>
   inputs?: Array<ProductInput>

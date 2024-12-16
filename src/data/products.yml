@@ -353,6 +353,7 @@
       validation: ^[\x00-\x7FÀ-ÖØ-öø-ÿ]+$
 
 - id: badge-2024
+  can_buy: false
   name: Badge (2024)
   description: Les badges de l'OEIL 2024-2025.
   price: 3.50
@@ -370,6 +371,7 @@
         - badge-oeil.jpeg
 
 - id: sticker-2024
+  can_buy: false
   name: Sticker (2024)
   description: Les stickers de l'OEIL 2024-2025.
   price: 1.50
@@ -395,6 +397,7 @@
         - sticker-oeil-noir.jpeg
 
 - id: sticker-holo-2024
+  can_buy: false
   name: Sticker Holographique (2024)
   description: Les stickers holographiques de l'OEIL 2024-2025.
   price: 2.00
