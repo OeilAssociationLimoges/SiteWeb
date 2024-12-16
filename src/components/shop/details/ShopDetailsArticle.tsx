@@ -305,7 +305,12 @@ const ShopDetailsArticle: Component<{ product: ProductItem }> = (props) => {
               )}
             </For>
 
-            <Show when={props.product.can_buy !== false}>
+            <Show when={props.product.can_buy !== false} fallback={
+              <p class="font-sans">
+                Ce produit est uniquement disponible à la vente sur place. <br />
+                Venez nous rendre visite pour l'acheter !
+              </p>
+            }>
               <Show when={store.user} fallback={
                 <div class="flex flex-col gap-2 mt-8">
                   <p class="font-sans text-center text-black/75 text-xs lg:text-base">
