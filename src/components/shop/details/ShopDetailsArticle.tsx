@@ -305,20 +305,22 @@ const ShopDetailsArticle: Component<{ product: ProductItem }> = (props) => {
               )}
             </For>
 
-            <Show when={store.user && props.product.can_buy !== false} fallback={
-              <div class="flex flex-col gap-2 mt-8">
-                <p class="font-sans text-center text-black/75 text-xs lg:text-base">
-                  Vous devez vous identifier pour effectuer un paiement.
-                </p>
-                <a
-                  href={`/identification?redirect=${encodeURIComponent(location.pathname)}`}
-                  class="font-mono bg-black hover:bg-black/80 transition-colors text-white text-center py-3"
-                >
-                  S'identifier avec Biome
-                </a>
-              </div>
-            }>
-              <div ref={setPaypalButtonsContainer} class="w-full max-w-500px mx-auto mt-8 z-0" />
+            <Show when={props.product.can_buy !== false}>
+              <Show when={store.user} fallback={
+                <div class="flex flex-col gap-2 mt-8">
+                  <p class="font-sans text-center text-black/75 text-xs lg:text-base">
+                    Vous devez vous identifier pour effectuer un paiement.
+                  </p>
+                  <a
+                    href={`/identification?redirect=${encodeURIComponent(location.pathname)}`}
+                    class="font-mono bg-black hover:bg-black/80 transition-colors text-white text-center py-3"
+                  >
+                    S'identifier avec Biome
+                  </a>
+                </div>
+              }>
+                <div ref={setPaypalButtonsContainer} class="w-full max-w-500px mx-auto mt-8 z-0" />
+              </Show>
             </Show>
           </div>
         </div>
