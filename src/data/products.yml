@@ -91,7 +91,7 @@
               - beige
               - peche
               - vanille
-    
+
     - id: libelle
       name: Libellé
       type: text
@@ -100,6 +100,7 @@
       validation: ^[\x00-\x7FÀ-ÖØ-öø-ÿ]+$
 
 - id: bonnet-2024
+  can_buy: false
   name: Bonnet (2024)
   description: Les bonnets de l'OEIL 2024-2025.
   price: 15.00
@@ -117,6 +118,7 @@
         - bonnet-beige.png
 
 - id: casquette-2024
+  can_buy: false
   name: Casquette (2024)
   description: Les casquettes de l'OEIL 2024-2025.
   price: 18.00
@@ -138,6 +140,7 @@
         - casquette-bleu.png
 
 - id: t-shirt-2024
+  can_buy: false
   name: T-shirt (2024)
   description: Les t-shirts de l'OEIL 2024-2025.
   price: 24.00
@@ -178,7 +181,7 @@
           value: xl
         - name: XXL
           value: xxl
-    
+
     - id: libelle
       name: Libellé
       type: text
@@ -187,6 +190,7 @@
       validation: ^[\x00-\x7FÀ-ÖØ-öø-ÿ]+$
 
 - id: pull-2024
+  can_buy: false
   name: Pull, sans capuche (2024)
   description: Les pulls de l'OEIL 2024-2025.
   price: 32.00
@@ -236,7 +240,7 @@
             variant:
               - vert-militaire
               - sable
-    
+
     - id: libelle
       name: Libellé
       type: text
@@ -245,6 +249,7 @@
       validation: ^[\x00-\x7FÀ-ÖØ-öø-ÿ]+$
 
 - id: veste-2024
+  can_buy: false
   name: Veste (2024)
   description: Les vestes de l'OEIL 2024-2025.
   price: 32.00
@@ -293,7 +298,7 @@
           value: xl
         - name: XXL
           value: xxl
-    
+
     - id: libelle
       name: Libellé
       type: text
@@ -302,6 +307,7 @@
       validation: ^[\x00-\x7FÀ-ÖØ-öø-ÿ]+$
 
 - id: polo-2024
+  can_buy: false
   name: Polo (2024)
   description: Les polos de l'OEIL 2024-2025.
   price: 29.00
@@ -344,7 +350,7 @@
           value: xxl
         - name: 3XL
           value: 3xl
-    
+
     - id: libelle
       name: Libellé
       type: text
