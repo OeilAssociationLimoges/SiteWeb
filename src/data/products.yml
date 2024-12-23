@@ -1,4 +1,5 @@
 - id: sweat-2024
+  can_buy: false
   name: Sweat (2024)
   description: Les fameux sweats de l'OEIL 2024-2025.
   price: 34.00
