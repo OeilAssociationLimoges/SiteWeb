@@ -24,6 +24,10 @@ export const POST: APIRoute = async ({ request }) => {
     return json({ error: "Le produit séléctionné est introuvable." }, 404);
   }
 
+  if (product.disabled === true || product.can_buy === false) {
+    return json({ error: "Le produit séléctionné n'est pas disponible à l'achat." }, 400);
+  }
+
   const variant = product.variants.find(variant => variant.id === body.variant_id);
   if (!variant) {
     return json({ error: "La variante séléctionnée est introuvable." }, 404);
