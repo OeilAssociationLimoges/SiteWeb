@@ -1,5 +1,5 @@
 import createEmblaCarousel from "embla-carousel-solid";
-import { For, onMount, type Component } from "solid-js";
+import { For, type Component } from "solid-js";
 import AutoScroll from "embla-carousel-auto-scroll";
 
 /**

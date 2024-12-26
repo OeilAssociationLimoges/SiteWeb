@@ -1,4 +1,4 @@
-import { createEffect, createMemo, createSignal, For, onMount, Show, type Component } from "solid-js";
+import { createEffect, createMemo, createSignal, For, Show, type Component } from "solid-js";
 import createEmblaCarousel from 'embla-carousel-solid';
 import store from "../utils/store";
 import MdiChevronRight from '~icons/mdi/chevron-right'

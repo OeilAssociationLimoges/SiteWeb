@@ -5,7 +5,6 @@ import Footer from "../../components/Footer.astro";
 import NavMenu from "../../components/NavMenu";
 import Layout from "../../layouts/Layout.astro";
 import ShopDetailsArticle from "../../components/shop/details/ShopDetailsArticle";
-import MdiChevronLeft from '~icons/mdi/chevron-left'
 
 export async function getStaticPaths() {
   const { default: __products } = await import("../../data/products.yml");
