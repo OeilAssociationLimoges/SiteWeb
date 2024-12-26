@@ -305,12 +305,20 @@ const ShopDetailsArticle: Component<{ product: ProductItem }> = (props) => {
               )}
             </For>
 
-            <Show when={props.product.can_buy !== false} fallback={
-              <p class="font-sans">
-                Ce produit est uniquement disponible à la vente sur place. <br />
+            <Show when={props.product.can_buy === false}>
+              <p class="font-sans mt-8">
+                Ce produit est <strong class="font-600">uniquement disponible à la vente sur place</strong>. <br />
                 Venez nous rendre visite pour l'acheter !
               </p>
-            }>
+            </Show>
+
+            <Show when={props.product.disabled === true}>
+              <p class="font-sans mt-8">
+                Ce produit n'est plus disponible à la vente.
+              </p>
+            </Show>
+            
+            <Show when={props.product.can_buy !== false && props.product.disabled !== true}>
               <Show when={store.user} fallback={
                 <div class="flex flex-col gap-2 mt-8">
                   <p class="font-sans text-center text-black/75 text-xs lg:text-base">
