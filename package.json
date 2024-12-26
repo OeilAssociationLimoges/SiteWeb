@@ -11,12 +11,12 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/solid-js": "^4.4.3",
+    "@astrojs/solid-js": "^5.0.1",
     "@kobalte/core": "^0.13.7",
     "@paypal/paypal-js": "^8.1.2",
     "@solid-primitives/media": "^2.2.9",
     "@unocss/reset": "^0.65.3",
-    "astro": "^4.16.18",
+    "astro": "^5.1.1",
     "embla-carousel-auto-scroll": "^8.5.1",
     "embla-carousel-solid": "^8.5.1",
     "google-auth-library": "^9.15.0",
@@ -28,7 +28,7 @@
     "solid-js": "^1.9.3"
   },
   "devDependencies": {
-    "@astrojs/vercel": "^7.8.2",
+    "@astrojs/vercel": "^8.0.1",
     "@iconify-json/mdi": "^1.2.2",
     "@rollup/plugin-yaml": "^4.1.2",
     "@types/jsonwebtoken": "^9.0.7",
