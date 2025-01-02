@@ -22,7 +22,7 @@ const PresentationCard: ParentComponent<{ title: string, image: string }> = (pro
     });
 
     timeline
-      .fromTo(element, 
+      .fromTo(element,
         {
           rotate: 3,
           y: 220,
@@ -90,12 +90,11 @@ const PresentationCard: ParentComponent<{ title: string, image: string }> = (pro
           <div class="absolute -bottom-2 -inset-x-4 card-progression border-b-2 md:border-b-4 w-full bg-black h-0 mx-auto border-white z-50" />
         </div>
 
-        <div class="max-h-full overflow-hidden w-fit mx-auto relative sm:shadow-[-8px_8px_0_#fff] sm:border-4 border-white">
-          <img
-            class="z-10 mx-auto"
-            src={props.image}
-          />
-
+        <div class="h-full overflow-hidden max-w-[600px] w-full mx-auto relative sm:shadow-[-8px_8px_0_#fff] sm:border-4 border-white bg-cover bg-no-repeat bg-center"
+          style={{
+            "background-image": `url(${props.image})`
+          }}
+        >
           {props.children}
         </div>
 
