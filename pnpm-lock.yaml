@@ -50,12 +50,12 @@ importers:
       locomotive-scroll:
         specifier: 5.0.0-beta.21
         version: 5.0.0-beta.21
-      pawnilim:
-        specifier: ^0.2.0
-        version: 0.2.0
       solid-js:
         specifier: ^1.9.3
         version: 1.9.3
+      unilim:
+        specifier: ^0.2.1
+        version: 0.2.1
     devDependencies:
       '@astrojs/vercel':
         specifier: ^8.0.1
@@ -859,6 +859,13 @@ packages:
     resolution: {integrity: sha512-eeU60A3kprIiBDAfv9gUJX1tXGLuZiKMajUfSQURAF2pk4ZoMYiqIzmrMBvzcxP39xnYttgTyQEVLwiTZnrV4w==}
     peerDependencies:
       solid-js: ^1.8.8
+
+  '@literate.ink/pdf-inspector@1.0.0':
+    resolution: {integrity: sha512-hlRFth61+1OUSw38Im86ot1ANFU4V2zGMLvmPEsWsIFY1s3y3ywCXw0KLGSaKWxk7auijr5SgXZxZlUolyGSkw==}
+    engines: {node: '>=18'}
+
+  '@literate.ink/utilities@1.0.0-11713907881.1':
+    resolution: {integrity: sha512-+RdZqu5dor5YQfL0CRSGPb9Gl6qCsXusziJZt84KxmJsL55ElPSc35AR4CNITzsYg7rAXVnoUCf8fXpaSeWJsg==}
 
   '@mapbox/node-pre-gyp@2.0.0-rc.0':
     resolution: {integrity: sha512-nhSMNprz3WmeRvd8iUs5JqkKr0Ncx46JtPxM3AhXes84XpSJfmIwKeWXRpsr53S7kqPkQfPhzrMFUxSNb23qSA==}
@@ -2113,6 +2120,10 @@ packages:
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
 
+  luxon@3.7.2:
+    resolution: {integrity: sha512-vtEhXh/gNjI9Yg1u4jX/0YVPMvxzHuGgCm6tC5kZyb08yjGWGnqAjGJvcXbqQR2P3MyMEFnRbpcdFS6PBcLqew==}
+    engines: {node: '>=12'}
+
   magic-string@0.30.17:
     resolution: {integrity: sha512-sNPKHvyjVf7gyjwS4xGTaW/mCnF8wnjtifKBEhxfZ7E/S8tQ0rssrwGNn6q8JH/ohItJfSQp9mBtQYuTlH5QnA==}
 
@@ -2419,10 +2430,6 @@ packages:
   pathe@1.1.2:
     resolution: {integrity: sha512-whLdWMYL2TwI08hn8/ZqAbrVemu0LNaNNJZX73O6qaIdCTfXutsLhMkjdENX0qhsQ9uIimo4/aQOmXkoon2nDQ==}
 
-  pawnilim@0.2.0:
-    resolution: {integrity: sha512-RnI3erDGpkXjBNNPnQDWxRadkOkzbZZZ1vCx8KFm276nHp2BjhGUSY7617Ea3nYQvVBPT0LtV4cVfrkiGFhSJA==}
-    engines: {node: '>=18'}
-
   perfect-debounce@1.0.0:
     resolution: {integrity: sha512-xCy9V055GLEqoFaHoC1SoLIaLmWctgCUaBaWxDZ7/Zx4CTyX7cJQLJOok/orfjZAh9kEYpjJa4d0KcJmCbctZA==}
 
@@ -2606,6 +2613,9 @@ packages:
   seroval@1.1.1:
     resolution: {integrity: sha512-rqEO6FZk8mv7Hyv4UCj3FD3b6Waqft605TLfsCe/BiaylRpyyMC0b+uA5TJKawX3KzMrdi3wsLbCaLplrQmBvQ==}
     engines: {node: '>=10'}
+
+  set-cookie-parser@2.7.1:
+    resolution: {integrity: sha512-IOc8uWeOZgnb3ptbCURJWNjWUPcO3ZnTTdzsurqERrP6nPyv+paC55vJM0LpOlT2ne+Ix+9+CRG1MNLlyZ4GjQ==}
 
   sharp@0.33.5:
     resolution: {integrity: sha512-haPVm1EkS9pgvHrQ/F3Xy+hgcuMV0Wm9vfIBSiwZ05k+xgb0PkBQpGsAA/oWdDobNaZTH5ppvHtzCFbnSEwHVw==}
@@ -2792,6 +2802,9 @@ packages:
 
   unified@11.0.5:
     resolution: {integrity: sha512-xKvGhPWw3k84Qjh8bI3ZeJjqnyadK+GEFtazSfZv/rKeTkTjOJho6mFqh2SM96iIcZokxiOpg78GazTSg8+KHA==}
+
+  unilim@0.2.1:
+    resolution: {integrity: sha512-+/SuPFE3BnrDjuwX1IaTBwEX3kXIEREgjGQ7UJhcgolrRbS5ne49qWw4kED9NDy8Gz46XmyAhgi20VR9PYz7nA==}
 
   unist-util-find-after@5.0.0:
     resolution: {integrity: sha512-amQa0Ep2m6hE2g72AugUItjbuM8X8cGQnFoHk0pGfrFeT9GZhzN5SW8nRsiGKK7Aif4CrACPENkA6P/Lw6fHGQ==}
@@ -3905,6 +3918,12 @@ snapshots:
       '@solid-primitives/refs': 1.0.8(solid-js@1.9.3)
       '@solid-primitives/utils': 6.2.3(solid-js@1.9.3)
       solid-js: 1.9.3
+
+  '@literate.ink/pdf-inspector@1.0.0': {}
+
+  '@literate.ink/utilities@1.0.0-11713907881.1':
+    dependencies:
+      set-cookie-parser: 2.7.1
 
   '@mapbox/node-pre-gyp@2.0.0-rc.0':
     dependencies:
@@ -5432,6 +5451,8 @@ snapshots:
     dependencies:
       yallist: 3.1.1
 
+  luxon@3.7.2: {}
+
   magic-string@0.30.17:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.0
@@ -5902,8 +5923,6 @@ snapshots:
 
   pathe@1.1.2: {}
 
-  pawnilim@0.2.0: {}
-
   perfect-debounce@1.0.0: {}
 
   picocolors@1.1.1: {}
@@ -6126,6 +6145,8 @@ snapshots:
       seroval: 1.1.1
 
   seroval@1.1.1: {}
+
+  set-cookie-parser@2.7.1: {}
 
   sharp@0.33.5:
     dependencies:
@@ -6355,6 +6376,12 @@ snapshots:
       is-plain-obj: 4.1.0
       trough: 2.2.0
       vfile: 6.0.3
+
+  unilim@0.2.1:
+    dependencies:
+      '@literate.ink/pdf-inspector': 1.0.0
+      '@literate.ink/utilities': 1.0.0-11713907881.1
+      luxon: 3.7.2
 
   unist-util-find-after@5.0.0:
     dependencies:
