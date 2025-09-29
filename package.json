@@ -24,7 +24,7 @@
     "gsap": "^3.12.5",
     "jsonwebtoken": "^9.0.2",
     "locomotive-scroll": "5.0.0-beta.21",
-    "pawnilim": "^0.2.0",
+    "unilim": "^0.2.1",
     "solid-js": "^1.9.3"
   },
   "devDependencies": {
