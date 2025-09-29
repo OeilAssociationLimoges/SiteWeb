@@ -11,29 +11,29 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/solid-js": "^5.0.1",
-    "@kobalte/core": "^0.13.7",
-    "@paypal/paypal-js": "^8.1.2",
-    "@solid-primitives/media": "^2.2.9",
-    "@unocss/reset": "^0.65.3",
-    "astro": "^5.1.1",
-    "embla-carousel-auto-scroll": "^8.5.1",
-    "embla-carousel-solid": "^8.5.1",
-    "google-auth-library": "^9.15.0",
-    "google-spreadsheet": "^4.1.4",
-    "gsap": "^3.12.5",
+    "@astrojs/solid-js": "^5.1.1",
+    "@kobalte/core": "^0.13.11",
+    "@paypal/paypal-js": "^8.4.2",
+    "@solid-primitives/media": "^2.3.3",
+    "@unocss/reset": "^66.5.2",
+    "astro": "^5.14.1",
+    "embla-carousel-auto-scroll": "^8.6.0",
+    "embla-carousel-solid": "^8.6.0",
+    "google-auth-library": "^10.3.0",
+    "google-spreadsheet": "^5.0.2",
+    "gsap": "^3.13.0",
     "jsonwebtoken": "^9.0.2",
     "locomotive-scroll": "5.0.0-beta.21",
-    "unilim": "^0.2.1",
-    "solid-js": "^1.9.3"
+    "solid-js": "^1.9.9",
+    "unilim": "^0.2.1"
   },
   "devDependencies": {
-    "@astrojs/vercel": "^8.0.1",
-    "@iconify-json/mdi": "^1.2.2",
+    "@astrojs/vercel": "^8.2.8",
+    "@iconify-json/mdi": "^1.2.3",
     "@rollup/plugin-yaml": "^4.1.2",
-    "@types/jsonwebtoken": "^9.0.7",
-    "typescript": "^5.7.2",
-    "unocss": "^0.65.3",
-    "unplugin-icons": "^0.22.0"
+    "@types/jsonwebtoken": "^9.0.10",
+    "typescript": "^5.9.2",
+    "unocss": "^66.5.2",
+    "unplugin-icons": "^22.3.0"
   }
 }
