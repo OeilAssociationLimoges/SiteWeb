@@ -25,23 +25,19 @@ const PresentationCards: Component = () => {
       </h2>
 
       <PresentationCard title="Présidence" image="/MEMBRES/PRESIDENCE.png">
-        <PresentationCardWhois name="Florian CLAUX" role="Vice Président" left />
-        <PresentationCardWhois name="Maxence VINCENT" role="Président" right />
+        <PresentationCardWhois name="Nina FRANÇAIS" role="Vice Présidente" left />
+        <PresentationCardWhois name="Reia TAERO" role="Président" right />
       </PresentationCard>
       <PresentationCard title="Trésorerie" image="/MEMBRES/TRESORERIE.png">
-        <PresentationCardWhois name="Noah TILLEUIL" role="Vice Trésorier" left />
-        <PresentationCardWhois name="Evan GERBEAUD" role="Trésorier" right />
+        <PresentationCardWhois name="Yael BETTON" role="Vice Trésorier" left />
+        <PresentationCardWhois name="Nathan BILLAUD" role="Trésorier" right />
       </PresentationCard>
       <PresentationCard title="Secrétariat" image="/MEMBRES/SECRETARIAT.png">
-        <PresentationCardWhois name="Mathis ROUFFANCHE" role="Vice Secrétaire" left />
-        <PresentationCardWhois name="Marine GENDRY" role="Secrétaire & graphiste (absente)" right />
-      </PresentationCard>
-      <PresentationCard title="Communication" image="/MEMBRES/COMMUNICATION.png">
-        <PresentationCardWhois name="Cathy DESCOUTURES" role="Responsable événement et communication" center />
+        <PresentationCardWhois name="Mateo DETERNE" role="Secrétaire" center />
       </PresentationCard>
       <PresentationCard title="Développement" image="/MEMBRES/DEVELOPPEMENT.png">
-        <PresentationCardWhois name="Malo PERROT" role="Développeur" left />
-        <PresentationCardWhois name="Yaniss LASBORDES" role="Développeur & chef de projet" right />
+        <PresentationCardWhois name="Louis BIARD" role="Développeur" left />
+        <PresentationCardWhois name="Sacha TROUVÉ" role="Développeur & chef de projet" right />
       </PresentationCard>
       <PresentationCard title="Collaborateurs" image="/MEMBRES/COLLABORATEURS.png">
         <PresentationCardWhois name="Mikkel ALMONTE--RINGAUD" role="Développeur Web" left />
