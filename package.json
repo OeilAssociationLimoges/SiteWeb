@@ -2,6 +2,7 @@
   "name": "siteweb",
   "type": "module",
   "version": "0.0.1",
+  "packageManager": "pnpm@10",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
