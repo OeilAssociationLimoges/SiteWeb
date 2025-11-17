@@ -35,11 +35,11 @@ const NavMenu: Component = () => {
             >
               Partenaires
             </a>
-            <a class="py-6 block font-300 text-4 text-white/80 tracking-wide hover:text-white transition-colors md:mr-auto" href="/shop"
-              onClick={() => setOpen(false)}
-            >
-              Shop
-            </a>
+            {/*<a class="py-6 block font-300 text-4 text-white/80 tracking-wide hover:text-white transition-colors md:mr-auto" href="/shop"*/}
+            {/*  onClick={() => setOpen(false)}*/}
+            {/*>*/}
+            {/*  Shop*/}
+            {/*</a>*/}
 
             <UserProfile />
           </div>
